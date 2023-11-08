@@ -1,0 +1,22 @@
+{
+    "stocks": [
+        {
+            "id": 1,
+            "symbol": "GOOGL",
+            "name": "Alphabet Inc Class A",
+            "currentPrice": 130.97
+        },
+        {
+            "id": 2,
+            "symbol": "AAPL",
+            "name": "Apple Inc",
+            "currentPrice": 181.82
+        },
+        {
+            "id": 3,
+            "symbol": "MSFT",
+            "name": "Microsoft Corp",
+            "currentPrice": 360.53
+        }
+    ]
+}
