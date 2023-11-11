@@ -2,26 +2,25 @@ package com.cbfacademy.apiassessment.model;
 
 import java.util.UUID;
 
-public class Stock {
+import jakarta.persistence.Entity;
+
+@Entity
+public class Stock implements Investment {
     // private final UUID id;
-    private int id;
+
+    // TODO change to UUID
+    private UUID id;
     private String symbol;
     private String name;
-    private double currentPrice;
 
-    public Stock(int id, String symbol, String name, double currentPrice) {
-        this.id = id;
+    public Stock(UUID id, String symbol, String name, double currentPrice) {
+        this.id = UUID.randomUUID();
         this.symbol = symbol;
         this.name = name;
-        this.currentPrice = currentPrice;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getSymbol() {
@@ -38,13 +37,5 @@ public class Stock {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public double getCurrentPrice() {
-        return currentPrice;
-    }
-
-    public void setCurrentPrice(int currentPrice) {
-        this.currentPrice = currentPrice;
     }
 }
