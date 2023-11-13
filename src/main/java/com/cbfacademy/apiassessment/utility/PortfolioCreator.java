@@ -14,11 +14,9 @@ public class PortfolioCreator {
     private static List<Investment> createStockInvestments() {
         List<Investment> techStockInvestments = new ArrayList<>();
 
-        // create new stocks with their details & set their random UUIDs
+        // create new stocks with their details
         Stock appleStock = new Stock("MSFT", "Microsoft Corp", 150.25);
-        appleStock.setId();
         Stock alphabetStock = new Stock("NVDA", "NVIDIA Corp", 486.20);
-        alphabetStock.setId();
 
         techStockInvestments.add(appleStock);
         techStockInvestments.add(alphabetStock);
@@ -29,11 +27,9 @@ public class PortfolioCreator {
     private static List<Investment> createETFInvestments() {
         List<Investment> healthcareETFInvestments = new ArrayList<>();
 
-        // create new stocks with their details & set their random UUIDs
+        // create new stocks with their details
         ETF vooETF = new ETF("VOO", "Vanguard S&P 500 ETF", 120.75);
-        vooETF.setId();
         ETF ijrETF = new ETF("IJR", "iShares Core SP Small-Cap ETF.", 180.40);
-        ijrETF.setId();
 
         healthcareETFInvestments.add(vooETF);
         healthcareETFInvestments.add(ijrETF);
@@ -50,7 +46,7 @@ public class PortfolioCreator {
         Portfolio techStocks = new Portfolio("Tech Stocks", techStockInvestments);
 
         // set UUID random id for portfolio
-        techStocks.setPortfolioId();
+        // techStocks.setPortfolioId();
 
         return techStocks;
     }
@@ -63,7 +59,7 @@ public class PortfolioCreator {
         Portfolio healthcareETFs = new Portfolio("Random ETFs", healthcareETFInvestments);
 
         // set UUID random id for portfolio
-        healthcareETFs.setPortfolioId();
+        // healthcareETFs.setPortfolioId();
 
         return healthcareETFs;
     }

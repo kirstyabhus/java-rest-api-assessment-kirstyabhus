@@ -18,16 +18,13 @@ public class Portfolio {
     }
 
     public Portfolio(String name, List<Investment> investments) {
+        this.portfolioId = UUID.randomUUID();
         this.name = name;
         this.investments = investments;
     }
 
     public UUID getPortfolioId() {
         return portfolioId;
-    }
-
-    public void setPortfolioId() {
-        this.portfolioId = UUID.randomUUID();
     }
 
     public String getName() {

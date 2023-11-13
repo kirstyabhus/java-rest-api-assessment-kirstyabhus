@@ -29,10 +29,6 @@ public class ETF implements Investment {
         return id;
     }
 
-    public void setId() {
-        this.id = UUID.randomUUID();
-    }
-
     public String getName() {
         return name;
     }

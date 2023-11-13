@@ -22,7 +22,7 @@ public class PortfolioService {
 
     public Portfolio createPortfolio(String name, List<Investment> investments) {
         Portfolio portfolio = new Portfolio();
-        portfolio.setPortfolioId();
+        // portfolio.setPortfolioId();
         portfolio.setName(name);
         portfolio.setInvestments(investments);
         return portfolio;
