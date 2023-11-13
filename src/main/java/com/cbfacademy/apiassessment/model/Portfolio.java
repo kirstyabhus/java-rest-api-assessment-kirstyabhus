@@ -35,6 +35,8 @@ public class Portfolio {
         return investments;
     }
 
-    // TODO Investments setter?
+    public void setInvestments(Map<String, Investment> investments) {
+        this.investments = investments;
+    }
 
 }
