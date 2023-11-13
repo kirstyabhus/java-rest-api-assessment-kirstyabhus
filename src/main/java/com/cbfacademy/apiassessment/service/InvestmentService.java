@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class InvestmentService {
+
     @Autowired
     private InvestmentService investmentService;
 }
