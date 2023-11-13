@@ -1,15 +1,26 @@
 package com.cbfacademy.apiassessment.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cbfacademy.apiassessment.repository.InvestmentRepository;
+import com.cbfacademy.apiassessment.repository.PortfolioRepository;
+import com.cbfacademy.apiassessment.model.Portfolio;
 
 @Service
 public class PortfolioService {
 
+    private final PortfolioRepository portfolioRepository;
+
     @Autowired
-    private InvestmentRepository investmentRepository;
+    PortfolioService(PortfolioRepository portfolioRepository) {
+        this.portfolioRepository = portfolioRepository;
+    }
+
+    public List<Portfolio> getAllPortfolios() {
+        return portfolioRepository.findAll();
+    }
 
     // TODO BASIC CRUD
     // create portfolio

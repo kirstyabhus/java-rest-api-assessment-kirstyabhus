@@ -10,13 +10,27 @@ public class Stock implements Investment {
     private UUID id;
     private String symbol;
     private String name;
+    // TODO value of what? or maybe currentPrice & Purchase price
+    // TODO could determine purchasePrice
     private Double value;
     private Portfolio portfolio;// ?
+    private Double esgScore; // TODO
 
-    public Stock(UUID id, String symbol, String name, double value) { // TODO does portfolio need to be in Constructor??
+    public Double getEsgScore() {
+        return esgScore;
+    }
+
+    public void setEsgScore(Double esgScore) {
+        this.esgScore = esgScore;
+    }
+
+    public Stock(UUID id, String symbol, String name, double value, Portfolio portfolio) { // TODO does portfolio need
+                                                                                           // to be in Constructor??
         this.id = UUID.randomUUID();
         this.symbol = symbol;
         this.name = name;
+        this.value = value;
+        this.portfolio = portfolio;
     }
 
     public UUID getId() {
@@ -46,4 +60,12 @@ public class Stock implements Investment {
     public void setValue(Double value) {
         this.value = value;
     };
+
+    public Portfolio getPortfolio() {
+        return portfolio;
+    }
+
+    public void setPorfolio(Portfolio portfolio) {
+        this.portfolio = portfolio;
+    }
 }
