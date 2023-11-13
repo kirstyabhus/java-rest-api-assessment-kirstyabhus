@@ -1,10 +1,13 @@
 package com.cbfacademy.apiassessment.utility;
 
+import org.springframework.stereotype.Component;
+
 import com.cbfacademy.apiassessment.model.ETF;
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Stock;
 import com.google.gson.*;
 
+@Component
 public class InvestmentDeserialiser implements JsonDeserializer<Investment> {
 
     @Override
@@ -13,6 +16,7 @@ public class InvestmentDeserialiser implements JsonDeserializer<Investment> {
         JsonObject jsonObject = json.getAsJsonObject();
         String type = jsonObject.get("type").getAsString();
 
+        // deseralise investment based on "type" field
         if ("Stock".equals(type)) {
             return context.deserialize(jsonObject, Stock.class);
         } else if ("ETF".equals(type)) {

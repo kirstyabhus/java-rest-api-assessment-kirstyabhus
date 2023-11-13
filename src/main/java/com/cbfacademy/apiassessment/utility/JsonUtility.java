@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
@@ -14,11 +15,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+@Component
 // to handle JSON serialisation and deserialisation
 public class JsonUtility {
-
-    @Autowired
-    private PortfolioService portfolioService;
 
     // write JSON
     public void writePortfoliosToJSON(List<Portfolio> portfolios, String filePath) {

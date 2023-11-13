@@ -1,8 +1,11 @@
 package com.cbfacademy.apiassessment.utility;
 
+import org.springframework.stereotype.Component;
+
 import com.cbfacademy.apiassessment.model.Investment;
 import com.google.gson.*;
 
+@Component
 public class InvestmentSerialiser implements JsonSerializer<Investment> {
 
     @Override
@@ -14,7 +17,6 @@ public class InvestmentSerialiser implements JsonSerializer<Investment> {
         jsonObject.addProperty("symbol", investment.getSymbol());
         jsonObject.addProperty("name", investment.getName());
         jsonObject.addProperty("value", investment.getValue());
-        // Add any additional properties specific to each type of investment
 
         return jsonObject;
     }

@@ -11,11 +11,16 @@ import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.service.PortfolioService;
 
 @RestController
-@RequestMapping("/api/portfolios")
+@RequestMapping("/api/portfolio")
 public class PortfolioController {
 
     @Autowired
     private PortfolioService portfolioService;
+
+    @Autowired
+    public PortfolioController(PortfolioService portfolioService) {
+        this.portfolioService = portfolioService;
+    }
 
     @GetMapping
     public List<Portfolio> gettAllPortfolios() {
