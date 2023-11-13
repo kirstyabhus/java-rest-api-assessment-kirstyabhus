@@ -18,7 +18,6 @@ public class Portfolio {
     }
 
     public Portfolio(String name, List<Investment> investments) {
-        this.portfolioId = UUID.randomUUID();
         this.name = name;
         this.investments = investments;
     }

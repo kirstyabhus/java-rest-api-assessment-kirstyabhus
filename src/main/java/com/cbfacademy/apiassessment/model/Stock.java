@@ -18,7 +18,6 @@ public class Stock implements Investment {
 
     public Stock(String symbol, String name, double value) { // TODO does portfolio need
                                                              // to be in Constructor??
-        this.id = UUID.randomUUID();
         this.symbol = symbol;
         this.name = name;
         this.value = value;
@@ -40,6 +39,10 @@ public class Stock implements Investment {
 
     public UUID getId() {
         return id;
+    }
+
+    public void setId() {
+        this.id = UUID.randomUUID();
     }
 
     public String getSymbol() {

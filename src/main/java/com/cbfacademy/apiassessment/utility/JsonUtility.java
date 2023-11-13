@@ -26,7 +26,7 @@ public class JsonUtility {
         // List<Portfolio> portfolios = portfolioService.getPortfolios(); // You need to
         // implement this method
 
-        // create a Gson instance with investment serialisation
+        // create a Gson instance with the custom investment serialisation
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Investment.class, new InvestmentSerialiser())
                 .create();
@@ -47,8 +47,10 @@ public class JsonUtility {
     public List<Portfolio> readPortfoliosFromJSON(String filePath) {
 
         try (FileReader reader = new FileReader(filePath)) {
+            // create a Gson instance with the custom investment deserialisation
             Gson gson = new GsonBuilder().registerTypeAdapter(Investment.class, new InvestmentDeserialiser())
                     .create();
+
             TypeToken<List<Portfolio>> portfolioListType = new TypeToken<List<Portfolio>>() {
             };
 
