@@ -16,4 +16,13 @@ public interface Investment {
 
     void setName(String name);
 
+    Double getValue();
+
+    void setValue(Double value);
+
+    Portfolio getPortfolio();
+
+    void setPorfolio(Portfolio portfolio);
+    // how would this work?
+
 }

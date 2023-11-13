@@ -12,8 +12,6 @@ public class ETF implements Investment {
     private String symbol;
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "potfolio_id")
     private Portfolio portfolio; // ?
 
     public ETF(UUID id, String symbol, String name, Portfolio portfolio) {
@@ -46,12 +44,20 @@ public class ETF implements Investment {
         this.symbol = symbol;
     }
 
+    public Double getValue() {
+        return value;
+    };
+
+    public void setValue(Double value) {
+        this.value = value;
+    };
+
     public Portfolio getPortfolio() {
-        return symbol;
+        return portfolio;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setPorfolio(Portfolio portfolio) {
+        this.portfolio = portfolio;
     }
 
 }
