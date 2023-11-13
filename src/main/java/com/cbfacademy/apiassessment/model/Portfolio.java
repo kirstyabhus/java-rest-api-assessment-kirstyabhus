@@ -4,23 +4,22 @@ import java.util.Map;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
 @Entity
 public class Portfolio {
 
-    private UUID id;
+    private UUID portfolioId;
     private String name;
     private Map<String, Investment> investments;
 
     public Portfolio(UUID id, String name, Map<String, Investment> investments) {
-        this.id = UUID.randomUUID();
+        this.portfolioId = UUID.randomUUID();
         this.name = name;
         this.investments = investments;
     }
 
-    public UUID getId() {
-        return id;
+    public UUID getPortfolioId() {
+        return portfolioId;
     }
 
     public String getName() {
