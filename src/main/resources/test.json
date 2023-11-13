@@ -1,0 +1,42 @@
+[
+    {
+        "portfolioId": "c4d45493-c1e2-49fe-bf21-b6026fb2ff3c",
+        "name": "Random ETFs",
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "4cd22a3a-ffae-4345-9599-3dde0e77a619",
+                "symbol": "VOO",
+                "name": "Vanguard S\u0026P 500 ETF",
+                "value": 120.75
+            },
+            {
+                "type": "ETF",
+                "id": "a9e62feb-a246-4959-8626-d5b44eee5fa4",
+                "symbol": "IJR",
+                "name": "iShares Core SP Small-Cap ETF.",
+                "value": 180.4
+            }
+        ]
+    },
+    {
+        "portfolioId": "8d09509c-c1f8-4f3e-977c-a30c8b5e6ec6",
+        "name": "Tech Stocks",
+        "investments": [
+            {
+                "type": "Stock",
+                "id": "6b72e662-f663-4909-a8f9-a305112b9c82",
+                "symbol": "MSFT",
+                "name": "Microsoft Corp",
+                "value": 150.25
+            },
+            {
+                "type": "Stock",
+                "id": "e113fcca-4940-400a-bdd2-f6a4b39b4363",
+                "symbol": "NVDA",
+                "name": "NVIDIA Corp",
+                "value": 486.2
+            }
+        ]
+    }
+]

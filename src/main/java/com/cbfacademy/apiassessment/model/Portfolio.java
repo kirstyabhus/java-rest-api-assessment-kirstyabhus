@@ -1,5 +1,6 @@
 package com.cbfacademy.apiassessment.model;
 
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -10,9 +11,13 @@ public class Portfolio {
 
     private UUID portfolioId;
     private String name;
-    private Map<String, Investment> investments;
+    private List<Investment> investments; // check this why is it not an array
 
-    public Portfolio(UUID id, String name, Map<String, Investment> investments) {
+    public Portfolio() {
+
+    }
+
+    public Portfolio(String name, List<Investment> investments) {
         this.portfolioId = UUID.randomUUID();
         this.name = name;
         this.investments = investments;
@@ -20,6 +25,10 @@ public class Portfolio {
 
     public UUID getPortfolioId() {
         return portfolioId;
+    }
+
+    public void setPortfolioId() {
+        this.portfolioId = UUID.randomUUID();
     }
 
     public String getName() {
@@ -30,12 +39,21 @@ public class Portfolio {
         this.name = name;
     }
 
-    public Map<String, Investment> getInvestments() {
+    public List<Investment> getInvestments() {
         return investments;
     }
 
-    public void setInvestments(Map<String, Investment> investments) {
+    public void setInvestments(List<Investment> investments) {
         this.investments = investments;
+    }
+
+    @Override
+    public String toString() {
+        return "Portfolio{" +
+                "portfolioId='" + portfolioId + '\'' +
+                ", name='" + name + '\'' +
+                ", investments=" + investments +
+                '}';
     }
 
 }

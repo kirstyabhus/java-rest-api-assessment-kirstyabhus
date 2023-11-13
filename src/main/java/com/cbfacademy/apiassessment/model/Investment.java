@@ -6,6 +6,9 @@ import jakarta.persistence.Entity;
 
 @Entity
 public interface Investment {
+    // stock or etf?
+    String getType();
+
     UUID getId();
 
     String getSymbol();
@@ -20,9 +23,9 @@ public interface Investment {
 
     void setValue(Double value);
 
-    Portfolio getPortfolio();
+    // Portfolio getPortfolio();
 
-    void setPorfolio(Portfolio portfolio);
+    // void setPorfolio(Portfolio portfolio);
     // how would this work?
 
 }

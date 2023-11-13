@@ -11,14 +11,18 @@ public class ETF implements Investment {
     private String name;
     private Double value;
 
-    private Portfolio portfolio; // ? do I need @ManyToOne annotation etc.?
+    // private Portfolio portfolio; // ? do I need @ManyToOne annotation etc.?
 
-    public ETF(UUID id, String symbol, String name, Double value, Portfolio portfolio) {
+    public ETF(String symbol, String name, Double value) {
         this.id = UUID.randomUUID();
         this.symbol = symbol;
         this.name = name;
         this.value = value;
-        this.portfolio = portfolio;
+        // this.portfolio = portfolio;
+    }
+
+    public String getType() {
+        return "ETF";
     }
 
     public UUID getId() {
@@ -53,12 +57,14 @@ public class ETF implements Investment {
         this.value = value;
     };
 
-    public Portfolio getPortfolio() {
-        return portfolio;
-    }
-
-    public void setPorfolio(Portfolio portfolio) {
-        this.portfolio = portfolio;
-    }
+    /*
+     * public Portfolio getPortfolio() {
+     * return portfolio;
+     * }
+     * 
+     * public void setPorfolio(Portfolio portfolio) {
+     * this.portfolio = portfolio;
+     * }
+     */
 
 }
