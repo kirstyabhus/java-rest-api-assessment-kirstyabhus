@@ -23,7 +23,7 @@ public class InvestmentService {
         return investmentRepository.findAll();
     }
 
-    // get invesments by portfolio?
+    // get investments by portfolio?
 
     // findbyid
     // findbyname

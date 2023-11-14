@@ -12,10 +12,9 @@ import com.cbfacademy.apiassessment.model.Portfolio;
 
 @Service
 public class PortfolioService {
-
+    @Autowired
     private final PortfolioRepository portfolioRepository;
 
-    @Autowired
     PortfolioService(PortfolioRepository portfolioRepository) {
         this.portfolioRepository = portfolioRepository;
     }

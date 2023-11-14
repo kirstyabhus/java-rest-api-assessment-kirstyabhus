@@ -2,10 +2,10 @@ package com.cbfacademy.apiassessment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
-@RestController
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class, scanBasePackages = "com.cbfacademy.apiassessment")
 public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
