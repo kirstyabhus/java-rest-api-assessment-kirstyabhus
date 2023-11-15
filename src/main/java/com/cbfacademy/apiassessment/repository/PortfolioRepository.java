@@ -50,6 +50,7 @@ public class PortfolioRepository {
         return portfoliosMap.get(id);
     }
 
+    // create new portfolio
     public Portfolio save(Portfolio portfolio) {
         // add the portfolio into the map
         portfoliosMap.put(portfolio.getPortfolioId(), portfolio);

@@ -14,12 +14,18 @@ public class InvestmentDeserialiser implements JsonDeserializer<Investment> {
     public Investment deserialize(JsonElement json, java.lang.reflect.Type typeOfT, JsonDeserializationContext context)
             throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
-        String type = jsonObject.get("type").getAsString();
+        JsonPrimitive investmentType = jsonObject.getAsJsonPrimitive("type");
+
+        if (investmentType == null) {
+            throw new JsonParseException("Missing 'investmentType' property");
+        }
+
+        String type = investmentType.getAsString();
 
         // deseralise investment based on "type" field
-        if ("Stock".equals(type)) {
+        if ("Stock".equalsIgnoreCase(type)) {
             return context.deserialize(jsonObject, Stock.class);
-        } else if ("ETF".equals(type)) {
+        } else if ("ETF".equalsIgnoreCase(type)) {
             return context.deserialize(jsonObject, ETF.class);
         } else {
             throw new JsonParseException("Unknown investment type: " + type);
