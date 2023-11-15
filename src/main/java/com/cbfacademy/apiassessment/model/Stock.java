@@ -14,7 +14,7 @@ public class Stock {
     // ID
     // id will also be generated automatically with the @GeneratedValue annotation
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     // these other properties will be mapped to columns that share the same names as
     // them

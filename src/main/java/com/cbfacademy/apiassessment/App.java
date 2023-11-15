@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import com.cbfacademy.apiassessment.model.Stock;
 import com.cbfacademy.apiassessment.repository.StockRepository;
 
-@SpringBootApplication
+// @SpringBootApplication
 public class App {
 
 	// setting up a logger to get ouput to the console (for this example)
@@ -22,7 +22,7 @@ public class App {
 	}
 
 	// setting up data and using it to generate output
-	@Bean
+	// @Bean
 	// this command line runner bean automatically runs the code when the
 	// application launches
 	public CommandLineRunner demo(StockRepository repository) {

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "symbol": "GOOGL",
+        "name": "Google",
+        "stockValue": 1400.0
+    },
+    {
+        "id": 2,
+        "symbol": "TSLA",
+        "name": "Tesla",
+        "stockValue": 1300.0
+    },
+    {
+        "id": 3,
+        "symbol": "MSFT",
+        "name": "Microsoft",
+        "stockValue": 1000.0
+    }
+]
