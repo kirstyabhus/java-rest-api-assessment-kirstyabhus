@@ -1,6 +1,7 @@
 package com.cbfacademy.apiassessment.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +31,7 @@ public class StockController {
 
     // get stock by id
     @GetMapping("/id/{id}")
-    Stock getStockById(@PathVariable long id) {
+    Stock getStockById(@PathVariable UUID id) {
         return repository.findById(id);
     }
 

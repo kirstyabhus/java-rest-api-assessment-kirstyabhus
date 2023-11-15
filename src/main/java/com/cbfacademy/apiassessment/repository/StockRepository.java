@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 //import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class StockRepository {
@@ -23,7 +24,7 @@ public class StockRepository {
     private String filePath = "C:///Users//kabhu//cbf-final-project//java-rest-api-assessment-kirstyabhus//src//main//resources//stocksData.json";
 
     // map to store our data from json in the form ID:Stock
-    private final Map<Long, Stock> stocksMap = new HashMap<>();
+    private final Map<UUID, Stock> stocksMap = new HashMap<>();
 
     @Autowired
     private JsonUtility jsonUtility;
@@ -47,7 +48,7 @@ public class StockRepository {
     }
 
     // get stock by id
-    public Stock findById(long id) {
+    public Stock findById(UUID id) {
         return stocksMap.get(id);
     }
 
@@ -64,12 +65,12 @@ public class StockRepository {
     public Stock save(Stock stock) {
         // add the investment into the map
         stocksMap.put(stock.getId(), stock);
-
         // update the json file
         try {
             ArrayList<Stock> stocksList = new ArrayList<>(stocksMap.values());
 
             jsonUtility.writeStocksToJSON(stocksList, filePath);
+            System.out.println(stock);
         } catch (Exception e) {
             // TODO: handle exception
         }

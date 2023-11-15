@@ -1,5 +1,7 @@
 package com.cbfacademy.apiassessment.model;
 
+import java.util.UUID;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,20 +16,21 @@ public class Stock {
     // ID
     // id will also be generated automatically with the @GeneratedValue annotation
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
     // these other properties will be mapped to columns that share the same names as
     // them
     private String symbol;
     private String name;
     private Double stockValue;
 
-    // 2 constructors: this one is only for the sake of JPA
-    protected Stock() {
+    // default no-arg constructor for when GSON deser JSON into Stock object
+    public Stock() {
+        this.id = UUID.randomUUID();
     }
 
     // this constructor is to create instances of Stock
     public Stock(String symbol, String name, Double stockValue) {
+        this.id = UUID.randomUUID();
         this.symbol = symbol;
         this.name = name;
         this.stockValue = stockValue;
@@ -37,10 +40,10 @@ public class Stock {
     // will print out the Stock's properties
     @Override
     public String toString() {
-        return String.format("Stock[id=%d, symbol='%s', name='%s', stockValue='%.2f']", id, symbol, name, stockValue);
+        return String.format("Stock[id=%s, symbol='%s', name='%s', stockValue='%.2f']", id, symbol, name, stockValue);
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -64,7 +67,7 @@ public class Stock {
         return stockValue;
     }
 
-    public void setValue(Double stockValue) {
+    public void setStockValue(Double stockValue) {
         this.stockValue = stockValue;
     }
 

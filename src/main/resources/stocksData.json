@@ -1,20 +1,38 @@
 [
     {
-        "id": 1,
-        "symbol": "GOOGL",
-        "name": "Google",
-        "stockValue": 1400.0
-    },
-    {
-        "id": 2,
+        "id": "45efff12-c16f-4d58-830c-715ef4e4abbb",
         "symbol": "TSLA",
         "name": "Tesla",
         "stockValue": 1300.0
     },
     {
-        "id": 3,
+        "id": "6bd8ec67-aa99-4cd8-9fa5-0e707dcf8c48",
+        "symbol": "GOOGL",
+        "name": "Google",
+        "stockValue": 1400.0
+    },
+    {
+        "id": "7dd0d8b7-7b18-4a79-9313-e97eecba5bdd",
+        "symbol": "YAHOO",
+        "name": "Yahoo Inc",
+        "stockValue": 1500.0
+    },
+    {
+        "id": "e9370879-0790-4dab-b08d-2acf275c5ce4",
         "symbol": "MSFT",
         "name": "Microsoft",
         "stockValue": 1000.0
+    },
+    {
+        "id": "ebf0e5b5-7b2e-497d-84ac-bc7a0dd89967",
+        "symbol": "NASA",
+        "name": "Nasa",
+        "stockValue": 1500.0
+    },
+    {
+        "id": "44857f2c-c329-4c68-848f-e753e1296332",
+        "symbol": "SEGA",
+        "name": "Sega",
+        "stockValue": 1500.0
     }
 ]
