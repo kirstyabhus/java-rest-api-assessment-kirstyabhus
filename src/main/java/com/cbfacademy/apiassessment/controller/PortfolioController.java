@@ -8,24 +8,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cbfacademy.apiassessment.model.Portfolio;
+import com.cbfacademy.apiassessment.repository.PortfolioRepository;
 import com.cbfacademy.apiassessment.service.PortfolioService;
 
 @RestController
 @RequestMapping("/api/portfolios")
 public class PortfolioController {
 
-    @Autowired
-    private PortfolioService portfolioService;
+    // @Autowired
+    private final PortfolioRepository repository;
 
-    /*
-     * public PortfolioController(PortfolioService portfolioService) {
-     * this.portfolioService = portfolioService;
-     * }
-     */
+    PortfolioController(PortfolioRepository repository) {
+        this.repository = repository;
+    }
 
-    @GetMapping
-    public List<Portfolio> gettAllPortfolios() {
-        return portfolioService.getPortfolios();
+    @GetMapping("")
+    public List<Portfolio> getAllPortfolios() {
+        return repository.findAll();
     }
 
 }

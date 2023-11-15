@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.cbfacademy.apiassessment.model.Investment;
 
 @Repository
-public interface InvestmentRepository extends JpaRepository<Investment, UUID> {
+public class InvestmentRepository {
+
 }

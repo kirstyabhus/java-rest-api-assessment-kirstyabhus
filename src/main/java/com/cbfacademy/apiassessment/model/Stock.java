@@ -3,25 +3,37 @@ package com.cbfacademy.apiassessment.model;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class Stock implements Investment {
     // private final UUID id;
+    @Id
     private UUID id;
+    private String type;
     private String symbol;
     private String name;
-    // TODO value of what? or maybe currentPrice & Purchase price
-    // TODO could determine purchasePrice
-    private Double value;
-    // private Portfolio portfolio;// ????
+    private int sharesQuantity;
+    private double purchasePrice;
+    private double currentValue; // TODO Fetch current value from API?
+    // TODO returns? totalValue? (sharesQuant * purchasePrice?)
+
     // private Double esgScore; // TODO
 
-    public Stock(String symbol, String name, double value) { // TODO does portfolio need
+    // default no-arg constructor for when GSON deser JSON into Stock object
+    public Stock() {
         this.id = UUID.randomUUID();
+    }
+
+    public Stock(String type, String symbol, String name, int sharesQuantity, double purchasePrice,
+            double currentValue) {
+        this.id = UUID.randomUUID();
+        this.type = type;
         this.symbol = symbol;
         this.name = name;
-        this.value = value;
-        // this.portfolio = portfolio;
+        this.sharesQuantity = sharesQuantity;
+        this.purchasePrice = purchasePrice;
+        this.currentValue = currentValue;
     }
     /*
      * public Double getEsgScore() {
@@ -33,8 +45,15 @@ public class Stock implements Investment {
      * }
      */
 
+    @Override
+    public String toString() {
+        return String.format(
+                "Stock[id=%s, symbol='%s', name='%s', sharesQuantity='%d', purchasePrice='%.2f', currentValue='%.2f']",
+                id, symbol, name, sharesQuantity, purchasePrice, currentValue);
+    }
+
     public String getType() {
-        return "Stock";
+        return type;
     }
 
     public UUID getId() {
@@ -57,21 +76,28 @@ public class Stock implements Investment {
         this.name = name;
     }
 
-    public Double getValue() {
-        return value;
-    };
+    public int getSharesQuantity() {
+        return sharesQuantity;
+    }
 
-    public void setValue(Double value) {
-        this.value = value;
-    };
+    public void setSharesQuantity(int sharesQuantity) {
+        this.sharesQuantity = sharesQuantity;
+    }
 
-    /*
-     * public Portfolio getPortfolio() {
-     * return portfolio;
-     * }
-     * 
-     * public void setPorfolio(Portfolio portfolio) {
-     * this.portfolio = portfolio;
-     * }
-     */
+    public double getPurchasePrice() {
+        return purchasePrice;
+    }
+
+    public void setPurchasePrice(double purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
+
+    public double getCurrentValue() {
+        return currentValue;
+    }
+
+    public void setCurrentValue(double currentValue) {
+        this.currentValue = currentValue;
+    }
+
 }

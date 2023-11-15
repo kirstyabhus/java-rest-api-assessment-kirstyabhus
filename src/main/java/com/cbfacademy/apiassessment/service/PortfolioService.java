@@ -31,9 +31,9 @@ public class PortfolioService {
         return portfolioRepository.findAll();
     }
 
-    public Portfolio getPortfolioById(UUID portfolioId) {
-        return portfolioRepository.findById(portfolioId).orElse(null);
-    }
+    // public Portfolio getPortfolioById(UUID portfolioId) {
+    // return portfolioRepository.findById(portfolioId).orElse(null);
+    // }
 
     // TODO BASIC CRUD
     // create portfolio

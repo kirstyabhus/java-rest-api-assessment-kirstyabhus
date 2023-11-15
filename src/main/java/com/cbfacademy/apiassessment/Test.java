@@ -45,7 +45,7 @@ public class Test {
 		String filePath = "src//main//resources//test.json";
 
 		JsonUtility jsonUtility = new JsonUtility();
-		jsonUtility.writePortfoliosToJSON(newPortfolio, filePath);
+		// jsonUtility.writePortfoliosToJSON(newPortfolio, filePath);
 
 	}
 

@@ -15,11 +15,11 @@ public class PortfolioCreator {
         List<Investment> techStockInvestments = new ArrayList<>();
 
         // create new stocks with their details
-        Stock appleStock = new Stock("MSFT", "Microsoft Corp", 150.25);
-        Stock alphabetStock = new Stock("NVDA", "NVIDIA Corp", 486.20);
+        // Stock appleStock = new Stock("MSFT", "Microsoft Corp", 150.25);
+        // Stock alphabetStock = new Stock("NVDA", "NVIDIA Corp", 486.20);
 
-        techStockInvestments.add(appleStock);
-        techStockInvestments.add(alphabetStock);
+        // techStockInvestments.add(appleStock);
+        // techStockInvestments.add(alphabetStock);
 
         return techStockInvestments;
     }
@@ -28,11 +28,11 @@ public class PortfolioCreator {
         List<Investment> healthcareETFInvestments = new ArrayList<>();
 
         // create new stocks with their details
-        ETF vooETF = new ETF("VOO", "Vanguard S&P 500 ETF", 120.75);
-        ETF ijrETF = new ETF("IJR", "iShares Core SP Small-Cap ETF.", 180.40);
+        // ETF vooETF = new ETF("VOO", "Vanguard S&P 500 ETF", 120.75);
+        // ETF ijrETF = new ETF("IJR", "iShares Core SP Small-Cap ETF.", 180.40);
 
-        healthcareETFInvestments.add(vooETF);
-        healthcareETFInvestments.add(ijrETF);
+        // healthcareETFInvestments.add(vooETF);
+        // healthcareETFInvestments.add(ijrETF);
 
         return healthcareETFInvestments;
     }

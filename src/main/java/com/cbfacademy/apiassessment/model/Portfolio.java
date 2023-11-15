@@ -12,8 +12,9 @@ public class Portfolio {
     private String name;
     private List<Investment> investments; // check this why is it not an array
 
+    // default no-arg constructor for when GSON deser JSON into Portfolio object
     public Portfolio() {
-
+        this.portfolioId = UUID.randomUUID();
     }
 
     public Portfolio(String name, List<Investment> investments) {

@@ -11,17 +11,18 @@ import com.cbfacademy.apiassessment.model.Investment;
 @Service
 public class InvestmentService {
 
-    private InvestmentRepository investmentRepository;
+    // private InvestmentRepository investmentRepository;
 
-    @Autowired
-    public InvestmentService(InvestmentRepository investmentRepository) {
-        this.investmentRepository = investmentRepository;
-    }
+    // @Autowired
+    // public InvestmentService(InvestmentRepository investmentRepository) {
+    // this.investmentRepository = investmentRepository;
+    // }
 
     // this will just get all invesments?
-    public List<Investment> getAllInvesments() {
-        return investmentRepository.findAll();
-    }
+    // public List<Investment> getAllInvesments() {
+    // return investmentRepository.findAll();
+
+    // }
 
     // get investments by portfolio?
 

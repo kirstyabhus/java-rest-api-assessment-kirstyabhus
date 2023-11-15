@@ -19,13 +19,16 @@ public interface Investment {
 
     void setName(String name);
 
-    Double getValue();
+    int getSharesQuantity();
 
-    void setValue(Double value);
+    void setSharesQuantity(int sharesQuantity);
 
-    // Portfolio getPortfolio();
+    double getPurchasePrice();
 
-    // void setPorfolio(Portfolio portfolio);
-    // how would this work?
+    void setPurchasePrice(double purchasePrice);;
+
+    double getCurrentValue();
+
+    void setCurrentValue(double currentValue);
 
 }

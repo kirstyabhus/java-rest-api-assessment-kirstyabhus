@@ -20,7 +20,7 @@ import com.google.gson.reflect.TypeToken;
 public class JsonUtility {
 
     // write JSON
-    public void writePortfoliosToJSON(List<Portfolio> portfolios, String filePath) {
+    public void writePortfoliosToJSON(List<Portfolio> portfolios, String filePath) throws IOException {
         // Assuming you have a List of portfolios
         // List<Portfolio> portfolios = portfolioService.getPortfolios(); // You need to
         // implement this method
@@ -36,14 +36,11 @@ public class JsonUtility {
         // write the JSON to a file
         try (FileWriter writer = new FileWriter(filePath)) {
             writer.write(json);
-        } catch (IOException e) {
-            e.printStackTrace();
-            // handle the exception
         }
     }
 
     // read JSON
-    public List<Portfolio> readPortfoliosFromJSON(String filePath) {
+    public List<Portfolio> readPortfoliosFromJSON(String filePath) throws IOException {
 
         try (FileReader reader = new FileReader(filePath)) {
             // create a Gson instance with the custom investment deserialisation
@@ -54,10 +51,6 @@ public class JsonUtility {
             };
 
             return gson.fromJson(reader, portfolioListType);
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle the exception
-            return null;
         }
     }
 }
