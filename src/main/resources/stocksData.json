@@ -18,6 +18,12 @@
         "stockValue": 1500.0
     },
     {
+        "id": "82aecbca-1f27-4fea-868f-a99c7b4970ae",
+        "symbol": "AAPL",
+        "name": "Apple Inc",
+        "stockValue": 1520.0
+    },
+    {
         "id": "e9370879-0790-4dab-b08d-2acf275c5ce4",
         "symbol": "MSFT",
         "name": "Microsoft",
@@ -27,12 +33,6 @@
         "id": "ebf0e5b5-7b2e-497d-84ac-bc7a0dd89967",
         "symbol": "NASA",
         "name": "Nasa",
-        "stockValue": 1500.0
-    },
-    {
-        "id": "44857f2c-c329-4c68-848f-e753e1296332",
-        "symbol": "SEGA",
-        "name": "Sega",
         "stockValue": 1500.0
     }
 ]

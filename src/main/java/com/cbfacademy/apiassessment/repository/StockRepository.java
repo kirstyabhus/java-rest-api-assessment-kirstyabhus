@@ -61,6 +61,7 @@ public class StockRepository {
         }
         return null;
     }
+    // TODO UPDATE A STOCK
 
     public Stock save(Stock stock) {
         // add the investment into the map
@@ -70,11 +71,23 @@ public class StockRepository {
             ArrayList<Stock> stocksList = new ArrayList<>(stocksMap.values());
 
             jsonUtility.writeStocksToJSON(stocksList, filePath);
-            System.out.println(stock);
         } catch (Exception e) {
             // TODO: handle exception
         }
         return stock;
+    }
+
+    public void deleteStockById(UUID id) {
+        stocksMap.remove(id);
+        // update the json file
+        try {
+            ArrayList<Stock> stocksList = new ArrayList<>(stocksMap.values());
+
+            jsonUtility.writeStocksToJSON(stocksList, filePath);
+
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
     /*
