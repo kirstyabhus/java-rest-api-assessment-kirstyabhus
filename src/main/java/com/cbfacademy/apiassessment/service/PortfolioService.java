@@ -19,13 +19,13 @@ public class PortfolioService {
         this.portfolioRepository = portfolioRepository;
     }
 
-    public Portfolio createPortfolio(String name, List<Investment> investments) {
-        Portfolio portfolio = new Portfolio();
-        // portfolio.setPortfolioId();
-        portfolio.setName(name);
-        portfolio.setInvestments(investments);
-        return portfolio;
-    }
+    // public Portfolio createPortfolio(String name, List<Investment> investments) {
+    // Portfolio portfolio = new Portfolio();
+    // portfolio.setPortfolioId();
+    // portfolio.setName(name);
+    // portfolio.setInvestments(investments);
+    // return portfolio;
+    // }
 
     public List<Portfolio> getPortfolios() {
         return portfolioRepository.findAll();

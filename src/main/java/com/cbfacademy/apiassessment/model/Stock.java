@@ -61,8 +61,8 @@ public class Stock implements Investment {
     @Override
     public String toString() {
         return String.format(
-                "Stock[id=%s, symbol='%s', name='%s', sharesQuantity='%d', purchasePrice='%.2f', currentValue='%.2f']",
-                id, symbol, name, sharesQuantity, purchasePrice, currentValue);
+                "Stock[id=%s, type=%s, symbol='%s', name='%s', sharesQuantity='%d', purchasePrice='%.2f', currentValue='%.2f']",
+                id, type, symbol, name, sharesQuantity, purchasePrice, currentValue);
     }
 
     public String getType() {

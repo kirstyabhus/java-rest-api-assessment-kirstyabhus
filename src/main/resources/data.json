@@ -1,7 +1,7 @@
 [
     {
         "portfolioId": "d9ab4309-c937-4478-8be8-176447425392",
-        "name": "Random ETFs",
+        "name": "Random ETFs UPDATED",
         "investments": [
             {
                 "type": "ETF",
@@ -20,30 +20,6 @@
                 "sharesQuantity": 344,
                 "purchasePrice": 34.75,
                 "currentValue": 46.75
-            }
-        ]
-    },
-    {
-        "portfolioId": "375684f8-1092-4302-9051-7f03756938f0",
-        "name": "Global XXX",
-        "investments": [
-            {
-                "type": "ETF",
-                "id": "2001084b-41eb-4d6b-9a84-d29f3e71fe37",
-                "symbol": "XXX",
-                "name": "XXXXXX",
-                "sharesQuantity": 50,
-                "purchasePrice": 115.25,
-                "currentValue": 120.5
-            },
-            {
-                "type": "Stock",
-                "id": "5219f5ef-e7f1-48da-ad12-3c46da4825f4",
-                "symbol": "YYY",
-                "name": "YYYYYY",
-                "sharesQuantity": 30,
-                "purchasePrice": 54.8,
-                "currentValue": 56.2
             }
         ]
     },
@@ -89,6 +65,30 @@
                 "id": "30f2c7b4-ce34-44c8-b436-6d35574c645e",
                 "symbol": "BNDX",
                 "name": "Vanguard Total International  ETF",
+                "sharesQuantity": 30,
+                "purchasePrice": 54.8,
+                "currentValue": 56.2
+            }
+        ]
+    },
+    {
+        "portfolioId": "552b4ba1-f592-435f-97bb-c629ebc08669",
+        "name": "Global XXXYZ",
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "2001084b-41eb-4d6b-9a84-d29f3e71fe37",
+                "symbol": "XXX",
+                "name": "XXXXXX",
+                "sharesQuantity": 50,
+                "purchasePrice": 115.25,
+                "currentValue": 120.5
+            },
+            {
+                "type": "Stock",
+                "id": "5219f5ef-e7f1-48da-ad12-3c46da4825f4",
+                "symbol": "YYY",
+                "name": "YYYYYY",
                 "sharesQuantity": 30,
                 "purchasePrice": 54.8,
                 "currentValue": 56.2

@@ -50,10 +50,18 @@ public class PortfolioRepository {
         return portfoliosMap.get(id);
     }
 
-    // create new portfolio - TODO DOESN'T WORK
+    // create new portfolio or update portfolio - UPDATE NOT WORKING
     public Portfolio save(Portfolio portfolio) {
-        // add the portfolio into the map
-        portfoliosMap.put(portfolio.getPortfolioId(), portfolio);
+
+        // its giving th portfolio a NEW id beacuse of the no arg constructor
+        UUID portfolioId = portfolio.getPortfolioId();
+
+        if (portfoliosMap.keySet().contains(portfolioId)) {
+            portfoliosMap.put(portfolioId, portfolio);
+        } else {
+            // add the portfolio into the map if it's not already there
+            portfoliosMap.put(portfolio.getPortfolioId(), portfolio);
+        }
 
         // update the json file
         try {
