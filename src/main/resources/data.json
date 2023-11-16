@@ -1,29 +1,5 @@
 [
     {
-        "portfolioId": "d9ab4309-c937-4478-8be8-176447425392",
-        "name": "Random ETFs UPDATED",
-        "investments": [
-            {
-                "type": "ETF",
-                "id": "b3ca9e69-513b-49a1-9fc9-e43765e9829c",
-                "symbol": "VOO",
-                "name": "Vanguard S\u0026P 500 ETF",
-                "sharesQuantity": 10,
-                "purchasePrice": 120.75,
-                "currentValue": 190.75
-            },
-            {
-                "type": "ETF",
-                "id": "4a24fdb3-aeb4-4b4a-b6fb-e7a2463f9459",
-                "symbol": "IJR",
-                "name": "iShares Core SP Small-Cap ETF.",
-                "sharesQuantity": 344,
-                "purchasePrice": 34.75,
-                "currentValue": 46.75
-            }
-        ]
-    },
-    {
         "portfolioId": "f9d2c31c-5fb7-4fe3-a96a-e4ca549adb09",
         "name": "Tech Stocks",
         "investments": [

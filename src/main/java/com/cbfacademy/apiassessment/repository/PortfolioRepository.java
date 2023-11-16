@@ -50,7 +50,7 @@ public class PortfolioRepository {
         return portfoliosMap.get(id);
     }
 
-    // create new portfolio or update portfolio - UPDATE NOT WORKING
+    // create new portfolio or update portfolio
     public Portfolio save(Portfolio portfolio) {
 
         // its giving th portfolio a NEW id beacuse of the no arg constructor
@@ -76,7 +76,8 @@ public class PortfolioRepository {
     }
 
     // delete portfolio
-    public void deletePortfolioById(UUID id) {
+    public void deletePortfolio(UUID id) {
+        // TODO what if portfolio id not present?
         portfoliosMap.remove(id);
         // update the json file
         try {
