@@ -50,7 +50,7 @@ public class PortfolioRepository {
         return portfoliosMap.get(id);
     }
 
-    // create new portfolio
+    // create new portfolio - TODO DOESN'T WORK
     public Portfolio save(Portfolio portfolio) {
         // add the portfolio into the map
         portfoliosMap.put(portfolio.getPortfolioId(), portfolio);
@@ -62,6 +62,7 @@ public class PortfolioRepository {
             jsonUtility.writePortfoliosToJSON(portfolioList, filePath);
         } catch (Exception e) {
             // TODO: handle exception
+            System.out.println("Error creating portfolio: " + e.getMessage());
         }
         return portfolio;
     }

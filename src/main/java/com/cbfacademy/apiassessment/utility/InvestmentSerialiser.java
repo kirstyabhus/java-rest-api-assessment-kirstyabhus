@@ -12,7 +12,7 @@ public class InvestmentSerialiser implements JsonSerializer<Investment> {
     public JsonElement serialize(Investment investment, java.lang.reflect.Type typeOfSrc,
             JsonSerializationContext context) {
         JsonObject jsonObject = new JsonObject();
-        // jsonObject.addProperty("type", investment.getType());
+        jsonObject.addProperty("type", investment.getType());
         jsonObject.addProperty("id", investment.getId().toString());
         jsonObject.addProperty("symbol", investment.getSymbol());
         jsonObject.addProperty("name", investment.getName());

@@ -2,6 +2,8 @@ package com.cbfacademy.apiassessment.model;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -10,7 +12,7 @@ public class Stock implements Investment {
     // private final UUID id;
     @Id
     private UUID id;
-    private String type;
+    private String type = "Stock";
     private String symbol;
     private String name;
     private int sharesQuantity;
@@ -23,6 +25,17 @@ public class Stock implements Investment {
     // default no-arg constructor for when GSON deser JSON into Stock object
     public Stock() {
         this.id = UUID.randomUUID();
+    }
+
+    public Stock(UUID id, String type, String symbol, String name, int sharesQuantity, double purchasePrice,
+            double currentValue) {
+        this.id = id;
+        this.type = type;
+        this.symbol = symbol;
+        this.name = name;
+        this.sharesQuantity = sharesQuantity;
+        this.purchasePrice = purchasePrice;
+        this.currentValue = currentValue;
     }
 
     public Stock(String type, String symbol, String name, int sharesQuantity, double purchasePrice,

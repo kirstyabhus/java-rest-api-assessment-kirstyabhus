@@ -44,7 +44,8 @@ public class JsonUtility {
 
         try (FileReader reader = new FileReader(filePath)) {
             // create a Gson instance with the custom investment deserialisation
-            Gson gson = new GsonBuilder().registerTypeAdapter(Investment.class, new InvestmentDeserialiser())
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(Investment.class, new InvestmentDeserialiser())
                     .create();
 
             TypeToken<List<Portfolio>> portfolioListType = new TypeToken<List<Portfolio>>() {

@@ -1,5 +1,8 @@
 package com.cbfacademy.apiassessment.utility;
 
+import java.util.Map;
+import java.util.UUID;
+
 import org.springframework.stereotype.Component;
 
 import com.cbfacademy.apiassessment.model.ETF;
@@ -13,20 +16,25 @@ public class InvestmentDeserialiser implements JsonDeserializer<Investment> {
     @Override
     public Investment deserialize(JsonElement json, java.lang.reflect.Type typeOfT, JsonDeserializationContext context)
             throws JsonParseException {
+
         JsonObject jsonObject = json.getAsJsonObject();
-        JsonPrimitive investmentType = jsonObject.getAsJsonPrimitive("type");
 
-        if (investmentType == null) {
-            throw new JsonParseException("Missing 'investmentType' property");
-        }
+        UUID id = UUID.fromString(jsonObject.get("id").getAsString());
+        String type = jsonObject.get("type").getAsString();
+        String symbol = jsonObject.get("symbol").getAsString();
+        String name = jsonObject.get("name").getAsString();
+        int sharesQuantity = jsonObject.get("sharesQuantity").getAsInt();
+        double purchasePrice = jsonObject.get("purchasePrice").getAsDouble();
+        double currentValue = jsonObject.get("currentValue").getAsDouble();
 
-        String type = investmentType.getAsString();
-
-        // deseralise investment based on "type" field
         if ("Stock".equalsIgnoreCase(type)) {
-            return context.deserialize(jsonObject, Stock.class);
+            return new Stock(id, type, symbol, name, sharesQuantity, purchasePrice,
+                    currentValue);
+            // return new Stock();
         } else if ("ETF".equalsIgnoreCase(type)) {
-            return context.deserialize(jsonObject, ETF.class);
+            // return new Stock();
+            return new ETF(id, type, symbol, name, sharesQuantity, purchasePrice,
+                    currentValue);
         } else {
             throw new JsonParseException("Unknown investment type: " + type);
         }

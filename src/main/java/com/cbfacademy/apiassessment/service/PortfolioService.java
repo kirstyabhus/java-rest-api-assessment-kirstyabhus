@@ -43,5 +43,5 @@ public class PortfolioService {
 
     // TODO OTHER LOGIC
     // sort portolio by name (if there's more than one portfolio)
-
+    // move a stock between portfolios
 }

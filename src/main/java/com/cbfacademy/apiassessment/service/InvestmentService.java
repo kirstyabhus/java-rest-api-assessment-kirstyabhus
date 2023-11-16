@@ -43,5 +43,5 @@ public class InvestmentService {
     // - symbol
     // - FUTURE IMPLEMENTATION -> ESG scores
     // filter investments (in a specific portolio)
-    // -
+    // moe a investment between portfolios
 }
