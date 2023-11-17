@@ -20,7 +20,7 @@ public class Portfolio {
     // default no-arg constructor for when GSON deser JSON into Portfolio object
     @JsonCreator
     public Portfolio(
-            @JsonProperty("id") UUID portfolioId,
+            @JsonProperty("portfolioId") UUID portfolioId,
             @JsonProperty("name") String name,
             @JsonProperty("investments") List<Investment> investments) {
         // if portfolioID present use it (in the case of PUT), else generate new id
