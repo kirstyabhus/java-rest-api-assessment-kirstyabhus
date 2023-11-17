@@ -5,12 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
-import com.cbfacademy.apiassessment.service.PortfolioService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -21,9 +19,6 @@ public class JsonUtility {
 
     // write JSON
     public void writePortfoliosToJSON(List<Portfolio> portfolios, String filePath) throws IOException {
-        // Assuming you have a List of portfolios
-        // List<Portfolio> portfolios = portfolioService.getPortfolios(); // You need to
-        // implement this method
 
         // create a Gson instance with the custom investment serialisation
         Gson gson = new GsonBuilder()

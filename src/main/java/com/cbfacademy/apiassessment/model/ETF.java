@@ -2,8 +2,6 @@ package com.cbfacademy.apiassessment.model;
 
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import jakarta.persistence.Entity;
 
 @Entity

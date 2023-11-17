@@ -2,10 +2,7 @@ package com.cbfacademy.apiassessment.model;
 
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonTypeName;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 
 @Entity
 public class Stock implements Investment {
@@ -18,7 +15,6 @@ public class Stock implements Investment {
     private double purchasePrice;
     private double totalValue;
     private double currentValue; // TODO Fetch current value from API?
-    // TODO returns? totalValue? (sharesQuant * purchasePrice?)
 
     // private Double esgScore; // TODO
 
