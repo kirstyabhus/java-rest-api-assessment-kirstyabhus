@@ -14,6 +14,7 @@ public class ETF implements Investment {
     private String name;
     private int sharesQuantity;
     private double purchasePrice;
+    private double totalValue;
     private double currentValue;
 
     // default no-arg constructor for when GSON deser JSON into ETF object
@@ -22,6 +23,7 @@ public class ETF implements Investment {
     }
 
     public ETF(UUID id, String type, String symbol, String name, int sharesQuantity, double purchasePrice,
+            double totalValue,
             double currentValue) {
         this.id = id;
         this.type = type;
@@ -29,24 +31,27 @@ public class ETF implements Investment {
         this.name = name;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
+        this.totalValue = totalValue;
         this.currentValue = currentValue;
     }
 
-    public ETF(String type, String symbol, String name, int sharesQuantity, double purchasePrice, double currentValue) {
+    public ETF(String type, String symbol, String name, int sharesQuantity, double purchasePrice, double totalValue,
+            double currentValue) {
         this.id = UUID.randomUUID();
         this.type = type;
         this.symbol = symbol;
         this.name = name;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
+        this.totalValue = totalValue;
         this.currentValue = currentValue;
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Stock[id=%s, type=%s, symbol='%s', name='%s', sharesQuantity='%d', purchasePrice='%.2f', currentValue='%.2f']",
-                id, type, symbol, name, sharesQuantity, purchasePrice, currentValue);
+                "ETF[id=%s, type=%s, symbol='%s', name='%s', sharesQuantity='%d', purchasePrice='%.2f', totalValue='%.2f', currentValue='%.2f']",
+                id, type, symbol, name, sharesQuantity, purchasePrice, totalValue, currentValue);
     }
 
     public String getType() {
@@ -87,6 +92,10 @@ public class ETF implements Investment {
 
     public void setPurchasePrice(double purchasePrice) {
         this.purchasePrice = purchasePrice;
+    }
+
+    public double getTotalValue() {
+        return totalValue;
     }
 
     public double getCurrentValue() {

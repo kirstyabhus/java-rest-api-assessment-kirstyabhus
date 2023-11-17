@@ -25,16 +25,15 @@ public class InvestmentDeserialiser implements JsonDeserializer<Investment> {
         String name = jsonObject.get("name").getAsString();
         int sharesQuantity = jsonObject.get("sharesQuantity").getAsInt();
         double purchasePrice = jsonObject.get("purchasePrice").getAsDouble();
+        double totalValue = jsonObject.get("totalValue").getAsDouble();
         double currentValue = jsonObject.get("currentValue").getAsDouble();
 
         if ("Stock".equalsIgnoreCase(type)) {
-            return new Stock(id, type, symbol, name, sharesQuantity, purchasePrice,
-                    currentValue);
+            return new Stock(id, type, symbol, name, sharesQuantity, purchasePrice, totalValue, currentValue);
             // return new Stock();
         } else if ("ETF".equalsIgnoreCase(type)) {
             // return new Stock();
-            return new ETF(id, type, symbol, name, sharesQuantity, purchasePrice,
-                    currentValue);
+            return new ETF(id, type, symbol, name, sharesQuantity, purchasePrice, totalValue, currentValue);
         } else {
             throw new JsonParseException("Unknown investment type: " + type);
         }

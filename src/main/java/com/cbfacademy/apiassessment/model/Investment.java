@@ -36,6 +36,8 @@ public interface Investment {
 
     void setPurchasePrice(double purchasePrice);;
 
+    double getTotalValue();
+
     double getCurrentValue();
 
     void setCurrentValue(double currentValue);

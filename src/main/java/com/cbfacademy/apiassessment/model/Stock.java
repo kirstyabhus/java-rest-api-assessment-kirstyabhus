@@ -17,6 +17,7 @@ public class Stock implements Investment {
     private String name;
     private int sharesQuantity;
     private double purchasePrice;
+    private double totalValue;
     private double currentValue; // TODO Fetch current value from API?
     // TODO returns? totalValue? (sharesQuant * purchasePrice?)
 
@@ -27,7 +28,10 @@ public class Stock implements Investment {
         this.id = UUID.randomUUID();
     }
 
+    // constructor for when user is giving id (e.g. for PUT request, when id is
+    // already given)
     public Stock(UUID id, String type, String symbol, String name, int sharesQuantity, double purchasePrice,
+            double totalValue,
             double currentValue) {
         this.id = id;
         this.type = type;
@@ -35,10 +39,11 @@ public class Stock implements Investment {
         this.name = name;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
+        this.totalValue = totalValue;
         this.currentValue = currentValue;
     }
 
-    public Stock(String type, String symbol, String name, int sharesQuantity, double purchasePrice,
+    public Stock(String type, String symbol, String name, int sharesQuantity, double purchasePrice, double totalValue,
             double currentValue) {
         this.id = UUID.randomUUID();
         this.type = type;
@@ -46,6 +51,7 @@ public class Stock implements Investment {
         this.name = name;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
+        this.totalValue = totalValue;
         this.currentValue = currentValue;
     }
     /*
@@ -61,8 +67,8 @@ public class Stock implements Investment {
     @Override
     public String toString() {
         return String.format(
-                "Stock[id=%s, type=%s, symbol='%s', name='%s', sharesQuantity='%d', purchasePrice='%.2f', currentValue='%.2f']",
-                id, type, symbol, name, sharesQuantity, purchasePrice, currentValue);
+                "Stock[id=%s, type=%s, symbol='%s', name='%s', sharesQuantity='%d', purchasePrice='%.2f', totalValue='%.2f', currentValue='%.2f']",
+                id, type, symbol, name, sharesQuantity, purchasePrice, totalValue, currentValue);
     }
 
     public String getType() {
@@ -103,6 +109,10 @@ public class Stock implements Investment {
 
     public void setPurchasePrice(double purchasePrice) {
         this.purchasePrice = purchasePrice;
+    }
+
+    public double getTotalValue() {
+        return totalValue;
     }
 
     public double getCurrentValue() {

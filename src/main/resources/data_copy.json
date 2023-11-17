@@ -1,29 +1,5 @@
 [
     {
-        "portfolioId": "d9ab4309-c937-4478-8be8-176447425392",
-        "name": "Random ETFs",
-        "investments": [
-            {
-                "type": "ETF",
-                "id": "b3ca9e69-513b-49a1-9fc9-e43765e9829c",
-                "symbol": "VOO",
-                "name": "Vanguard S\u0026P 500 ETF",
-                "sharesQuantity": 10,
-                "purchasePrice": 120.75,
-                "currentValue": 190.75
-            },
-            {
-                "type": "ETF",
-                "id": "4a24fdb3-aeb4-4b4a-b6fb-e7a2463f9459",
-                "symbol": "IJR",
-                "name": "iShares Core SP Small-Cap ETF.",
-                "sharesQuantity": 344,
-                "purchasePrice": 34.75,
-                "currentValue": 46.75
-            }
-        ]
-    },
-    {
         "portfolioId": "f9d2c31c-5fb7-4fe3-a96a-e4ca549adb09",
         "name": "Tech Stocks",
         "investments": [
@@ -34,6 +10,7 @@
                 "name": "Microsoft Corp",
                 "sharesQuantity": 34,
                 "purchasePrice": 56.75,
+                "totalValue": 0.0,
                 "currentValue": 67.75
             },
             {
@@ -43,7 +20,60 @@
                 "name": "NVIDIA Corp",
                 "sharesQuantity": 77,
                 "purchasePrice": 34.75,
+                "totalValue": 0.0,
                 "currentValue": 66.75
+            }
+        ]
+    },
+    {
+        "portfolioId": "4f346d5b-5ec8-4659-bfe6-03ae29448f1e",
+        "name": "Global ETFS",
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "1737492d-e3f5-4971-aca4-b0fa8100bdb4",
+                "symbol": "AGG",
+                "name": "iShares Core U.S. Aggregate Bond ETF",
+                "sharesQuantity": 50,
+                "purchasePrice": 115.25,
+                "totalValue": 0.0,
+                "currentValue": 120.5
+            },
+            {
+                "type": "ETF",
+                "id": "30f2c7b4-ce34-44c8-b436-6d35574c645e",
+                "symbol": "BNDX",
+                "name": "Vanguard Total International  ETF",
+                "sharesQuantity": 30,
+                "purchasePrice": 54.8,
+                "totalValue": 0.0,
+                "currentValue": 56.2
+            }
+        ]
+    },
+    {
+        "portfolioId": "552b4ba1-f592-435f-97bb-c629ebc08669",
+        "name": "Global XXXYZ",
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "2001084b-41eb-4d6b-9a84-d29f3e71fe37",
+                "symbol": "XXX",
+                "name": "XXXXXX",
+                "sharesQuantity": 50,
+                "purchasePrice": 115.25,
+                "totalValue": 0.0,
+                "currentValue": 120.5
+            },
+            {
+                "type": "Stock",
+                "id": "5219f5ef-e7f1-48da-ad12-3c46da4825f4",
+                "symbol": "YYY",
+                "name": "YYYYYY",
+                "sharesQuantity": 30,
+                "purchasePrice": 54.8,
+                "totalValue": 0.0,
+                "currentValue": 56.2
             }
         ]
     }

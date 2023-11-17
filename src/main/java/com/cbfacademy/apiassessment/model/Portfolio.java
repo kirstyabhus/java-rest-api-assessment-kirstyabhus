@@ -15,7 +15,6 @@ public class Portfolio {
     private String name;
     // TODO use this when ive created the totalVlaue feild
     // private Double totalValue;
-
     private List<Investment> investments; // check this why is it not an array
 
     // default no-arg constructor for when GSON deser JSON into Portfolio object
@@ -24,6 +23,7 @@ public class Portfolio {
             @JsonProperty("id") UUID portfolioId,
             @JsonProperty("name") String name,
             @JsonProperty("investments") List<Investment> investments) {
+        // if portfolioID present use it (in the case of PUT), else generate new id
         this.portfolioId = portfolioId != null ? portfolioId : UUID.randomUUID();
         this.name = name;
         this.investments = investments;

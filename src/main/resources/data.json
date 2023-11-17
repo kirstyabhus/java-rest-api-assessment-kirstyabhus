@@ -10,6 +10,7 @@
                 "name": "Microsoft Corp",
                 "sharesQuantity": 34,
                 "purchasePrice": 56.75,
+                "totalValue": 0.0,
                 "currentValue": 67.75
             },
             {
@@ -19,6 +20,33 @@
                 "name": "NVIDIA Corp",
                 "sharesQuantity": 77,
                 "purchasePrice": 34.75,
+                "totalValue": 0.0,
+                "currentValue": 66.75
+            }
+        ]
+    },
+    {
+        "portfolioId": "cc5ce6b0-48d2-40cc-9013-7034786185ee",
+        "name": "Gaming-related companiessss",
+        "investments": [
+            {
+                "type": "Stock",
+                "id": "b7d20012-d881-44f4-aab1-bd631909ce64",
+                "symbol": "SONY",
+                "name": "Sony Group Corp",
+                "sharesQuantity": 34,
+                "purchasePrice": 56.75,
+                "totalValue": 0.0,
+                "currentValue": 67.75
+            },
+            {
+                "type": "Stock",
+                "id": "a7620d22-a65c-4cd8-bcc8-19387eff556c",
+                "symbol": "EA",
+                "name": "Electronic Arts Inc",
+                "sharesQuantity": 77,
+                "purchasePrice": 34.75,
+                "totalValue": 0.0,
                 "currentValue": 66.75
             }
         ]
@@ -34,6 +62,7 @@
                 "name": "iShares Core U.S. Aggregate Bond ETF",
                 "sharesQuantity": 50,
                 "purchasePrice": 115.25,
+                "totalValue": 0.0,
                 "currentValue": 120.5
             },
             {
@@ -43,6 +72,7 @@
                 "name": "Vanguard Total International  ETF",
                 "sharesQuantity": 30,
                 "purchasePrice": 54.8,
+                "totalValue": 0.0,
                 "currentValue": 56.2
             }
         ]
@@ -58,6 +88,7 @@
                 "name": "XXXXXX",
                 "sharesQuantity": 50,
                 "purchasePrice": 115.25,
+                "totalValue": 0.0,
                 "currentValue": 120.5
             },
             {
@@ -67,6 +98,7 @@
                 "name": "YYYYYY",
                 "sharesQuantity": 30,
                 "purchasePrice": 54.8,
+                "totalValue": 0.0,
                 "currentValue": 56.2
             }
         ]
