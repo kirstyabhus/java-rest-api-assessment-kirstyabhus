@@ -89,4 +89,9 @@ public class PortfolioRepository {
             // TODO: handle exception
         }
     }
+
+    // TODO sort portfolio
+
+    // TODO filter portfolio by Total Holdings / Portfolio Value
+
 }

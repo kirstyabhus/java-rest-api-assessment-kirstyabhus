@@ -34,7 +34,7 @@ public class PortfolioController {
         return repository.findAll();
     }
 
-    // get portfolio by id
+    // get a portfolio by id
     @GetMapping("/id/{id}")
     public Portfolio getPortfolioById(@PathVariable UUID id) {
         return repository.findById(id);
@@ -46,15 +46,17 @@ public class PortfolioController {
         return repository.save(portfolio);
     }
 
+    // update a portfolio
+    @PutMapping("/id/{id}")
+    public Portfolio updatePortfolio(@PathVariable UUID id, @RequestBody Portfolio portfolio) {
+        return repository.save(portfolio);
+    }
+
     // delete a portfolio
     @DeleteMapping("/id/{id}")
     public void deletePortfolio(@PathVariable UUID id) {
         repository.deletePortfolio(id);
     }
 
-    // update a portfolio
-    @PutMapping("/id/{id}")
-    public Portfolio updatePortfolio(@PathVariable UUID id, @RequestBody Portfolio portfolio) {
-        return repository.save(portfolio);
-    }
+    // TODO sort portfolios
 }

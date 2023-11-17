@@ -15,6 +15,7 @@ import jakarta.persistence.Entity;
 @Entity
 public interface Investment {
     // stock or etf?
+
     String getType();
 
     UUID getId();
