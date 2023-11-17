@@ -4,16 +4,6 @@
         "name": "Global ETFS",
         "investments": [
             {
-                "type": "Stock",
-                "id": "73fd009e-ce88-4195-b90b-c4b69fcc330e",
-                "symbol": "TSLA",
-                "name": "Tesla",
-                "sharesQuantity": 32,
-                "purchasePrice": 45.25,
-                "totalValue": 0.0,
-                "currentValue": 110.5
-            },
-            {
                 "type": "ETF",
                 "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
                 "symbol": "BNDX",

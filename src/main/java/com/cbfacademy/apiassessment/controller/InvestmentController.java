@@ -3,9 +3,11 @@ package com.cbfacademy.apiassessment.controller;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,7 +48,18 @@ public class InvestmentController {
         return repository.save(portfolioId, investment);
     }
 
-    // PUT /{investmentId} update an investment
+    // update an investment
+    @PutMapping("/{portfolioId}/investments/{investmentId}")
+    public Investment updateInvestment(@PathVariable UUID portfolioId, @PathVariable UUID investmentId,
+            @RequestBody Investment investment) {
+        return repository.save(portfolioId, investment);
+    }
+
+    // delete a portfolio
+    @DeleteMapping("{portfolioId}/investments/{investmentId}")
+    public void deleteInvestment(@PathVariable UUID portfolioId, @PathVariable UUID investmentId) {
+        repository.deleteInvestment(portfolioId, investmentId);
+    }
 
     // DELETE /{investmentId} delete and investment
 
