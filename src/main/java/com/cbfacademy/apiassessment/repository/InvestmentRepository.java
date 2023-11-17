@@ -52,8 +52,8 @@ public class InvestmentRepository {
         }
     }
 
-    // call this in the beginning before every method to populate the investment map
-    // with investments mapped by id
+    // This will be called at the beginning in every method, to populate the
+    // invesment map
     public void populateInvestmentMap(UUID portfolioId) {
         try {
             Portfolio portfolio = portfoliosMap.get(portfolioId);
@@ -98,7 +98,9 @@ public class InvestmentRepository {
     }
 
     // get investment by id
-    public Investment findById(UUID investmentId) {
+    public Investment findById(UUID portfolioId, UUID investmentId) {
+        populateInvestmentMap(portfolioId);
+
         return investmentMap.get(investmentId);
     }
 

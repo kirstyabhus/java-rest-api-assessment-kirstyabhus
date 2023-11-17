@@ -35,7 +35,7 @@ public class InvestmentController {
     // GET investment by id
     @GetMapping("{portfolioId}/investments/{investmentId}")
     public Investment getInvestmentById(@PathVariable UUID portfolioId, @PathVariable UUID investmentId) {
-        return repository.findById(investmentId);
+        return repository.findById(portfolioId, investmentId);
     }
 
     // POST add a new investment
