@@ -38,7 +38,7 @@ public class PortfolioController {
     }
 
     // get a portfolio by id
-    @GetMapping("/portfolioId/{id}")
+    @GetMapping("/{id}")
     public Portfolio getPortfolioById(@PathVariable UUID id) {
         return service.findPortfolioById(id);
     }
@@ -50,13 +50,13 @@ public class PortfolioController {
     }
 
     // update a portfolio
-    @PutMapping("/portfolioId/{id}")
+    @PutMapping("/{id}")
     public Portfolio updatePortfolio(@PathVariable UUID id, @RequestBody Portfolio portfolio) {
         return service.createOrUpdatePortfolio(portfolio);
     }
 
     // delete a portfolio
-    @DeleteMapping("/portfolioId/{id}")
+    @DeleteMapping("/{id}")
     public void deletePortfolio(@PathVariable UUID id) {
         service.deletePortfolio(id);
     }

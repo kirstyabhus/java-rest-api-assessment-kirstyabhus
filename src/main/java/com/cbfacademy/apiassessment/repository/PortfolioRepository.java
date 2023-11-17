@@ -37,7 +37,6 @@ public class PortfolioRepository {
         } catch (IOException e) {
             System.out.println("Error populating portfolioMap: " + e.getMessage());
         }
-
     }
 
     // get all portfolios

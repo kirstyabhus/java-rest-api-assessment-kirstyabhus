@@ -10,7 +10,6 @@ import jakarta.persistence.Id;
 @Entity
 public class Stock implements Investment {
     // private final UUID id;
-    @Id
     private UUID id;
     private String type = "Stock";
     private String symbol;

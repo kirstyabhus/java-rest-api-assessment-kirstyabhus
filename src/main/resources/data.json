@@ -5,7 +5,7 @@
         "investments": [
             {
                 "type": "ETF",
-                "id": "1737492d-e3f5-4971-aca4-b0fa8100bdb4",
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
                 "symbol": "AGG",
                 "name": "iShares Core U.S. Aggregate Bond ETF",
                 "sharesQuantity": 50,
@@ -15,7 +15,7 @@
             },
             {
                 "type": "ETF",
-                "id": "30f2c7b4-ce34-44c8-b436-6d35574c645e",
+                "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
                 "symbol": "BNDX",
                 "name": "Vanguard Total International  ETF",
                 "sharesQuantity": 30,

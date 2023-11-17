@@ -38,6 +38,8 @@ public interface Investment {
 
     double getTotalValue();
 
+    void calculateTotalValue();
+
     double getCurrentValue();
 
     void setCurrentValue(double currentValue);
