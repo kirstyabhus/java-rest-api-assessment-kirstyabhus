@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cbfacademy.apiassessment.model.Investment;
-import com.cbfacademy.apiassessment.model.Portfolio;
-import com.cbfacademy.apiassessment.repository.InvestmentRepository;
-import com.cbfacademy.apiassessment.service.PortfolioService;
+import com.cbfacademy.apiassessment.service.InvestmentService;
 
 @RestController
 @RequestMapping("/api/portfolios")
@@ -23,44 +21,44 @@ public class InvestmentController {
 
     // TODO change this to investment service
     // @Autowired
-    private final InvestmentRepository repository;
+    private final InvestmentService service;
 
     // investment service constructor
-    InvestmentController(InvestmentRepository repository) {
-        this.repository = repository;
+    InvestmentController(InvestmentService service) {
+        this.service = service;
     }
 
     // GET all investments
     @GetMapping("{portfolioId}/investments")
     public List<Investment> getAllPortfolios(@PathVariable UUID portfolioId) {
-        return repository.findAll(portfolioId);
+        return service.getAllInvesments(portfolioId);
     }
 
     // GET investment by id
     @GetMapping("{portfolioId}/investments/{investmentId}")
     public Investment getInvestmentById(@PathVariable UUID portfolioId, @PathVariable UUID investmentId) {
-        return repository.findById(portfolioId, investmentId);
+        return service.getInvestmentById(portfolioId, investmentId);
     }
 
     // create a new investment
     @PostMapping(path = "{portfolioId}/investments/new", produces = "application/json")
     public Investment createInvestment(@PathVariable UUID portfolioId, @RequestBody Investment investment) {
-        return repository.save(portfolioId, investment);
+        return service.createOrUpdateInvestment(portfolioId, investment);
     }
 
     // update an investment
     @PutMapping("/{portfolioId}/investments/{investmentId}")
     public Investment updateInvestment(@PathVariable UUID portfolioId, @PathVariable UUID investmentId,
             @RequestBody Investment investment) {
-        return repository.save(portfolioId, investment);
+        return service.createOrUpdateInvestment(portfolioId, investment);
     }
 
     // delete a portfolio
     @DeleteMapping("{portfolioId}/investments/{investmentId}")
     public void deleteInvestment(@PathVariable UUID portfolioId, @PathVariable UUID investmentId) {
-        repository.deleteInvestment(portfolioId, investmentId);
+        service.deleteInvestment(portfolioId, investmentId);
     }
 
-    // DELETE /{investmentId} delete and investment
+    // sort investments
 
 }

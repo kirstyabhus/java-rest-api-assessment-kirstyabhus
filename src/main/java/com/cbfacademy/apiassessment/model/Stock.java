@@ -38,7 +38,7 @@ public class Stock implements Investment {
         this.name = name;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
-        this.totalValue = totalValue;
+        this.totalValue = sharesQuantity * purchasePrice;
         this.currentValue = currentValue;
     }
 
@@ -50,7 +50,7 @@ public class Stock implements Investment {
         this.name = name;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
-        this.totalValue = totalValue;
+        this.totalValue = sharesQuantity * purchasePrice;
         this.currentValue = currentValue;
     }
     /*

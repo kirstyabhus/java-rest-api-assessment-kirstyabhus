@@ -31,7 +31,7 @@ public class ETF implements Investment {
         this.name = name;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
-        this.totalValue = totalValue;
+        this.totalValue = sharesQuantity * purchasePrice;
         this.currentValue = currentValue;
     }
 
@@ -43,7 +43,7 @@ public class ETF implements Investment {
         this.name = name;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
-        this.totalValue = totalValue;
+        this.totalValue = sharesQuantity * purchasePrice;
         this.currentValue = currentValue;
     }
 

@@ -21,20 +21,13 @@ import jakarta.annotation.PostConstruct;
 
 @Repository
 public class InvestmentRepository {
-    // stroe the invesments in a MAP (just like i did with the portfolio ->
-    // id:investment)
-    // but the thing is, it should only be done for the portfolioid that we are
-    // currently at
-    // so somehow need to make sure we've only got the data for the current
-    // portfolio id
 
     private String filePath = "C:///Users//kabhu//cbf-final-project//java-rest-api-assessment-kirstyabhus//src//main//resources//data.json";
 
-    // map to store our all portfolios data from json in the form
-    // portfolioID:Portfolio
+    // store our all portfolios data from json in the form portfolioID:Portfolio
     private final Map<UUID, Portfolio> portfoliosMap = new HashMap<>();
 
-    // map to store investments for a specific portfolio in the form
+    // store investments for a specific portfolio in the form
     // InvestmentID:Investment
     private final Map<UUID, Investment> investmentMap = new HashMap<>();
 
@@ -52,8 +45,7 @@ public class InvestmentRepository {
         }
     }
 
-    // This will be called at the beginning in every method, to populate the
-    // invesment map
+    // call at the beginning of every method, to populate the investment map
     public void populateInvestmentMap(UUID portfolioId) {
         try {
             Portfolio portfolio = portfoliosMap.get(portfolioId);
@@ -72,13 +64,7 @@ public class InvestmentRepository {
 
     }
 
-    // TODO so how would I update the investments of the portfolio?
-    // 1. make edit to the investments 2. replace/rewrite the investments part of
-    // the portfolio it came from (SETINVESTMENTS() method)
-    // 3. update the portoflio i nthe json
-    // may need to use the SAVE method from portfolio repository?
-
-    // TODO would this run after every function?
+    // run when the portfolio map needs to be updated
     public void updatePortfolio(UUID portfolioId, List<Investment> investments) {
         Portfolio portfolio = portfoliosMap.get(portfolioId);
         portfolio.setInvestments(investments);
@@ -92,8 +78,7 @@ public class InvestmentRepository {
     public List<Investment> findAll(UUID portfolioId) {
         populateInvestmentMap(portfolioId); // Populate the investmentMap for the given portfolio
 
-        // Retrieve investments related to the specified portfolio from the
-        // investmentMap
+        // Retrieve investments of the specific portfolio from the investmentMap
         return new ArrayList<>(investmentMap.values());
     }
 
@@ -104,9 +89,12 @@ public class InvestmentRepository {
         return investmentMap.get(investmentId);
     }
 
-    // create new investment or update portfolio
+    // create new investment or update the investment
     public Investment save(UUID portfolioId, Investment investment) {
         populateInvestmentMap(portfolioId);
+
+        // update the totalValue of the investment
+        investment.calculateTotalValue();
 
         // put (add or update) the investment into the map
         investmentMap.put(investment.getId(), investment);

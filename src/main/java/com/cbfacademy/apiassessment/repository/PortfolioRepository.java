@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.utility.JsonUtility;
 
@@ -49,8 +50,25 @@ public class PortfolioRepository {
         return portfoliosMap.get(id);
     }
 
+    // update the totalValue of each investment (to make sure new investments have a
+    // calulated total value)
+    public List<Investment> updateInvestmentsValues(Portfolio portfolio) {
+        List<Investment> investments = portfolio.getInvestments();
+
+        for (Investment investment : investments) {
+            investment.calculateTotalValue(); // Update totalValue for each investment
+        }
+
+        return investments; // Return the updated list of investments
+    }
+
     // create new portfolio or update portfolio
     public Portfolio save(Portfolio portfolio) {
+
+        // update the given portfolio, ensuring all investments have a calculated
+        // totalValue
+        List<Investment> updatedInvestments = new ArrayList<Investment>(updateInvestmentsValues(portfolio));
+        portfolio.setInvestments(updatedInvestments);
 
         // add/update the portfolio in the map
         portfoliosMap.put(portfolio.getPortfolioId(), portfolio);

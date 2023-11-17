@@ -40,7 +40,7 @@ public class PortfolioController {
     // get a portfolio by id
     @GetMapping("/{id}")
     public Portfolio getPortfolioById(@PathVariable UUID id) {
-        return service.findPortfolioById(id);
+        return service.getPortfolioById(id);
     }
 
     // create a new portfolio

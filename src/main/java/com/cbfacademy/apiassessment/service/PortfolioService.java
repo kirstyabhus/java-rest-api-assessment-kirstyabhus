@@ -24,7 +24,7 @@ public class PortfolioService {
     }
 
     // get portfolio by id
-    public Portfolio findPortfolioById(UUID id) {
+    public Portfolio getPortfolioById(UUID id) {
         return portfolioRepository.findById(id);
     }
 

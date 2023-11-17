@@ -1,5 +1,41 @@
 [
     {
+        "portfolioId": "e0c4242a-6cb7-48fb-9f6f-51014a2622df",
+        "name": "TEST PORTFOLIO changed",
+        "investments": [
+            {
+                "type": "Stock",
+                "id": "5256c26e-b7ce-46be-95fb-daf18da9948e",
+                "symbol": "META",
+                "name": "Meta Corp",
+                "sharesQuantity": 233,
+                "purchasePrice": 43.0,
+                "totalValue": 10019.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "ETF",
+                "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
+                "symbol": "BNDXX",
+                "name": "Vanguard Total International  ETF",
+                "sharesQuantity": 15,
+                "purchasePrice": 1.0,
+                "totalValue": 15.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "ETF",
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "symbol": "AGG",
+                "name": "iShares Core U.S. Aggregate Bond ETF",
+                "sharesQuantity": 50,
+                "purchasePrice": 115.25,
+                "totalValue": 5762.5,
+                "currentValue": 120.5
+            }
+        ]
+    },
+    {
         "portfolioId": "4f346d5b-5ec8-4659-bfe6-03ae29448f1e",
         "name": "Global ETFS",
         "investments": [
@@ -10,7 +46,7 @@
                 "name": "Vanguard Total International  ETF",
                 "sharesQuantity": 30,
                 "purchasePrice": 54.8,
-                "totalValue": 0.0,
+                "totalValue": 1644.0,
                 "currentValue": 56.2
             },
             {
@@ -20,7 +56,7 @@
                 "name": "iShares Core U.S. Aggregate Bond ETF",
                 "sharesQuantity": 50,
                 "purchasePrice": 115.25,
-                "totalValue": 0.0,
+                "totalValue": 5762.5,
                 "currentValue": 120.5
             }
         ]
@@ -36,7 +72,7 @@
                 "name": "XXXXXX",
                 "sharesQuantity": 50,
                 "purchasePrice": 115.25,
-                "totalValue": 0.0,
+                "totalValue": 5762.5,
                 "currentValue": 120.5
             },
             {
@@ -46,7 +82,7 @@
                 "name": "YYYYYY",
                 "sharesQuantity": 30,
                 "purchasePrice": 54.8,
-                "totalValue": 0.0,
+                "totalValue": 1644.0,
                 "currentValue": 56.2
             }
         ]
@@ -62,7 +98,7 @@
                 "name": "iShares Core U.S. Aggregate Bond ETF",
                 "sharesQuantity": 50,
                 "purchasePrice": 115.25,
-                "totalValue": 0.0,
+                "totalValue": 5762.5,
                 "currentValue": 120.5
             },
             {
@@ -72,7 +108,7 @@
                 "name": "Vanguard Total International  ETF",
                 "sharesQuantity": 30,
                 "purchasePrice": 54.8,
-                "totalValue": 0.0,
+                "totalValue": 1644.0,
                 "currentValue": 56.2
             }
         ]
