@@ -52,16 +52,9 @@ public class PortfolioRepository {
     // create new portfolio or update portfolio
     public Portfolio save(Portfolio portfolio) {
 
-        // its giving th portfolio a NEW id beacuse of the no arg constructor
-        UUID portfolioId = portfolio.getPortfolioId();
+        // add/update the portfolio in the map
+        portfoliosMap.put(portfolio.getPortfolioId(), portfolio);
 
-        if (portfoliosMap.keySet().contains(portfolioId)) {
-            portfoliosMap.put(portfolioId, portfolio);
-        } else {
-            // add the portfolio into the map if it's not already there
-            portfoliosMap.put(portfolio.getPortfolioId(), portfolio);
-        }
-        // x
         // update the json file
         try {
             ArrayList<Portfolio> portfolioList = new ArrayList<>(portfoliosMap.values());

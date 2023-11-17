@@ -104,4 +104,28 @@ public class InvestmentRepository {
         return investmentMap.get(investmentId);
     }
 
+    // endpoint new
+    // create new investment or update portfolio
+    public Investment save(UUID portfolioId, Investment investment) {
+        populateInvestmentMap(portfolioId);
+
+        // put (add or update) the investment into the map
+        investmentMap.put(investment.getId(), investment);
+
+        // add all the investments into a list
+        ArrayList<Investment> investments = new ArrayList<>(investmentMap.values());
+        updatePortfolio(portfolioId, investments);
+
+        // update the json file
+        try {
+            ArrayList<Portfolio> portfolioList = new ArrayList<>(portfoliosMap.values());
+
+            jsonUtility.writePortfoliosToJSON(portfolioList, filePath);
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println("Error updating investment list: " + e.getMessage());
+        }
+        return investment;
+    }
+
 }
