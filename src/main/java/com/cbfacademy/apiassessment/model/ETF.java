@@ -98,6 +98,10 @@ public class ETF implements Investment {
         return totalValue;
     }
 
+    public void calculateTotalValue() {
+        this.totalValue = this.sharesQuantity * this.purchasePrice;
+    }
+
     public double getCurrentValue() {
         return currentValue;
     }

@@ -2,13 +2,13 @@ package com.cbfacademy.apiassessment.repository;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.cbfacademy.apiassessment.model.Portfolio;
@@ -53,18 +53,16 @@ public class PortfolioRepository {
     // create new portfolio or update portfolio
     public Portfolio save(Portfolio portfolio) {
 
-        // TODO its giving the portfolio a NEW id beacuse of the no arg constructor
+        // its giving th portfolio a NEW id beacuse of the no arg constructor
         UUID portfolioId = portfolio.getPortfolioId();
 
-        portfoliosMap.put(portfolioId, portfolio);
-
-        // if (portfoliosMap.keySet().contains(portfolioId)) {
-        // portfoliosMap.put(portfolioId, portfolio);
-        // } else {
-        // add the portfolio into the map if it's not already there
-        // portfoliosMap.put(portfolio.getPortfolioId(), portfolio);
-        // }
-
+        if (portfoliosMap.keySet().contains(portfolioId)) {
+            portfoliosMap.put(portfolioId, portfolio);
+        } else {
+            // add the portfolio into the map if it's not already there
+            portfoliosMap.put(portfolio.getPortfolioId(), portfolio);
+        }
+        // x
         // update the json file
         try {
             ArrayList<Portfolio> portfolioList = new ArrayList<>(portfoliosMap.values());
