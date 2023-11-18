@@ -180,11 +180,15 @@ public class InvestmentService {
             // Sort based on ascending or descending order
             logger.info("Attempting to sort investments ");
             if (sortOrder.equalsIgnoreCase("asc")) {
+
                 sortedInvestments.sort(comparator);
+
                 logger.info("Sorted {} investments for portfolio ID: {} based on criteria: {} in ascending order",
                         sortedInvestments.size(), portfolioId, sortCriteria);
             } else if (sortOrder.equalsIgnoreCase("desc")) {
+
                 sortedInvestments.sort(comparator.reversed());
+
                 logger.info("Sorted {} investments for portfolio ID: {} based on criteria: {} in descending order",
                         sortedInvestments.size(), portfolioId, sortCriteria);
             } else {

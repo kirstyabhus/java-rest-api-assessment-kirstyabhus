@@ -37,6 +37,12 @@ public class PortfolioService {
     @Autowired
     private final InvestmentRepository investmentRepository;
 
+    /**
+     * Constructs a PortfolioService instance with the provided repositories.
+     *
+     * @param portfolioRepository  The repository handling portfolios.
+     * @param investmentRepository The repository handling investments.
+     */
     PortfolioService(PortfolioRepository portfolioRepository, InvestmentRepository investmentRepository) {
         this.portfolioRepository = portfolioRepository;
         this.investmentRepository = investmentRepository;
