@@ -1,1 +1,103 @@
-[{"portfolioId":"0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1","name":"AAAA","totalValue":18109.5,"investments":[{"type":"ETF","id":"f5c03b4d-a6c7-4362-975f-c18ecfcf697c","symbol":"BNDX","name":"Vanguard Total International  ETF","sharesQuantity":15,"purchasePrice":54.8,"totalValue":822.0,"currentValue":56.2},{"type":"Stock","id":"c0eab66b-30a1-4b5a-9790-1c2df856a49d","symbol":"META","name":"Meta Platforms Inc","sharesQuantity":50,"purchasePrice":115.25,"totalValue":5762.5,"currentValue":120.5},{"type":"Stock","id":"00a78266-7492-4c5a-a605-83b6de4ec9cb","symbol":"NVDA","name":"NVIDIA Corp","sharesQuantity":50,"purchasePrice":115.25,"totalValue":5762.5,"currentValue":120.5},{"type":"Stock","id":"79b20899-63e9-4e04-8948-060d19da581a","symbol":"TSLA","name":"Tesla","sharesQuantity":50,"purchasePrice":115.25,"totalValue":5762.5,"currentValue":120.5}]},{"portfolioId":"4f346d5b-5ec8-4659-bfe6-03ae29448f1e","name":"CCCC","totalValue":5.0,"investments":[{"type":"ETF","id":"1f8554dd-e959-4dda-9781-0ea0b7878ac5","symbol":"BNDX","name":"Vanguard Total International  ETF","sharesQuantity":1,"purchasePrice":4.0,"totalValue":4.0,"currentValue":56.2},{"type":"ETF","id":"093c593a-e926-4e3b-9606-0f081dda9447","symbol":"AGG","name":"iShares Core U.S. Aggregate Bond ETF","sharesQuantity":1,"purchasePrice":1.0,"totalValue":1.0,"currentValue":120.5}]},{"portfolioId":"552b4ba1-f592-435f-97bb-c629ebc08669","name":"GGGGG","totalValue":3949.0,"investments":[{"type":"ETF","id":"2001084b-41eb-4d6b-9a84-d29f3e71fe37","symbol":"XXX","name":"XXXXXX","sharesQuantity":20,"purchasePrice":115.25,"totalValue":2305.0,"currentValue":120.5},{"type":"Stock","id":"5219f5ef-e7f1-48da-ad12-3c46da4825f4","symbol":"YYY","name":"YYYYYY","sharesQuantity":30,"purchasePrice":54.8,"totalValue":1644.0,"currentValue":56.2}]}]
+[
+    {
+        "portfolioId": "0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1",
+        "name": "AAAA",
+        "totalValue": 18109.5,
+        "investments": [
+            {
+                "type": "Stock",
+                "id": "79b20899-63e9-4e04-8948-060d19da581a",
+                "symbol": "TSLA",
+                "name": "Tesla",
+                "sharesQuantity": 50,
+                "purchasePrice": 115.25,
+                "totalValue": 5762.5,
+                "currentValue": 120.5
+            },
+            {
+                "type": "ETF",
+                "id": "f5c03b4d-a6c7-4362-975f-c18ecfcf697c",
+                "symbol": "BNDX",
+                "name": "Vanguard Total International  ETF",
+                "sharesQuantity": 15,
+                "purchasePrice": 54.8,
+                "totalValue": 822.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "Stock",
+                "id": "c0eab66b-30a1-4b5a-9790-1c2df856a49d",
+                "symbol": "META",
+                "name": "Meta Platforms Inc",
+                "sharesQuantity": 50,
+                "purchasePrice": 115.25,
+                "totalValue": 5762.5,
+                "currentValue": 120.5
+            },
+            {
+                "type": "Stock",
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "symbol": "NVDA",
+                "name": "NVIDIA Corp",
+                "sharesQuantity": 50,
+                "purchasePrice": 115.25,
+                "totalValue": 5762.5,
+                "currentValue": 120.5
+            }
+        ]
+    },
+    {
+        "portfolioId": "4f346d5b-5ec8-4659-bfe6-03ae29448f1e",
+        "name": "CCCC",
+        "totalValue": 5.0,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
+                "symbol": "BNDX",
+                "name": "Vanguard Total International  ETF",
+                "sharesQuantity": 1,
+                "purchasePrice": 4.0,
+                "totalValue": 4.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "ETF",
+                "id": "093c593a-e926-4e3b-9606-0f081dda9447",
+                "symbol": "AGG",
+                "name": "iShares Core U.S. Aggregate Bond ETF",
+                "sharesQuantity": 1,
+                "purchasePrice": 1.0,
+                "totalValue": 1.0,
+                "currentValue": 120.5
+            }
+        ]
+    },
+    {
+        "portfolioId": "552b4ba1-f592-435f-97bb-c629ebc08669",
+        "name": "GGGGG",
+        "totalValue": 3949.0,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "2001084b-41eb-4d6b-9a84-d29f3e71fe37",
+                "symbol": "XXX",
+                "name": "XXXXXX",
+                "sharesQuantity": 20,
+                "purchasePrice": 115.25,
+                "totalValue": 2305.0,
+                "currentValue": 120.5
+            },
+            {
+                "type": "Stock",
+                "id": "5219f5ef-e7f1-48da-ad12-3c46da4825f4",
+                "symbol": "YYY",
+                "name": "YYYYYY",
+                "sharesQuantity": 30,
+                "purchasePrice": 54.8,
+                "totalValue": 1644.0,
+                "currentValue": 56.2
+            }
+        ]
+    }
+]
