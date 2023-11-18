@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.cbfacademy.apiassessment.repository.InvestmentRepository;
 import com.cbfacademy.apiassessment.model.Investment;
+import com.cbfacademy.apiassessment.model.Portfolio;
 
 @Service
 public class InvestmentService {
@@ -36,6 +37,12 @@ public class InvestmentService {
     // delete an investment
     public void deleteInvestment(UUID portfolioId, UUID investmentId) {
         investmentRepository.deleteInvestment(portfolioId, investmentId);
+    }
+
+    // get sorted investments (by type, name, symbol, shareQuantity, purchasePrice,
+    // totalValue or currentValue)
+    public List<Investment> getSortedInvestments(UUID portfolioId, String sortCriteria) {
+        return investmentRepository.sortInvestments(portfolioId, sortCriteria);
     }
 
     // }

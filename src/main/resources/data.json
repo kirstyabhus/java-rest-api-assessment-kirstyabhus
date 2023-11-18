@@ -1,1 +1,110 @@
-[{"portfolioId":"1f1a4537-65c5-4bcd-9298-6559630eeb7d","name":"FFFFF","totalValue":2.0,"investments":[{"type":"ETF","id":"1f8554dd-e959-4dda-9781-0ea0b7878ac5","symbol":"BNDX","name":"Vanguard Total International  ETF","sharesQuantity":1,"purchasePrice":1.0,"totalValue":1.0,"currentValue":56.2},{"type":"ETF","id":"00a78266-7492-4c5a-a605-83b6de4ec9cb","symbol":"AGG","name":"iShares Core U.S. Aggregate Bond ETF","sharesQuantity":1,"purchasePrice":1.0,"totalValue":1.0,"currentValue":120.5}]},{"portfolioId":"4f346d5b-5ec8-4659-bfe6-03ae29448f1e","name":"CCCC","totalValue":5.0,"investments":[{"type":"ETF","id":"1f8554dd-e959-4dda-9781-0ea0b7878ac5","symbol":"BNDX","name":"Vanguard Total International  ETF","sharesQuantity":1,"purchasePrice":4.0,"totalValue":4.0,"currentValue":56.2},{"type":"ETF","id":"00a78266-7492-4c5a-a605-83b6de4ec9cb","symbol":"AGG","name":"iShares Core U.S. Aggregate Bond ETF","sharesQuantity":1,"purchasePrice":1.0,"totalValue":1.0,"currentValue":120.5}]},{"portfolioId":"552b4ba1-f592-435f-97bb-c629ebc08669","name":"GGGGG","totalValue":3949.0,"investments":[{"type":"ETF","id":"2001084b-41eb-4d6b-9a84-d29f3e71fe37","symbol":"XXX","name":"XXXXXX","sharesQuantity":20,"purchasePrice":115.25,"totalValue":2305.0,"currentValue":120.5},{"type":"Stock","id":"5219f5ef-e7f1-48da-ad12-3c46da4825f4","symbol":"YYY","name":"YYYYYY","sharesQuantity":30,"purchasePrice":54.8,"totalValue":1644.0,"currentValue":56.2}]},{"portfolioId":"0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1","name":"AAAA","totalValue":6584.5,"investments":[{"type":"ETF","id":"1f8554dd-e959-4dda-9781-0ea0b7878ac5","symbol":"BNDX","name":"Vanguard Total International  ETF","sharesQuantity":15,"purchasePrice":54.8,"totalValue":822.0,"currentValue":56.2},{"type":"ETF","id":"00a78266-7492-4c5a-a605-83b6de4ec9cb","symbol":"AGG","name":"iShares Core U.S. Aggregate Bond ETF","sharesQuantity":50,"purchasePrice":115.25,"totalValue":5762.5,"currentValue":120.5}]}]
+[
+    {
+        "portfolioId": "1f1a4537-65c5-4bcd-9298-6559630eeb7d",
+        "name": "FFFFF",
+        "totalValue": 2.0,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
+                "symbol": "BNDX",
+                "name": "Vanguard Total International  ETF",
+                "sharesQuantity": 1,
+                "purchasePrice": 1.0,
+                "totalValue": 1.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "ETF",
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "symbol": "AGG",
+                "name": "iShares Core U.S. Aggregate Bond ETF",
+                "sharesQuantity": 1,
+                "purchasePrice": 1.0,
+                "totalValue": 1.0,
+                "currentValue": 120.5
+            }
+        ]
+    },
+    {
+        "portfolioId": "0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1",
+        "name": "AAAA",
+        "totalValue": 6584.5,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
+                "symbol": "BNDX",
+                "name": "Vanguard Total International  ETF",
+                "sharesQuantity": 15,
+                "purchasePrice": 54.8,
+                "totalValue": 822.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "ETF",
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "symbol": "AGG",
+                "name": "iShares Core U.S. Aggregate Bond ETF",
+                "sharesQuantity": 50,
+                "purchasePrice": 115.25,
+                "totalValue": 5762.5,
+                "currentValue": 120.5
+            }
+        ]
+    },
+    {
+        "portfolioId": "4f346d5b-5ec8-4659-bfe6-03ae29448f1e",
+        "name": "CCCC",
+        "totalValue": 5.0,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
+                "symbol": "BNDX",
+                "name": "Vanguard Total International  ETF",
+                "sharesQuantity": 1,
+                "purchasePrice": 4.0,
+                "totalValue": 4.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "ETF",
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "symbol": "AGG",
+                "name": "iShares Core U.S. Aggregate Bond ETF",
+                "sharesQuantity": 1,
+                "purchasePrice": 1.0,
+                "totalValue": 1.0,
+                "currentValue": 120.5
+            }
+        ]
+    },
+    {
+        "portfolioId": "552b4ba1-f592-435f-97bb-c629ebc08669",
+        "name": "GGGGG",
+        "totalValue": 3949.0,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "2001084b-41eb-4d6b-9a84-d29f3e71fe37",
+                "symbol": "XXX",
+                "name": "XXXXXX",
+                "sharesQuantity": 20,
+                "purchasePrice": 115.25,
+                "totalValue": 2305.0,
+                "currentValue": 120.5
+            },
+            {
+                "type": "Stock",
+                "id": "5219f5ef-e7f1-48da-ad12-3c46da4825f4",
+                "symbol": "YYY",
+                "name": "YYYYYY",
+                "sharesQuantity": 30,
+                "purchasePrice": 54.8,
+                "totalValue": 1644.0,
+                "currentValue": 56.2
+            }
+        ]
+    }
+]

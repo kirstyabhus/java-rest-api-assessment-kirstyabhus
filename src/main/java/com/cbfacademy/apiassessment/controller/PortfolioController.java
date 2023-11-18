@@ -58,13 +58,11 @@ public class PortfolioController {
         service.deletePortfolio(id);
     }
 
-    // TODO sort portfolios
-
+    // get portfolio sorted by name or value
     @GetMapping("/sorted")
     public List<Portfolio> getSortedPortfolios(
             @RequestParam(name = "sort", defaultValue = "name") String sortCriteria) {
-        List<Portfolio> sortedPortfolios = service.getSortedPortfolios(sortCriteria);
-        return sortedPortfolios;
+        return service.getSortedPortfolios(sortCriteria);
     }
 
 }

@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cbfacademy.apiassessment.model.Investment;
+import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.service.InvestmentService;
 
 @RestController
@@ -59,6 +61,12 @@ public class InvestmentController {
         service.deleteInvestment(portfolioId, investmentId);
     }
 
-    // sort investments
+    // get invesments sorted (by type, name, symbol, shareQuantity, purchasePrice,
+    // totalValue or currentValue)
+    @GetMapping("{portfolioId}/investments/sorted")
+    public List<Investment> getSortedInvestments(@PathVariable UUID portfolioId,
+            @RequestParam(name = "sort", defaultValue = "name") String sortCriteria) {
+        return service.getSortedInvestments(portfolioId, sortCriteria);
 
+    }
 }

@@ -122,6 +122,7 @@ public class PortfolioRepository {
         return sortedPortfolios;
     }
 
+    // determine the sort comparator based on the given sortCriteria
     private Comparator<Portfolio> getComparatorForSortCriteria(String sortCriteria) {
         switch (sortCriteria.toLowerCase()) {
             case "value":
