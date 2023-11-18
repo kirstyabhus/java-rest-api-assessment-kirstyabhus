@@ -67,6 +67,9 @@ public class InvestmentRepository {
         Portfolio portfolio = portfoliosMap.get(portfolioId);
         portfolio.setInvestments(investments);
 
+        // update totalVale of portfolio
+        portfolio.calculateTotalValue();
+
         // replace the portfolio in the portfolio map, with the portfolio that has
         // updated investments
         portfoliosMap.put(portfolioId, portfolio);

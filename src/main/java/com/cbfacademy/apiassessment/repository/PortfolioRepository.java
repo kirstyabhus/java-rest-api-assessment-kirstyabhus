@@ -68,6 +68,7 @@ public class PortfolioRepository {
         // totalValue
         List<Investment> updatedInvestments = new ArrayList<Investment>(updateInvestmentsValues(portfolio));
         portfolio.setInvestments(updatedInvestments);
+        portfolio.calculateTotalValue();
 
         // add/update the portfolio in the map
         portfoliosMap.put(portfolio.getPortfolioId(), portfolio);

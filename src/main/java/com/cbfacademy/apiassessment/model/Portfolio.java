@@ -13,8 +13,7 @@ public class Portfolio {
 
     private UUID portfolioId;
     private String name;
-    // TODO use this when ive created the totalVlaue feild
-    // private Double totalValue;
+    private double totalValue;
     private List<Investment> investments; // check this why is it not an array
 
     // default no-arg constructor for when GSON deser JSON into Portfolio object
@@ -22,29 +21,18 @@ public class Portfolio {
     public Portfolio(
             @JsonProperty("portfolioId") UUID portfolioId,
             @JsonProperty("name") String name,
+            @JsonProperty("totalValue") double totalValue,
             @JsonProperty("investments") List<Investment> investments) {
-        // if portfolioID present use it (in the case of PUT), else generate new id
         this.portfolioId = portfolioId != null ? portfolioId : UUID.randomUUID();
         this.name = name;
+        this.totalValue = totalValue;
         this.investments = investments;
     }
 
-    // TODO use this when ive created the totalVlaue feild
-    // @JsonCreator
-    // public Portfolio(
-    // @JsonProperty("id") UUID portfolioId,
-    // @JsonProperty("name") String name,
-    // @JsonProperty("totalValue") Double totalValue,
-    // @JsonProperty("investments") List<Investment> investments) {
-    // this.portfolioId = portfolioId != null ? portfolioId : UUID.randomUUID();
-    // this.name = name;
-    // this.totalValue = totalValue;
-    // this.investments = investments;
-    // }
-
-    public Portfolio(String name, List<Investment> investments) {
+    public Portfolio(String name, double totalValue, List<Investment> investments) {
         this.portfolioId = UUID.randomUUID();
         this.name = name;
+        this.totalValue = totalValue;
         this.investments = investments;
     }
 
@@ -60,16 +48,17 @@ public class Portfolio {
         this.name = name;
     }
 
-    // TODO use this when ive created the totalVlaue feild
-    // public Double getTotalValue() {
-    // return totalValue;
-    // }
+    public double getTotalValue() {
+        return totalValue;
+    }
 
-    // TODO, CHANGE THIS TO INSTEAD OF GETPURCAHSEPRICE INSTEAD TOTALVALUE FROM
-    // INVESTMENTS (QUANTITY * PURCAHSE PRICE)
-    // public Double calculateTotalValue() {
-    // TODO this.totalValue = investments.stream().mapToDouble(Investment::)
-    // }
+    // calculates the total value of all investments in the portfolio
+    public void calculateTotalValue() {
+        this.totalValue = investments.stream()
+                .mapToDouble(Investment::getPurchasePrice)
+                .sum();
+
+    }
 
     public List<Investment> getInvestments() {
         return investments;

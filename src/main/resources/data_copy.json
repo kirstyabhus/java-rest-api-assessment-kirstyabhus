@@ -2,6 +2,7 @@
     {
         "portfolioId": "4f346d5b-5ec8-4659-bfe6-03ae29448f1e",
         "name": "Global ETFS",
+        "totalValue": 0.0,
         "investments": [
             {
                 "type": "ETF",
@@ -28,6 +29,7 @@
     {
         "portfolioId": "552b4ba1-f592-435f-97bb-c629ebc08669",
         "name": "Global XXXYZ",
+        "totalValue": 0.0,
         "investments": [
             {
                 "type": "ETF",
