@@ -116,26 +116,28 @@ public class InvestmentService {
         }
     }
 
-    // }
+    // filter investments based on type
+    public List<Investment> filterInvestmentsByType(UUID portfolioId, String investmentType) {
 
-    // get investments by portfolio?
+        List<Investment> filteredInvestments = new ArrayList<>();
 
-    // findbyid
-    // findbyname
-    // findbysymbol
+        try {
+            // Get all investments for the specified portfolio
+            List<Investment> investments = investmentRepository.findAll(portfolioId);
 
-    // TODO BASIC CRUD
-    // create investment
-    // read investment
-    // update investment
-    // delete investment
+            // Filter investments by investment type
+            for (Investment investment : investments) {
+                if (investment.getType().equalsIgnoreCase(investmentType)) {
+                    filteredInvestments.add(investment);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error filtering investments: " + e.getMessage());
+        }
 
-    // TODO OTHER LOGIC
-    // sort investments (in a specific portolfio!) by:
-    // - value
-    // - name
-    // - symbol
+        return filteredInvestments;
+    }
+
     // - FUTURE IMPLEMENTATION -> ESG scores
-    // filter investments (in a specific portolio)
     // moe a investment between portfolios
 }
