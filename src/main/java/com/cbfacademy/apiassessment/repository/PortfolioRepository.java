@@ -2,6 +2,7 @@ package com.cbfacademy.apiassessment.repository;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -101,6 +102,38 @@ public class PortfolioRepository {
     }
 
     // TODO sort portfolio
+    public List<Portfolio> sortPortfolios(String sortCriteria) {
+        Comparator<Portfolio> comparator = getComparatorForSortCriteria(sortCriteria);
+
+        if (comparator == null) {
+            throw new IllegalArgumentException("Invalid sort criteria: " + sortCriteria);
+        }
+
+        List<Portfolio> sortedPortfolios = new ArrayList<>(portfoliosMap.values());
+        sortedPortfolios.sort(comparator);
+
+        // sort the JSON
+        try {
+            jsonUtility.writePortfoliosToJSON(sortedPortfolios, filePath);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+        return sortedPortfolios;
+    }
+
+    private Comparator<Portfolio> getComparatorForSortCriteria(String sortCriteria) {
+        switch (sortCriteria.toLowerCase()) {
+            case "value":
+                return Comparator.comparing(Portfolio::getTotalValue);
+            case "name":
+                return Comparator.comparing(Portfolio::getName);
+            default:
+                // if invalid criteria
+                return null;
+
+        }
+    }
 
     // TODO filter portfolio by Total Holdings / Portfolio Value
 

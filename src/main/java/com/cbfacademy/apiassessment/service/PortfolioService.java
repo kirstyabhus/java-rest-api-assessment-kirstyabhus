@@ -38,6 +38,11 @@ public class PortfolioService {
         portfolioRepository.deletePortfolio(id);
     }
 
+    // get sorted portfolios (by name or value)
+    public List<Portfolio> getSortedPortfolios(String sortCriteria) {
+        return portfolioRepository.sortPortfolios(sortCriteria);
+    }
+
     // TODO OTHER LOGIC
     // sort portolio by name (if there's more than one portfolio)
     // move a stock between portfolios
