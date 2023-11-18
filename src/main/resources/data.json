@@ -29,8 +29,18 @@
     {
         "portfolioId": "0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1",
         "name": "AAAA",
-        "totalValue": 6584.5,
+        "totalValue": 8889.5,
         "investments": [
+            {
+                "type": "ETF",
+                "id": "2001084b-41eb-4d6b-9a84-d29f3e71fe37",
+                "symbol": "XXX",
+                "name": "XXXXXX",
+                "sharesQuantity": 20,
+                "purchasePrice": 115.25,
+                "totalValue": 2305.0,
+                "currentValue": 120.5
+            },
             {
                 "type": "ETF",
                 "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
@@ -50,33 +60,6 @@
                 "purchasePrice": 115.25,
                 "totalValue": 5762.5,
                 "currentValue": 120.5
-            }
-        ]
-    },
-    {
-        "portfolioId": "552b4ba1-f592-435f-97bb-c629ebc08669",
-        "name": "GGGGG",
-        "totalValue": 3949.0,
-        "investments": [
-            {
-                "type": "ETF",
-                "id": "2001084b-41eb-4d6b-9a84-d29f3e71fe37",
-                "symbol": "XXX",
-                "name": "XXXXXX",
-                "sharesQuantity": 20,
-                "purchasePrice": 115.25,
-                "totalValue": 2305.0,
-                "currentValue": 120.5
-            },
-            {
-                "type": "Stock",
-                "id": "5219f5ef-e7f1-48da-ad12-3c46da4825f4",
-                "symbol": "YYY",
-                "name": "YYYYYY",
-                "sharesQuantity": 30,
-                "purchasePrice": 54.8,
-                "totalValue": 1644.0,
-                "currentValue": 56.2
             }
         ]
     },
@@ -104,6 +87,23 @@
                 "purchasePrice": 1.0,
                 "totalValue": 1.0,
                 "currentValue": 120.5
+            }
+        ]
+    },
+    {
+        "portfolioId": "552b4ba1-f592-435f-97bb-c629ebc08669",
+        "name": "GGGGG",
+        "totalValue": 1644.0,
+        "investments": [
+            {
+                "type": "Stock",
+                "id": "5219f5ef-e7f1-48da-ad12-3c46da4825f4",
+                "symbol": "YYY",
+                "name": "YYYYYY",
+                "sharesQuantity": 30,
+                "purchasePrice": 54.8,
+                "totalValue": 1644.0,
+                "currentValue": 56.2
             }
         ]
     }

@@ -14,14 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cbfacademy.apiassessment.model.Investment;
-import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.service.InvestmentService;
 
 @RestController
-@RequestMapping("/api/portfolios")
+@RequestMapping("/api/v1/portfolios")
 public class InvestmentController {
 
-    // TODO change this to investment service
     // @Autowired
     private final InvestmentService service;
 
@@ -44,18 +42,18 @@ public class InvestmentController {
 
     // create a new investment
     @PostMapping(path = "{portfolioId}/investments/new", produces = "application/json")
-    public Investment createInvestment(@PathVariable UUID portfolioId, @RequestBody Investment investment) {
-        return service.createOrUpdateInvestment(portfolioId, investment);
+    public void createInvestment(@PathVariable UUID portfolioId, @RequestBody Investment investment) {
+        service.createOrUpdateInvestment(portfolioId, investment);
     }
 
     // update an investment
     @PutMapping("/{portfolioId}/investments/{investmentId}")
-    public Investment updateInvestment(@PathVariable UUID portfolioId, @PathVariable UUID investmentId,
+    public void updateInvestment(@PathVariable UUID portfolioId, @PathVariable UUID investmentId,
             @RequestBody Investment investment) {
-        return service.createOrUpdateInvestment(portfolioId, investment);
+        service.createOrUpdateInvestment(portfolioId, investment);
     }
 
-    // delete a portfolio
+    // delete an investment
     @DeleteMapping("{portfolioId}/investments/{investmentId}")
     public void deleteInvestment(@PathVariable UUID portfolioId, @PathVariable UUID investmentId) {
         service.deleteInvestment(portfolioId, investmentId);

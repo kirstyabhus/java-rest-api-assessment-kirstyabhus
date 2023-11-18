@@ -55,7 +55,7 @@ public class Portfolio {
     // calculates the total value of all investments in the portfolio
     public void calculateTotalValue() {
         this.totalValue = investments.stream()
-                .mapToDouble(Investment::getPurchasePrice)
+                .mapToDouble(Investment::getTotalValue)
                 .sum();
 
     }

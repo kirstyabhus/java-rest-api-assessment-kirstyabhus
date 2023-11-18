@@ -18,7 +18,7 @@ import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.service.PortfolioService;
 
 @RestController
-@RequestMapping("/api/portfolios")
+@RequestMapping("/api/v1/portfolios")
 public class PortfolioController {
 
     // @Autowired
@@ -58,7 +58,7 @@ public class PortfolioController {
         service.deletePortfolio(id);
     }
 
-    // get portfolio sorted by name or value
+    // get portfolios sorted by name or value
     @GetMapping("/sorted")
     public List<Portfolio> getSortedPortfolios(
             @RequestParam(name = "sort", defaultValue = "name") String sortCriteria,
@@ -66,6 +66,14 @@ public class PortfolioController {
         return service.getSortedPortfolios(sortCriteria, sortOrder);
         // should make a new list for the sorted
         // then return responsentit.ok(the list)
+    }
+
+    // move investment between portfolios
+    @PostMapping(path = "/move-investment", produces = "application/json")
+    public void moveInvestment(@RequestParam("fromPortfolioId") UUID fromPortfolioId,
+            @RequestParam("toPortfolioId") UUID toPortfolioId,
+            @RequestParam("investmentId") UUID investmentId) {
+        service.moveInvestment(fromPortfolioId, toPortfolioId, investmentId);
     }
 
 }

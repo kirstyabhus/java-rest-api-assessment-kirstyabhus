@@ -6,11 +6,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.sound.sampled.Port;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cbfacademy.apiassessment.repository.InvestmentRepository;
 import com.cbfacademy.apiassessment.repository.PortfolioRepository;
 import com.cbfacademy.apiassessment.utility.JsonUtility;
+import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 
 @Service
@@ -24,8 +28,12 @@ public class PortfolioService {
     @Autowired
     private final PortfolioRepository portfolioRepository;
 
-    PortfolioService(PortfolioRepository portfolioRepository) {
+    @Autowired
+    private final InvestmentRepository investmentRepository;
+
+    PortfolioService(PortfolioRepository portfolioRepository, InvestmentRepository investmentRepository) {
         this.portfolioRepository = portfolioRepository;
+        this.investmentRepository = investmentRepository;
     }
 
     // get all portfolios
@@ -47,11 +55,6 @@ public class PortfolioService {
     public void deletePortfolio(UUID id) {
         portfolioRepository.deletePortfolio(id);
     }
-
-    // get sorted portfolios (by name or value)
-    // public List<Portfolio> getSortedPortfolios(String sortCriteria) {
-    // return portfolioRepository.sortPortfolios(sortCriteria);
-    // }
 
     // sort portfolios based on value or name
     public List<Portfolio> getSortedPortfolios(String sortCriteria, String sortOrder) {
@@ -96,6 +99,22 @@ public class PortfolioService {
                 return null;
 
         }
+    }
+
+    // move investment between portfolios
+    public List<Portfolio> moveInvestment(UUID fromPortfolioId, UUID toPortfolioId, UUID investmentId) {
+        // get the portfolios and investment by their id
+        Portfolio fromPortfolio = portfolioRepository.getPortfoliosMap().get(fromPortfolioId);
+        Portfolio toPortfolio = portfolioRepository.getPortfoliosMap().get(toPortfolioId);
+        Investment investmentToMove = investmentRepository.findById(fromPortfolioId, investmentId);
+
+        // delete the investment from the source portfolio (also updates the JSON)
+        investmentRepository.deleteInvestment(fromPortfolioId, investmentId);
+
+        // add the investment to the destination portfolio (also updates the JSON)
+        investmentRepository.save(toPortfolioId, investmentToMove);
+
+        return portfolioRepository.findAll();
     }
 
     // TODO OTHER LOGIC

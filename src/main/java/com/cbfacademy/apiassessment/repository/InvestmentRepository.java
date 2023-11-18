@@ -62,7 +62,13 @@ public class InvestmentRepository {
 
     }
 
-    // get the portfoliosMap (for service)
+    // get the investmentMap (for service)
+    // public Map<UUID, Investment> getInvestmentMap(UUID portfolioId) {
+    // populateInvestmentMap(portfolioId);
+    // return investmentMap;
+    // }
+
+    // get the investmentMap (for service)
     public Map<UUID, Investment> getInvestmentMap() {
         return investmentMap;
     }
@@ -101,7 +107,7 @@ public class InvestmentRepository {
     }
 
     // create new investment or update the investment
-    public Investment save(UUID portfolioId, Investment investment) {
+    public void save(UUID portfolioId, Investment investment) {
         populateInvestmentMap(portfolioId);
 
         // update the totalValue of the investment
@@ -123,7 +129,6 @@ public class InvestmentRepository {
             // TODO: handle exception
             System.out.println("Error updating investment list: " + e.getMessage());
         }
-        return investment;
     }
 
     // delete an investment

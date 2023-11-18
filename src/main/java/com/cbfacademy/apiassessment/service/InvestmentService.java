@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cbfacademy.apiassessment.repository.InvestmentRepository;
+import com.cbfacademy.apiassessment.repository.PortfolioRepository;
 import com.cbfacademy.apiassessment.utility.JsonUtility;
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
@@ -40,8 +41,8 @@ public class InvestmentService {
     }
 
     // create new investment or update old investment
-    public Investment createOrUpdateInvestment(UUID portfolioId, Investment investment) {
-        return investmentRepository.save(portfolioId, investment);
+    public void createOrUpdateInvestment(UUID portfolioId, Investment investment) {
+        investmentRepository.save(portfolioId, investment);
     }
 
     // delete an investment
@@ -52,6 +53,8 @@ public class InvestmentService {
     // get sorted investments (by type, name, symbol, shareQuantity, purchasePrice,
     // totalValue or currentValue)
     public List<Investment> getSortedInvestments(UUID portfolioId, String sortCriteria, String sortOrder) {
+        // Map<UUID, Investment> investmentMap =
+        // investmentRepository.getInvestmentMap(portfolioId);
         Map<UUID, Investment> investmentMap = investmentRepository.getInvestmentMap();
         Map<UUID, Portfolio> portfoliosMap = investmentRepository.getPortfoliosMap();
 
@@ -92,8 +95,6 @@ public class InvestmentService {
     // determine the sort comparator based on the given sortCriteria
     private Comparator<Investment> getComparatorForSortCriteria(String sortCriteria) {
         switch (sortCriteria.toLowerCase()) {
-            case "value":
-                return Comparator.comparing(Investment::getTotalValue);
             case "name":
                 return Comparator.comparing(Investment::getName);
             case "type":
