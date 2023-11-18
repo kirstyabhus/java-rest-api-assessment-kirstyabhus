@@ -72,7 +72,7 @@ public class InvestmentController {
     // filter investments by type
     @GetMapping("{portfolioId}/investments/filter-by-type")
     public List<Investment> getInvestmentsFilteredByType(@PathVariable UUID portfolioId,
-            @RequestParam("investmentType") String investmentType) {
+            @RequestParam(name = "investmentType", defaultValue = "Stock") String investmentType) {
         return service.filterInvestmentsByType(portfolioId, investmentType);
     }
 }

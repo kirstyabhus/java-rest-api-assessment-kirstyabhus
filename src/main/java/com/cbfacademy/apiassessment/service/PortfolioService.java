@@ -17,6 +17,9 @@ import com.cbfacademy.apiassessment.utility.JsonUtility;
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 
+/**
+ * Service class handling portfolio-related operations.
+ */
 @Service
 public class PortfolioService {
 
