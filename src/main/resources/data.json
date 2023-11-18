@@ -54,33 +54,6 @@
         ]
     },
     {
-        "portfolioId": "4f346d5b-5ec8-4659-bfe6-03ae29448f1e",
-        "name": "CCCC",
-        "totalValue": 5.0,
-        "investments": [
-            {
-                "type": "ETF",
-                "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
-                "symbol": "BNDX",
-                "name": "Vanguard Total International  ETF",
-                "sharesQuantity": 1,
-                "purchasePrice": 4.0,
-                "totalValue": 4.0,
-                "currentValue": 56.2
-            },
-            {
-                "type": "ETF",
-                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
-                "symbol": "AGG",
-                "name": "iShares Core U.S. Aggregate Bond ETF",
-                "sharesQuantity": 1,
-                "purchasePrice": 1.0,
-                "totalValue": 1.0,
-                "currentValue": 120.5
-            }
-        ]
-    },
-    {
         "portfolioId": "552b4ba1-f592-435f-97bb-c629ebc08669",
         "name": "GGGGG",
         "totalValue": 3949.0,
@@ -104,6 +77,33 @@
                 "purchasePrice": 54.8,
                 "totalValue": 1644.0,
                 "currentValue": 56.2
+            }
+        ]
+    },
+    {
+        "portfolioId": "4f346d5b-5ec8-4659-bfe6-03ae29448f1e",
+        "name": "CCCC",
+        "totalValue": 5.0,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
+                "symbol": "BNDX",
+                "name": "Vanguard Total International  ETF",
+                "sharesQuantity": 1,
+                "purchasePrice": 4.0,
+                "totalValue": 4.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "ETF",
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "symbol": "AGG",
+                "name": "iShares Core U.S. Aggregate Bond ETF",
+                "sharesQuantity": 1,
+                "purchasePrice": 1.0,
+                "totalValue": 1.0,
+                "currentValue": 120.5
             }
         ]
     }

@@ -61,12 +61,13 @@ public class InvestmentController {
         service.deleteInvestment(portfolioId, investmentId);
     }
 
-    // get invesments sorted (by type, name, symbol, shareQuantity, purchasePrice,
+    // get investments sorted (by type, name, symbol, shareQuantity, purchasePrice,
     // totalValue or currentValue)
     @GetMapping("{portfolioId}/investments/sorted")
     public List<Investment> getSortedInvestments(@PathVariable UUID portfolioId,
-            @RequestParam(name = "sort", defaultValue = "name") String sortCriteria) {
-        return service.getSortedInvestments(portfolioId, sortCriteria);
+            @RequestParam(name = "sort", defaultValue = "name") String sortCriteria,
+            @RequestParam(name = "order", defaultValue = "asc") String sortOrder) {
+        return service.getSortedInvestments(portfolioId, sortCriteria, sortOrder);
 
     }
 }

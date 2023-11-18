@@ -2,7 +2,6 @@ package com.cbfacademy.apiassessment.repository;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,6 +60,16 @@ public class InvestmentRepository {
             System.out.println("Error populating investmentMap: " + e.getMessage());
         }
 
+    }
+
+    // get the portfoliosMap (for service)
+    public Map<UUID, Investment> getInvestmentMap() {
+        return investmentMap;
+    }
+
+    // get the investmentMap (for service)
+    public Map<UUID, Portfolio> getPortfoliosMap() {
+        return portfoliosMap;
     }
 
     // run when the portfolio map needs to be updated
@@ -138,58 +147,5 @@ public class InvestmentRepository {
     }
 
     // SORT INVESTMENTS
-    public List<Investment> sortInvestments(UUID portfolioId, String sortCriteria) {
-
-        populateInvestmentMap(portfolioId);
-
-        // get the comparator -> sorting criteria
-        Comparator<Investment> comparator = getComparatorForSortCriteria(sortCriteria);
-
-        if (comparator == null) {
-            throw new IllegalArgumentException("Invalid sort criteria: " + sortCriteria);
-        }
-
-        List<Investment> sortedInvestments = new ArrayList<>(investmentMap.values());
-        sortedInvestments.sort(comparator);
-
-        updatePortfolio(portfolioId, sortedInvestments);
-
-        // sort the JSON
-        try {
-            ArrayList<Portfolio> portfolioList = new ArrayList<>(portfoliosMap.values());
-
-            jsonUtility.writePortfoliosToJSON(portfolioList, filePath);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        return sortedInvestments;
-    }
-
-    // determine the sort comparator based on the given sortCriteria
-    private Comparator<Investment> getComparatorForSortCriteria(String sortCriteria) {
-        switch (sortCriteria.toLowerCase()) {
-            case "value":
-                return Comparator.comparing(Investment::getTotalValue);
-            case "name":
-                return Comparator.comparing(Investment::getName);
-            case "type":
-                return Comparator.comparing(Investment::getType);
-            case "symbol":
-                return Comparator.comparing(Investment::getSymbol);
-            case "shares-quantity":
-                return Comparator.comparing(Investment::getSharesQuantity);
-            case "purchase-price":
-                return Comparator.comparing(Investment::getPurchasePrice);
-            case "total-value":
-                return Comparator.comparing(Investment::getTotalValue);
-            case "current-value":
-                return Comparator.comparing(Investment::getCurrentValue);
-            default:
-                // if invalid criteria
-                return null;
-
-        }
-    }
 
 }

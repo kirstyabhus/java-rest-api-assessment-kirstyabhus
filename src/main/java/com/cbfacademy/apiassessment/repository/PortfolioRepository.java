@@ -40,6 +40,11 @@ public class PortfolioRepository {
         }
     }
 
+    // get the portfoliosMap (for service)
+    public Map<UUID, Portfolio> getPortfoliosMap() {
+        return portfoliosMap;
+    }
+
     // get all portfolios
     public List<Portfolio> findAll() {
         return new ArrayList<>(portfoliosMap.values());
@@ -101,40 +106,7 @@ public class PortfolioRepository {
         }
     }
 
-    // TODO sort portfolio
-    public List<Portfolio> sortPortfolios(String sortCriteria) {
-        Comparator<Portfolio> comparator = getComparatorForSortCriteria(sortCriteria);
-
-        if (comparator == null) {
-            throw new IllegalArgumentException("Invalid sort criteria: " + sortCriteria);
-        }
-
-        List<Portfolio> sortedPortfolios = new ArrayList<>(portfoliosMap.values());
-        sortedPortfolios.sort(comparator);
-
-        // sort the JSON
-        try {
-            jsonUtility.writePortfoliosToJSON(sortedPortfolios, filePath);
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-
-        return sortedPortfolios;
-    }
-
-    // determine the sort comparator based on the given sortCriteria
-    private Comparator<Portfolio> getComparatorForSortCriteria(String sortCriteria) {
-        switch (sortCriteria.toLowerCase()) {
-            case "value":
-                return Comparator.comparing(Portfolio::getTotalValue);
-            case "name":
-                return Comparator.comparing(Portfolio::getName);
-            default:
-                // if invalid criteria
-                return null;
-
-        }
-    }
+    // TODO move invesstments between portfolios
 
     // TODO filter portfolio by Total Holdings / Portfolio Value
 

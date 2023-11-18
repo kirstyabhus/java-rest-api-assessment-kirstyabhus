@@ -61,8 +61,11 @@ public class PortfolioController {
     // get portfolio sorted by name or value
     @GetMapping("/sorted")
     public List<Portfolio> getSortedPortfolios(
-            @RequestParam(name = "sort", defaultValue = "name") String sortCriteria) {
-        return service.getSortedPortfolios(sortCriteria);
+            @RequestParam(name = "sort", defaultValue = "name") String sortCriteria,
+            @RequestParam(name = "order", defaultValue = "asc") String sortOrder) {
+        return service.getSortedPortfolios(sortCriteria, sortOrder);
+        // should make a new list for the sorted
+        // then return responsentit.ok(the list)
     }
 
 }
