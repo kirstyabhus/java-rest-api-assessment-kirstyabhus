@@ -22,3 +22,4 @@ After installing, you can run the application using the following Maven command.
 
 Upon running this command, the application can be accessed with the API endpoints defined.
 
+![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
