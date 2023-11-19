@@ -1,6 +1,6 @@
 # Multi Investment Portfolio Manager API
 ## Description
-A Investment Portfolio Manager API powered by Spring Boot. This appllication allows the management of multiple portfolios each containing multiple investments
+A Investment Portfolio Manager API powered by Spring Boot. This appllication allows the management of multiple portfolios each containing multiple investments.
 
 ## Key Features:
 - **Portfolio and Investment Management API Operations**: Users perform actions for both portfolios and investments. Operations for portfolios include creating, reading, updating, deleting and sorting portfolios. Users can also move investments between portfolios. For Investments, users can perform create, read, update, delete and sort operations. Investment operations also include filtering (by name, symbol, totalValue, purchasePrice, currentPrice).
@@ -9,9 +9,20 @@ A Investment Portfolio Manager API powered by Spring Boot. This appllication all
 ## Documentation
 The API documentation has been generated using Swagger and is accessible at http://localhost:8080/swagger-ui/index.html once the application is running. To access this documentation, the application must be running on port 8080.
 The Swagger API documentation shows the available endpoints (and their usage), request parameters, response formats, and error codes.
-
+![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
 ## Installation
-### 
+1. Clone the repository
+```bash
+git clone git@github.com:cbfacademy/java-rest-api-assessment-kirstyabhus.git
+```
+2. Navigate to the projects directory
+```bash
+cd java-rest-api-assessment
+```
+3. Build the project with maven
+```bash
+mvn clean install
+```
 
 ## Running the Application
 After installing, you can run the application using the following Maven command.
@@ -20,6 +31,6 @@ After installing, you can run the application using the following Maven command.
   mvn spring-boot:run
   ```
 
-Upon running this command, the application can be accessed with the API endpoints defined.
+Upon running this command, the application can be accessed with the API endpoints defined in the Swagger documentation.
 
-![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
+
