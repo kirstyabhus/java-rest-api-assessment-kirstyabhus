@@ -18,6 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.service.PortfolioService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 /**
  * Controller handling portolio-related operations.
  * Exposes endpoints for managing portfolios.
@@ -33,7 +38,11 @@ public class PortfolioController {
         this.service = service;
     }
 
-    // get all portfolios
+    @Operation(summary = "Get all portfolios")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Portfolios retrieved", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to fetch portfolios", content = @Content(mediaType = "text/plain"))
+    })
     @GetMapping("")
     public ResponseEntity<?> getAllPortfolios() {
         try {
@@ -47,7 +56,12 @@ public class PortfolioController {
         }
     }
 
-    // get a portfolio by id
+    @Operation(summary = "Get portfolio by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Portfolio retrieved", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", description = "Portfolio Not Found: Unable to find portfolio", content = @Content(mediaType = "text/plain")),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to fetch portfolio", content = @Content(mediaType = "text/plain"))
+    })
     @GetMapping("/{id}")
     public ResponseEntity<?> getPortfolioById(@PathVariable UUID id) {
         try {
@@ -68,7 +82,11 @@ public class PortfolioController {
         }
     }
 
-    // create a new portfolio
+    @Operation(summary = "Create a new portfolio")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Portfolio created successfully", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to create portfolio", content = @Content(mediaType = "text/plain"))
+    })
     @PostMapping(path = "/new", produces = "application/json")
     public ResponseEntity<?> createPortfolio(@RequestBody Portfolio portfolio) {
         try {
@@ -81,7 +99,12 @@ public class PortfolioController {
         }
     }
 
-    // update a portfolio
+    @Operation(summary = "Update a portfolio by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Portfolio updated successfully", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", description = "Portfolio Not Found: Unable to find portfolio", content = @Content(mediaType = "text/plain")),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to update portfolio", content = @Content(mediaType = "text/plain"))
+    })
     @PutMapping("/{id}")
     public ResponseEntity<?> updatePortfolio(@PathVariable UUID id, @RequestBody Portfolio portfolio) {
         try {
@@ -100,7 +123,12 @@ public class PortfolioController {
         }
     }
 
-    // delete a portfolio
+    @Operation(summary = "Update a portfolio by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Portfolio updated successfully", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", description = "Portfolio Not Found: Unable to find portfolio", content = @Content(mediaType = "text/plain")),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to update portfolio", content = @Content(mediaType = "text/plain"))
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletePortfolio(@PathVariable UUID id) {
         try {
@@ -115,7 +143,11 @@ public class PortfolioController {
         }
     }
 
-    // get portfolios sorted by name or value
+    @Operation(summary = "Get portfolios sorted by specified criteria")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Sorted portfolios retrieved", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to fetch sorted portfolios", content = @Content(mediaType = "text/plain"))
+    })
     @GetMapping("/sorted")
     public ResponseEntity<?> getSortedPortfolios(
             @RequestParam(name = "sort_by", defaultValue = "name") String sortCriteria,
@@ -131,7 +163,11 @@ public class PortfolioController {
         }
     }
 
-    // move investment between portfolios
+    @Operation(summary = "Move investment between portfolios")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Investment moved successfully", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to move investment", content = @Content(mediaType = "text/plain"))
+    })
     @PostMapping(path = "/move-investment", produces = "application/json")
     public ResponseEntity<?> moveInvestment(@RequestParam("fromPortfolioId") UUID fromPortfolioId,
             @RequestParam("toPortfolioId") UUID toPortfolioId,
