@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.service.PortfolioService;
 
