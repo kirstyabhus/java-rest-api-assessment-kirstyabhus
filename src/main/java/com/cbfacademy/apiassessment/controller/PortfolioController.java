@@ -3,6 +3,7 @@ package com.cbfacademy.apiassessment.controller;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,9 +34,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RequestMapping("/api/v1/portfolios")
 public class PortfolioController {
 
-    // @Autowired
     private final PortfolioService service;
 
+    @Autowired
     PortfolioController(PortfolioService service) {
         this.service = service;
     }
