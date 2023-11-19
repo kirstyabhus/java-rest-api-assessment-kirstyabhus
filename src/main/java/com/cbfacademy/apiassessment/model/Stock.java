@@ -17,7 +17,7 @@ public class Stock implements Investment {
     private int sharesQuantity;
     private double purchasePrice;
     private double totalValue;
-    private double currentValue; // TODO Fetch current value from API?
+    private double currentValue;
 
     // private Double esgScore; // TODO
 

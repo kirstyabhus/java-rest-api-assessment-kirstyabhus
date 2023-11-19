@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.cbfacademy.apiassessment.exception.InvestmentNotFoundException;
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.utility.JsonUtility;
@@ -120,41 +121,6 @@ public class InvestmentRepository {
     }
 
     /**
-     * Updates the portfolio with new investments.
-     *
-     * @param portfolioId The unique identifier of the portfolio to update.
-     * @param investments The list of investments to update.
-     * @throws IllegalArgumentException if the portfolio ID is null or if no
-     *                                  portfolio exists for the given ID.
-     * @throws RuntimeException         if an error occurs during portfolio update.
-     */
-    public void updatePortfolio(UUID portfolioId, List<Investment> investments) {
-        if (portfolioId == null) {
-            logger.error("Portfolio ID cannot be null");
-            throw new IllegalArgumentException("Portfolio ID cannot be null");
-        }
-
-        Portfolio portfolio = portfoliosMap.get(portfolioId);
-        if (portfolio == null) {
-            logger.error("No portfolio found for ID: {}", portfolioId);
-            throw new IllegalArgumentException("No portfolio found for ID: " + portfolioId);
-        }
-
-        try {
-            portfolio.setInvestments(investments);
-
-            // update total value of portfolio
-            portfolio.calculateTotalValue();
-
-            // replace the portfolio in the portfolio map with the updated investments
-            portfoliosMap.put(portfolioId, portfolio);
-        } catch (Exception e) {
-            logger.error("Error updating portfolio: {}", e.getMessage(), e);
-            throw new RuntimeException("Error updating portfolio", e);
-        }
-    }
-
-    /**
      * Retrieves all investments for a given portfolio.
      *
      * @param portfolioId The unique identifier of the portfolio to retrieve
@@ -198,7 +164,7 @@ public class InvestmentRepository {
             return investmentMap.get(investmentId);
         } catch (Exception e) {
             logger.error("Error retrieving investment by ID: {}", e.getMessage(), e);
-            throw new RuntimeException("Error retrieving investment by ID", e);
+            throw new InvestmentNotFoundException("Investment with ID " + investmentId + " not found");
         }
     }
 
@@ -242,6 +208,41 @@ public class InvestmentRepository {
         } catch (Exception e) {
             logger.error("Error saving investment: {}", e.getMessage(), e);
             throw new RuntimeException("Error saving investment", e);
+        }
+    }
+
+    /**
+     * Updates the portfolio with new investments.
+     *
+     * @param portfolioId The unique identifier of the portfolio to update.
+     * @param investments The list of investments to update.
+     * @throws IllegalArgumentException if the portfolio ID is null or if no
+     *                                  portfolio exists for the given ID.
+     * @throws RuntimeException         if an error occurs during portfolio update.
+     */
+    public void updatePortfolio(UUID portfolioId, List<Investment> investments) {
+        if (portfolioId == null) {
+            logger.error("Portfolio ID cannot be null");
+            throw new IllegalArgumentException("Portfolio ID cannot be null");
+        }
+
+        Portfolio portfolio = portfoliosMap.get(portfolioId);
+        if (portfolio == null) {
+            logger.error("No portfolio found for ID: {}", portfolioId);
+            throw new IllegalArgumentException("No portfolio found for ID: " + portfolioId);
+        }
+
+        try {
+            portfolio.setInvestments(investments);
+
+            // update total value of portfolio
+            portfolio.calculateTotalValue();
+
+            // replace the portfolio in the portfolio map with the updated investments
+            portfoliosMap.put(portfolioId, portfolio);
+        } catch (Exception e) {
+            logger.error("Error updating portfolio: {}", e.getMessage(), e);
+            throw new RuntimeException("Error updating portfolio", e);
         }
     }
 

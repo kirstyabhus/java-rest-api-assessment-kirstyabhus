@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.cbfacademy.apiassessment.repository.InvestmentRepository;
 import com.cbfacademy.apiassessment.repository.PortfolioRepository;
-import com.cbfacademy.apiassessment.utility.JsonUtility;
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 
@@ -23,11 +22,7 @@ import com.cbfacademy.apiassessment.model.Portfolio;
 @Service
 public class PortfolioService {
 
-    private String filePath = "C:///Users//kabhu//cbf-final-project//java-rest-api-assessment-kirstyabhus//src//main//resources//data.json";
     private static final Logger logger = LoggerFactory.getLogger(PortfolioService.class);
-
-    @Autowired
-    private JsonUtility jsonUtility;
 
     @Autowired
     private final PortfolioRepository portfolioRepository;

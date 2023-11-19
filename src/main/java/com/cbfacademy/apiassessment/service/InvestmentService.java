@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cbfacademy.apiassessment.repository.InvestmentRepository;
-import com.cbfacademy.apiassessment.utility.JsonUtility;
 import com.cbfacademy.apiassessment.model.Investment;
-import com.cbfacademy.apiassessment.model.Portfolio;
 
 /**
  * Service class handling investment-related operations.
@@ -22,11 +20,7 @@ import com.cbfacademy.apiassessment.model.Portfolio;
 @Service
 public class InvestmentService {
 
-    private String filePath = "C:///Users//kabhu//cbf-final-project//java-rest-api-assessment-kirstyabhus//src//main//resources//data.json";
     private static final Logger logger = LoggerFactory.getLogger(InvestmentService.class);
-
-    @Autowired
-    private JsonUtility jsonUtility;
 
     @Autowired
     private final InvestmentRepository investmentRepository;
