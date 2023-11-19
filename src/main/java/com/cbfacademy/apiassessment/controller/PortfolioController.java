@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.service.PortfolioService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -58,7 +60,7 @@ public class PortfolioController {
 
     @Operation(summary = "Get portfolio by ID")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Portfolio retrieved", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "200", description = "Portfolio retrieved", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Portfolio.class))),
             @ApiResponse(responseCode = "404", description = "Portfolio Not Found: Unable to find portfolio", content = @Content(mediaType = "text/plain")),
             @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to fetch portfolio", content = @Content(mediaType = "text/plain"))
     })
@@ -123,11 +125,10 @@ public class PortfolioController {
         }
     }
 
-    @Operation(summary = "Update a portfolio by ID")
+    @Operation(summary = "Delete a portfolio by ID")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Portfolio updated successfully", content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "404", description = "Portfolio Not Found: Unable to find portfolio", content = @Content(mediaType = "text/plain")),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to update portfolio", content = @Content(mediaType = "text/plain"))
+            @ApiResponse(responseCode = "200", description = "Portfolio deleted successfully", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to delete portfolio", content = @Content(mediaType = "text/plain"))
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletePortfolio(@PathVariable UUID id) {
@@ -135,7 +136,7 @@ public class PortfolioController {
 
             service.deletePortfolio(id);
 
-            String feedbackMessage = "Portfolio deleted successfuly";
+            String feedbackMessage = "Portfolio deleted successfully";
             return ResponseEntity.ok().body(feedbackMessage);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
