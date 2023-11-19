@@ -10,6 +10,19 @@ A Investment Portfolio Manager API powered by Spring Boot. This appllication all
 The API documentation has been generated using SpringDoc and Swagger and can be accessed at http://localhost:8080/swagger-ui/index.html once the application is running. To access this documentation, the application must be running on port 8080.
 The Swagger API documentation shows the available endpoints (and their usage), request parameters, response formats, and error codes.
 ![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
+
+## Technology Used
+- Java and Spring Boot: Used to create the application
+- RESTful API: To handle the CRUD operations on the portfolios and investments
+- JSON: Used to store portfolio data
+- HashMap: JSON data was retrieved into a HashMap in order to perform CRUD and other operations.
+- JUnit and Mockito: Used to test the API
+- Maven: Used to manage the dependencies of the application
+
+## Prerequisites
+- JDK 17 or higher must be installed.
+- Apache Maven 3.6 or newer.
+  
 ## Installation
 1. Clone the repository
 ```bash
@@ -36,3 +49,8 @@ Upon running this command, the application can be accessed with the API endpoint
   <img src="Swagger_Endpoints.gif" alt="swagger documentation demo" width="500" height="263"/>
 </p>
 
+## Testing
+The following test script can be used to test the application:
+```bash
+mvn test
+```
