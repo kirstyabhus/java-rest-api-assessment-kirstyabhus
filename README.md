@@ -32,5 +32,7 @@ After installing, you can run the application using the following Maven command.
   ```
 
 Upon running this command, the application can be accessed with the API endpoints defined in the Swagger documentation.
-
+<p align="center">
+  <img src="Swagger_Endpoints.gif" alt="swagger documentation demo" width="500" height="263"/>
+</p>
 
