@@ -29,7 +29,7 @@ import jakarta.annotation.PostConstruct;
 @Repository
 public class PortfolioRepository {
 
-    private String filePath = "C:///Users//kabhu//cbf-final-project//java-rest-api-assessment-kirstyabhus//src//main//resources//data.json";
+    private String filePath = "C:///Users//abhu//cbf-final-project//java-rest-api-assessment-kirstyabhus//src//main//resources//data//portfolios.json";
     private static final Logger logger = LoggerFactory.getLogger(PortfolioRepository.class);
 
     // map to store our data from json in the form ID:Portfolio
