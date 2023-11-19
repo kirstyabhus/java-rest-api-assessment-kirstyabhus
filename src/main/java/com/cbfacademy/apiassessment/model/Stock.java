@@ -4,9 +4,12 @@ import java.util.UUID;
 
 import jakarta.persistence.Entity;
 
+/**
+ * Represents a stock investment.
+ * Implements the Investment interface.
+ */
 @Entity
 public class Stock implements Investment {
-    // private final UUID id;
     private UUID id;
     private String type = "Stock";
     private String symbol;
@@ -18,13 +21,18 @@ public class Stock implements Investment {
 
     // private Double esgScore; // TODO
 
-    // default no-arg constructor for when GSON deser JSON into Stock object
+    /**
+     * Default constructor used by GSON during JSON deserialization.
+     * Sets a random UUID for the Stock.
+     */
     public Stock() {
         this.id = UUID.randomUUID();
     }
 
-    // constructor for when user is giving id (e.g. for PUT request, when id is
-    // already given)
+    /**
+     * Constructs an Stock object when the UUID is provided explicitly.
+     * Calculates the total value based on shares quantity and purchase price.
+     */
     public Stock(UUID id, String type, String symbol, String name, int sharesQuantity, double purchasePrice,
             double totalValue,
             double currentValue) {
@@ -38,6 +46,11 @@ public class Stock implements Investment {
         this.currentValue = currentValue;
     }
 
+    /**
+     * Constructs an Stock object with a randomly generated UUID.
+     * Used when the UUID is not provided explicitly.
+     * Calculates the total value based on shares quantity and purchase price.
+     */
     public Stock(String type, String symbol, String name, int sharesQuantity, double purchasePrice, double totalValue,
             double currentValue) {
         this.id = UUID.randomUUID();
@@ -49,6 +62,7 @@ public class Stock implements Investment {
         this.totalValue = sharesQuantity * purchasePrice;
         this.currentValue = currentValue;
     }
+
     /*
      * public Double getEsgScore() {
      * return esgScore;

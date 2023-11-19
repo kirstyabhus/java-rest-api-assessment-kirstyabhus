@@ -44,7 +44,7 @@ public class InvestmentService {
      * @throws RuntimeException if an error occurs while retrieving the investments.
      *                          The exception wraps the underlying cause.
      */
-    public List<Investment> getAllInvesments(UUID portfolioId) {
+    public List<Investment> getAllInvestments(UUID portfolioId) {
         List<Investment> investments = new ArrayList<>();
 
         try {
@@ -164,7 +164,6 @@ public class InvestmentService {
         try {
             // get the portfolio and investments
             Map<UUID, Investment> investmentMap = investmentRepository.getInvestmentMap();
-            Map<UUID, Portfolio> portfoliosMap = investmentRepository.getPortfoliosMap();
 
             investmentRepository.populateInvestmentMap(portfolioId);
 
@@ -196,15 +195,6 @@ public class InvestmentService {
             }
 
             investmentRepository.updatePortfolio(portfolioId, sortedInvestments);
-
-            // update JSON with sorted investments
-            try {
-                ArrayList<Portfolio> portfolioList = new ArrayList<>(portfoliosMap.values());
-                jsonUtility.writePortfoliosToJSON(portfolioList, filePath);
-            } catch (Exception e) {
-                logger.error("Error occurred while sorting and updating JSON: {}", e.getMessage());
-                throw new RuntimeException("Failed to sort investments and update JSON", e);
-            }
 
             return sortedInvestments;
         } catch (IllegalArgumentException e) {

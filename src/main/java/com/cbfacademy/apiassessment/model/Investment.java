@@ -7,6 +7,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import jakarta.persistence.Entity;
 
+/**
+ * Interface representing an investment, which can be a stock or an ETF.
+ */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Stock.class, name = "Stock"),
@@ -14,7 +17,6 @@ import jakarta.persistence.Entity;
 })
 @Entity
 public interface Investment {
-    // stock or etf?
 
     String getType();
 

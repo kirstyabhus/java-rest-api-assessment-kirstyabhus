@@ -2,7 +2,6 @@ package com.cbfacademy.apiassessment.repository;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
-import com.cbfacademy.apiassessment.service.PortfolioService;
 import com.cbfacademy.apiassessment.utility.JsonUtility;
 
 import jakarta.annotation.PostConstruct;

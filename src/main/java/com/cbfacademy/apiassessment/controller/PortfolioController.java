@@ -3,6 +3,7 @@ package com.cbfacademy.apiassessment.controller;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.service.PortfolioService;
 
+/**
+ * Controller handling portolio-related operations.
+ * Exposes endpoints for managing portfolios.
+ */
 @RestController
 @RequestMapping("/api/v1/portfolios")
 public class PortfolioController {
@@ -30,50 +35,116 @@ public class PortfolioController {
 
     // get all portfolios
     @GetMapping("")
-    public List<Portfolio> getAllPortfolios() {
-        return service.getPortfolios();
+    public ResponseEntity<?> getAllPortfolios() {
+        try {
+
+            List<Portfolio> portfolios = service.getPortfolios();
+            return ResponseEntity.ok(portfolios);
+
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Internal Server Error: Unable to fetch portfolios - " + e.getMessage());
+        }
     }
 
     // get a portfolio by id
     @GetMapping("/{id}")
-    public Portfolio getPortfolioById(@PathVariable UUID id) {
-        return service.getPortfolioById(id);
+    public ResponseEntity<?> getPortfolioById(@PathVariable UUID id) {
+        try {
+
+            Portfolio portfolio = service.getPortfolioById(id);
+
+            if (portfolio != null) {
+
+                return ResponseEntity.ok(portfolio);
+
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body("Portfolio Not Found: Unable to find portfolio with ID " + id);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Internal Server Error: Unable to fetch portfolio - " + e.getMessage());
+        }
     }
 
     // create a new portfolio
     @PostMapping(path = "/new", produces = "application/json")
-    public Portfolio createPortfolio(@RequestBody Portfolio portfolio) {
-        return service.createOrUpdatePortfolio(portfolio);
+    public ResponseEntity<?> createPortfolio(@RequestBody Portfolio portfolio) {
+        try {
+            Portfolio createdPortfolio = service.createOrUpdatePortfolio(portfolio);
+
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdPortfolio);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Internal Server Error: Unable to create portfolio - " + e.getMessage());
+        }
     }
 
     // update a portfolio
     @PutMapping("/{id}")
-    public Portfolio updatePortfolio(@PathVariable UUID id, @RequestBody Portfolio portfolio) {
-        return service.createOrUpdatePortfolio(portfolio);
+    public ResponseEntity<?> updatePortfolio(@PathVariable UUID id, @RequestBody Portfolio portfolio) {
+        try {
+
+            Portfolio updatedPortfolio = service.createOrUpdatePortfolio(portfolio);
+
+            if (updatedPortfolio != null) {
+                return ResponseEntity.ok(updatedPortfolio);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body("Portfolio Not Found: Unable to find portfolio with ID " + id);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Internal Server Error: Unable to update portfolio - " + e.getMessage());
+        }
     }
 
     // delete a portfolio
     @DeleteMapping("/{id}")
-    public void deletePortfolio(@PathVariable UUID id) {
-        service.deletePortfolio(id);
+    public ResponseEntity<?> deletePortfolio(@PathVariable UUID id) {
+        try {
+
+            service.deletePortfolio(id);
+
+            String feedbackMessage = "Portfolio deleted successfuly";
+            return ResponseEntity.ok().body(feedbackMessage);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Internal Server Error: Unable to delete portfolio - " + e.getMessage());
+        }
     }
 
     // get portfolios sorted by name or value
     @GetMapping("/sorted")
-    public List<Portfolio> getSortedPortfolios(
-            @RequestParam(name = "sort", defaultValue = "name") String sortCriteria,
-            @RequestParam(name = "order", defaultValue = "asc") String sortOrder) {
-        return service.getSortedPortfolios(sortCriteria, sortOrder);
-        // should make a new list for the sorted
-        // then return responsentit.ok(the list)
+    public ResponseEntity<?> getSortedPortfolios(
+            @RequestParam(name = "sort_by", defaultValue = "name") String sortCriteria,
+            @RequestParam(name = "order_by", defaultValue = "asc") String sortOrder) {
+        try {
+
+            List<Portfolio> sortedPortfolios = service.getSortedPortfolios(sortCriteria, sortOrder);
+
+            return ResponseEntity.ok(sortedPortfolios);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Internal Server Error: Unable to fetch sorted portfolios - " + e.getMessage());
+        }
     }
 
     // move investment between portfolios
     @PostMapping(path = "/move-investment", produces = "application/json")
-    public void moveInvestment(@RequestParam("fromPortfolioId") UUID fromPortfolioId,
+    public ResponseEntity<?> moveInvestment(@RequestParam("fromPortfolioId") UUID fromPortfolioId,
             @RequestParam("toPortfolioId") UUID toPortfolioId,
             @RequestParam("investmentId") UUID investmentId) {
-        service.moveInvestment(fromPortfolioId, toPortfolioId, investmentId);
+        try {
+            service.moveInvestment(fromPortfolioId, toPortfolioId, investmentId);
+
+            String feedbackMessage = "Investment moved successfuly";
+            return ResponseEntity.ok().body(feedbackMessage);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Internal Server Error: Unable to move investment - " + e.getMessage());
+        }
     }
 
 }

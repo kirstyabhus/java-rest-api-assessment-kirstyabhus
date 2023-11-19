@@ -4,6 +4,10 @@ import java.util.UUID;
 
 import jakarta.persistence.Entity;
 
+/**
+ * Represents an Exchange-Traded Fund (ETF).
+ * Implements the Investment interface.
+ */
 @Entity
 public class ETF implements Investment {
     private UUID id;
@@ -15,11 +19,18 @@ public class ETF implements Investment {
     private double totalValue;
     private double currentValue;
 
-    // default no-arg constructor for when GSON deser JSON into ETF object
+    /**
+     * Default constructor used by GSON during JSON deserialization.
+     * Sets a random UUID for the ETF.
+     */
     public ETF() {
         this.id = UUID.randomUUID();
     }
 
+    /**
+     * Constructs an ETF object when the UUID is provided explicitly.
+     * Calculates the total value based on shares quantity and purchase price.
+     */
     public ETF(UUID id, String type, String symbol, String name, int sharesQuantity, double purchasePrice,
             double totalValue,
             double currentValue) {
@@ -33,6 +44,11 @@ public class ETF implements Investment {
         this.currentValue = currentValue;
     }
 
+    /**
+     * Constructs an ETF object with a randomly generated UUID.
+     * Used when the UUID is not provided explicitly.
+     * Calculates the total value based on shares quantity and purchase price.
+     */
     public ETF(String type, String symbol, String name, int sharesQuantity, double purchasePrice, double totalValue,
             double currentValue) {
         this.id = UUID.randomUUID();
