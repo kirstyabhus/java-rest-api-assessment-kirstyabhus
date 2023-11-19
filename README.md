@@ -7,7 +7,7 @@ A Investment Portfolio Manager API powered by Spring Boot. This appllication all
 - **Automatic calculations**: The total value of investments are automatically calculated on insertion into the portfolio. Additionally, the total value of the portfolio is calculated from the total of the investments, regardless of whether investments are added or deleted, the total value will always be up-to-date.
 
 ## Documentation
-The API documentation has been generated using Swagger and is accessible at http://localhost:8080/swagger-ui/index.html once the application is running. To access this documentation, the application must be running on port 8080.
+The API documentation has been generated using SpringDoc and Swagger and can be accessed at http://localhost:8080/swagger-ui/index.html once the application is running. To access this documentation, the application must be running on port 8080.
 The Swagger API documentation shows the available endpoints (and their usage), request parameters, response formats, and error codes.
 ![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
 ## Installation
