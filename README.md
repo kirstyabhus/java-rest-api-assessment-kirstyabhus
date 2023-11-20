@@ -1,28 +1,97 @@
 # Multi-Portfolio Investment Manager API API
 ## Description
-A Investment Portfolio Manager API powered by Spring Boot. This appllication allows the management of multiple portfolios each containing multiple investments. Users can manage Stocks and ETFs.
+Welcome to the Investment Portfolio Manager API, a robust backend system powered by Spring Boot. This API serves as a comprehensive solution for efficiently managing diverse investment portfolios comprising stocks and Exchange-Traded Funds (ETFs). Seamlessly handling multiple portfolios, this platform allows users to create, update, and oversee various investment portfolios, ensuring optimal control and management of investment assets.
+
+## Table of Contents
+
+1. [Key Features](#key-features)
+2. [Documentation](#documentation)
+3. [Technology Used](#technology-used)
+4. [Prerequisites](#prerequisites)
+5. [Installation](#installation)
+6. [Running the Application](#running-the-application)
+7. [Testsing](#testing)
 
 ## Key Features:
-- **Portfolio and Investment Management API Operations**: Users perform actions for both portfolios and investments. Operations for portfolios include creating, reading, updating, deleting and sorting portfolios. Users can also move investments between portfolios. For Investments, users can perform create, read, update, delete and sort operations. Investment operations also include filtering (by name, symbol, totalValue, purchasePrice, currentPrice).
-- **Automatic calculations**: The total value of investments are automatically calculated on insertion into the portfolio. Additionally, the total value of the portfolio is calculated from the total of the investments, regardless of whether investments are added or deleted, the total value will always be up-to-date.
+- **Portfolio Operations**:
+    - Create, read, update, delete, and sort portfolios effortlessly.
+    - Seamlessly transfer investments between different portfolios for flexible asset management.
+- **Investment Operations:**
+    - Perform create, read, update, delete, and sort actions on investments.
+    - Utilise advanced filtering options (by name, symbol, total value, purchase price, and current price) for precise data retrieval.
+- **Automated Calculations:**
+    - Automated computation of investment total values upon insertion into portfolios for streamlined data handling.
+    - Dynamic recalculation of portfolio total values whenever investments are added or removed, ensuring real-time accuracy without manual intervention.
 
 ## Documentation
-The API documentation has been generated using SpringDoc and Swagger and can be accessed at http://localhost:8080/swagger-ui/index.html once the application is running. To access this documentation, the application must be running on port 8080.
-The Swagger API documentation shows the available endpoints (and their usage), request parameters, response formats, and error codes.
+The API documentation, powered by SpringDoc and Swagger, provides comprehensive insights into the functionalities of this application. Access the documentation at http://localhost:8080/swagger-ui/index.html while the application is running. Please note that accessing the documentation with this link requires the application to be active on port 8080. However, this can be changed with the addition of the line `server.port="your desired port number"` in the application.properties file.
+
+The Swagger API documentation serves as a detailed guide showcasing available endpoints, their usage, request parameters, response formats, and error codes. It offers a user-friendly interface to explore and understand the API functionalities efficiently.
+
+Ensure the application is running on port 8080 to fully leverage the rich documentation provided by Swagger, facilitating a smoother understanding and utilization of the API's capabilities.
+
+## Endpoints
 ![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
+Access more details through the Swagger UI after running the application.
+
+Example portfolio response (for get portfolio by id):
+```json
+{
+        "portfolioId": "0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1",
+        "name": "Tech Investments",
+        "totalValue": 5472.0,
+        "investments": [
+            {
+                "id": "f5c03b4d-a6c7-4362-975f-c18ecfcf697c",
+                "type": "ETF",
+                "symbol": "VGT",
+                "name": "Vanguard Information Technology ETF",
+                "sharesQuantity": 15,
+                "purchasePrice": 54.8,
+                "totalValue": 822.0,
+                "currentValue": 56.2
+            },
+            {
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "type": "Stock",
+                "symbol": "NVDA",
+                "name": "NVIDIA Corp",
+                "sharesQuantity": 200,
+                "purchasePrice": 23.25,
+                "totalValue": 4650.0,
+                "currentValue": 25.5
+            }
+        ]
+    }
+```
+## Project Structure
+- `controllers` : Contains classes responsible for handling incoming HTTP requests, interacting with services, processing data, and forming appropriate HTTP responses. 
+- `services` : holds classes that encapsulate business logic or application-specific functionality. They perform operations requested by controllers, interact with repositories for data access, perform computations, and implement the core logic of the application.
+- `repositories` :  Contains classes responsible for data access. They interact with the underlying data storage (JSON file). CRUD (Create, Read, Update, Delete) operations are performed here and an abstraction layer is provided for data access.
+- `model` : Contains classes that represent the data entities. These classes define the structure of the data used within the application.
+- `utility` : Contains functions for handling JSON data (reading and writing).
+- `exceptions` : Used to hold custom exception classes or exception-related functionalities
+
+### Data flow
+`Users API request` > `Controller` > `Service` > `Repository` > `Utility` > `Data Utility` > `Repository` > `Service` > `Controller` > `User API response`
 
 ## Technology Used
 - Java and Spring Boot: Used to create the application
 - RESTful API: To handle the CRUD operations on the portfolios and investments
 - JSON: Used to store portfolio data
-- HashMap: JSON data was retrieved into a HashMap in order to perform CRUD and other operations.
+- HashMap/List: JSON data was retrieved into a HashMap to store portfolios/investments and in Lists in order to perform CRUD and other operations.
 - JUnit and Mockito: Used to test the API
 - Maven: Used to manage the dependencies of the application
 
 ## Prerequisites
 - JDK 17 or higher must be installed.
 - Apache Maven 3.6 or newer.
-  
+
+## Dependencies
+- Spring Boot: Used to develop a java-based, standalone, Spring-based application
+- GSON: Used for JSON serialization and deserialization.
+- SpringFox Swagger UI: Used to generate interactive API documentation, allowing API calls to be used directly in the browser.
+- 
 ## Installation
 1. Clone the repository
 ```bash
