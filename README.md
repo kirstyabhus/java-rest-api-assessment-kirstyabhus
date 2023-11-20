@@ -1,6 +1,6 @@
 # Multi-Portfolio Investment Manager API API
 ## Description
-A Investment Portfolio Manager API powered by Spring Boot. This appllication allows the management of multiple portfolios each containing multiple investments. Users can manage Stocks and ETFs.
+A Investment Portfolio Manager API powered by Spring Boot. This project serves as a backend system to manage multiple investment portfolios containing stocks and ETFs.
 
 ## Table of Contents
 
