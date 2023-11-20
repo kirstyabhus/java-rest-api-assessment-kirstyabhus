@@ -10,7 +10,7 @@ Welcome to the Investment Portfolio Manager API, a robust backend system powered
 4. [Prerequisites](#prerequisites)
 5. [Installation](#installation)
 6. [Running the Application](#running-the-application)
-7. [Testsing](#testing)
+7. [Testing](#testing)
 
 ## Key Features:
 - **Portfolio Operations**:
