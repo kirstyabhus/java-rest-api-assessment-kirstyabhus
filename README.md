@@ -24,8 +24,11 @@ Welcome to the Investment Portfolio Manager API, a robust backend system powered
     - Dynamic recalculation of portfolio total values whenever investments are added or removed, ensuring real-time accuracy without manual intervention.
 
 ## Documentation
-The API documentation has been generated using SpringDoc and Swagger and can be accessed at http://localhost:8080/swagger-ui/index.html once the application is running. To access this documentation, the application must be running on port 8080.
-The Swagger API documentation shows the available endpoints (and their usage), request parameters, response formats, and error codes.
+The API documentation, powered by SpringDoc and Swagger, provides comprehensive insights into the functionalities of this application. Access the documentation at http://localhost:8080/swagger-ui/index.html while the application is running. Please note that accessing the documentation with this link requires the application to be active on port 8080. However, this can be changed with the addition of the line `server.port="your desired port number"` in the application.properties file.
+
+The Swagger API documentation serves as a detailed guide showcasing available endpoints, their usage, request parameters, response formats, and error codes. It offers a user-friendly interface to explore and understand the API functionalities efficiently.
+
+Ensure the application is running on port 8080 to fully leverage the rich documentation provided by Swagger, facilitating a smoother understanding and utilization of the API's capabilities.
 
 ## Endpoints
 ![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
