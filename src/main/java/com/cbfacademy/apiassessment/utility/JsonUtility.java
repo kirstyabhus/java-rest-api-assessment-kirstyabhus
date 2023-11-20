@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.cbfacademy.apiassessment.model.ESGRating;
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 import com.google.gson.Gson;
@@ -61,9 +62,10 @@ public class JsonUtility {
 
         try (FileReader reader = new FileReader(filePath)) {
             // create a Gson instance with the custom investment deserialisation
-            Gson gson = new GsonBuilder()
-                    .registerTypeAdapter(Investment.class, new InvestmentDeserialiser())
-                    .create();
+            GsonBuilder gsonBuilder = new GsonBuilder();
+            gsonBuilder.registerTypeAdapter(Investment.class, new InvestmentDeserialiser());
+            gsonBuilder.registerTypeAdapter(ESGRating.class, new ESGRatingDeserializer());
+            Gson gson = gsonBuilder.create();
 
             TypeToken<List<Portfolio>> portfolioListType = new TypeToken<List<Portfolio>>() {
             };
@@ -74,4 +76,14 @@ public class JsonUtility {
             throw new IOException("Error reading portfolios from JSON", e);
         }
     }
+
+    public void readStockESGRatingsFromJSON(String filePath) throws IOException {
+
+        try (FileReader reader = new FileReader(filePath)) {
+            GsonBuilder gsonBuilder = new GsonBuilder();
+            gsonBuilder.registerTypeAdapter(ESGRating.class, new ESGRatingDeserializer());
+            Gson gson = gsonBuilder.create();
+        }
+    }
+
 }

@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 
+import com.cbfacademy.apiassessment.model.ESGRating;
 import com.cbfacademy.apiassessment.model.ETF;
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
@@ -39,8 +40,8 @@ public class PortfolioRepositoryTest {
         UUID portfolioId2 = UUID.randomUUID();
         UUID portfolioId3 = UUID.randomUUID();
 
-        ETF investment1 = new ETF("ETF", "TEST", "TESTER", 5, 5.0, 5.0, 5.0);
-        Stock investment2 = new Stock("Stock", "TEST", "TESTER", 5, 5.0, 5.0, 5.0);
+        ETF investment1 = new ETF("ETF", "TEST", "TESTER", ESGRating.AAA, 5, 5.0, 5.0, 5.0);
+        Stock investment2 = new Stock("Stock", "TEST", "TESTER", ESGRating.BBB, 5, 5.0, 5.0, 5.0);
         // Investment investment2 = new Stock(
         List<Investment> investments = new ArrayList<>(Arrays.asList(investment1, investment2));
 

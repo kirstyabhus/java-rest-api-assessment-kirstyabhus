@@ -30,6 +30,10 @@ public interface Investment {
 
     void setName(String name);
 
+    ESGRating getESGRating();
+
+    void setESGRating(ESGRating esgRating);
+
     int getSharesQuantity();
 
     void setSharesQuantity(int sharesQuantity);

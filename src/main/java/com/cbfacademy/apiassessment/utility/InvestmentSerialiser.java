@@ -34,6 +34,7 @@ public class InvestmentSerialiser implements JsonSerializer<Investment> {
             jsonObject.addProperty("id", investment.getId().toString());
             jsonObject.addProperty("symbol", investment.getSymbol());
             jsonObject.addProperty("name", investment.getName());
+            jsonObject.addProperty("esgRating", investment.getESGRating().toString());
             jsonObject.addProperty("sharesQuantity", investment.getSharesQuantity());
             jsonObject.addProperty("purchasePrice", investment.getPurchasePrice());
             jsonObject.addProperty("totalValue", investment.getTotalValue());

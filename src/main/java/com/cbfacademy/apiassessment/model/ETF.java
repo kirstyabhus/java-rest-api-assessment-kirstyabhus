@@ -14,6 +14,7 @@ public class ETF implements Investment {
     private String type = "ETF";
     private String symbol;
     private String name;
+    private ESGRating esgRating;
     private int sharesQuantity;
     private double purchasePrice;
     private double totalValue;
@@ -25,36 +26,42 @@ public class ETF implements Investment {
      */
     public ETF() {
         this.id = UUID.randomUUID();
+        this.esgRating = ESGRating.UNSPECIFIED;
     }
 
     /**
      * Constructs an ETF object when the UUID is provided explicitly.
      * Calculates the total value based on shares quantity and purchase price.
      */
-    public ETF(UUID id, String type, String symbol, String name, int sharesQuantity, double purchasePrice,
+    public ETF(UUID id, String type, String symbol, String name, ESGRating esgRating, int sharesQuantity,
+            double purchasePrice,
             double totalValue,
             double currentValue) {
         this.id = id;
         this.type = type;
         this.symbol = symbol;
         this.name = name;
+        this.esgRating = esgRating;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
         this.totalValue = sharesQuantity * purchasePrice;
         this.currentValue = currentValue;
     }
 
+    // TODO add esgrating to constructors
     /**
      * Constructs an ETF object with a randomly generated UUID.
      * Used when the UUID is not provided explicitly.
      * Calculates the total value based on shares quantity and purchase price.
      */
-    public ETF(String type, String symbol, String name, int sharesQuantity, double purchasePrice, double totalValue,
+    public ETF(String type, String symbol, String name, ESGRating esgRating, int sharesQuantity, double purchasePrice,
+            double totalValue,
             double currentValue) {
         this.id = UUID.randomUUID();
         this.type = type;
         this.symbol = symbol;
         this.name = name;
+        this.esgRating = esgRating;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
         this.totalValue = sharesQuantity * purchasePrice;
@@ -90,6 +97,14 @@ public class ETF implements Investment {
 
     public void setSymbol(String symbol) {
         this.symbol = symbol;
+    }
+
+    public ESGRating getESGRating() {
+        return esgRating;
+    }
+
+    public void setESGRating(ESGRating esgRating) {
+        this.esgRating = esgRating;
     }
 
     public int getSharesQuantity() {
