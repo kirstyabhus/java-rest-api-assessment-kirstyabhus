@@ -20,6 +20,40 @@ A Investment Portfolio Manager API powered by Spring Boot. This project serves a
 The API documentation has been generated using SpringDoc and Swagger and can be accessed at http://localhost:8080/swagger-ui/index.html once the application is running. To access this documentation, the application must be running on port 8080.
 The Swagger API documentation shows the available endpoints (and their usage), request parameters, response formats, and error codes.
 
+## Endpoints
+![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
+Access more details through the Swagger UI after running the application.
+
+Example portfolio response (for get portfolio by id):
+```json
+{
+        "portfolioId": "0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1",
+        "name": "Tech Investments",
+        "totalValue": 5472.0,
+        "investments": [
+            {
+                "id": "f5c03b4d-a6c7-4362-975f-c18ecfcf697c",
+                "type": "ETF",
+                "symbol": "VGT",
+                "name": "Vanguard Information Technology ETF",
+                "sharesQuantity": 15,
+                "purchasePrice": 54.8,
+                "totalValue": 822.0,
+                "currentValue": 56.2
+            },
+            {
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "type": "Stock",
+                "symbol": "NVDA",
+                "name": "NVIDIA Corp",
+                "sharesQuantity": 200,
+                "purchasePrice": 23.25,
+                "totalValue": 4650.0,
+                "currentValue": 25.5
+            }
+        ]
+    }
+```
 ## Project Structure
 - `controllers` : Contains classes responsible for handling incoming HTTP requests, interacting with services, processing data, and forming appropriate HTTP responses. 
 - `services` : holds classes that encapsulate business logic or application-specific functionality. They perform operations requested by controllers, interact with repositories for data access, perform computations, and implement the core logic of the application.
@@ -28,7 +62,8 @@ The Swagger API documentation shows the available endpoints (and their usage), r
 - `utility` : Contains functions for handling JSON data (reading and writing).
 - `exceptions` : Used to hold custom exception classes or exception-related functionalities
 
-Data flow: `Users API request` > `Controller` > `Service` > `Repository` > `Utility` > `Data Utility` > `Repository` > `Service` > `Controller` > `User API response`
+### Data flow
+`Users API request` > `Controller` > `Service` > `Repository` > `Utility` > `Data Utility` > `Repository` > `Service` > `Controller` > `User API response`
 
 ## Technology Used
 - Java and Spring Boot: Used to create the application
