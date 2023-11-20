@@ -28,6 +28,8 @@ The Swagger API documentation shows the available endpoints (and their usage), r
 - `utility` : Contains functions for handling JSON data (reading and writing).
 - `exceptions` : Used to hold custom exception classes or exception-related functionalities
 
+Data flow: `Users API request` > `Controller` > `Service` > `Repository` > `Utility` > `Data Utility` > `Repository` > `Service` > `Controller` > `User API response`
+
 ## Technology Used
 - Java and Spring Boot: Used to create the application
 - RESTful API: To handle the CRUD operations on the portfolios and investments
