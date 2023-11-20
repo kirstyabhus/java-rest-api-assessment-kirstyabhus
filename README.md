@@ -69,7 +69,7 @@ Example portfolio response (for get portfolio by id):
 - Java and Spring Boot: Used to create the application
 - RESTful API: To handle the CRUD operations on the portfolios and investments
 - JSON: Used to store portfolio data
-- HashMap: JSON data was retrieved into a HashMap in order to perform CRUD and other operations.
+- HashMap/List: JSON data was retrieved into a HashMap to store portfolios/investments and in Lists in order to perform CRUD and other operations.
 - JUnit and Mockito: Used to test the API
 - Maven: Used to manage the dependencies of the application
 
