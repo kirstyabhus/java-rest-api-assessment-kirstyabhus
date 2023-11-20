@@ -166,22 +166,24 @@ public class InvestmentController {
         }
     }
 
-    @Operation(summary = "Filter investments by specified type")
+    @Operation(summary = "Filter investments by specified criteria")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Filtered investments retrieved", content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to filter investments by type", content = @Content(mediaType = "text/plain"))
+            @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to filter investments ", content = @Content(mediaType = "text/plain"))
     })
-    @GetMapping("{portfolioId}/investments/filter-by-type")
-    public ResponseEntity<?> getInvestmentsFilteredByType(@PathVariable UUID portfolioId,
-            @RequestParam(name = "investment_type", defaultValue = "Stock") String investmentType) {
+    @GetMapping("{portfolioId}/investments/filter-by")
+    public ResponseEntity<?> getFilteredInvestments(@PathVariable UUID portfolioId,
+            @RequestParam(name = "filter_field", defaultValue = "type") String filterField,
+            @RequestParam(name = "filter_value", defaultValue = "Stock") String filterValue) {
         try {
 
-            List<Investment> filteredInvestments = service.filterInvestmentsByType(portfolioId, investmentType);
+            List<Investment> filteredInvestments = service.filterInvestments(portfolioId, filterField,
+                    filterValue);
 
             return ResponseEntity.ok().body(filteredInvestments);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Internal Server Error: Unable to filter investments by type - " + e.getMessage());
+                    .body("Internal Server Error: Unable to filter investments " + e.getMessage());
         }
     }
 }

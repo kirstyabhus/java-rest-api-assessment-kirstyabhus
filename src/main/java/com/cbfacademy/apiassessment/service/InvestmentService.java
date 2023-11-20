@@ -224,6 +224,8 @@ public class InvestmentService {
                     return Comparator.comparing(Investment::getTotalValue);
                 case "current-value":
                     return Comparator.comparing(Investment::getCurrentValue);
+                case "esg-rating":
+                    return Comparator.comparing(Investment::getESGRating);
                 default:
                     throw new IllegalArgumentException("Invalid sort criteria: " + sortCriteria);
             }
@@ -237,37 +239,50 @@ public class InvestmentService {
     }
 
     /**
-     * Filters investments based on the specified investment type for the given
+     * Filters investments based on the specified investment criteria for the given
      * portfolio.
      *
-     * @param portfolioId    The unique identifier of the portfolio to filter
-     *                       investments from.
-     * @param investmentType The type of investment to filter by.
+     * @param portfolioId The unique identifier of the portfolio to filter
+     *                    investments from.
+     * @param filterField The field to filter investments by (e.g., "type",
+     *                    "esgScore").
+     * @param filterValue The value to filter investments by based on the
+     *                    filterField.
      * @return A list of investments filtered by the specified type.
      * @throws RuntimeException if an error occurs while filtering investments.
      *                          The exception wraps the underlying cause.
      */
-    public List<Investment> filterInvestmentsByType(UUID portfolioId, String investmentType) {
+    public List<Investment> filterInvestments(UUID portfolioId, String filterField, String filterValue) {
         List<Investment> filteredInvestments = new ArrayList<>();
 
         try {
-            logger.info("Filtering investments by type '{}' for portfolio ID: {}", investmentType, portfolioId);
+            logger.info("Filtering investments for portfolio ID: {} by {} {}", portfolioId, filterField, filterValue);
 
             // Get all investments for the specified portfolio
             List<Investment> investments = investmentRepository.findAll(portfolioId);
 
-            // Filter investments by investment type
+            // Filter investments based on criteria determined by filterField
             for (Investment investment : investments) {
-                if (investment.getType().equalsIgnoreCase(investmentType)) {
-                    filteredInvestments.add(investment);
+                if ("type".equalsIgnoreCase(filterField)) {
+                    // Filter by investment type
+                    if (investment.getType().equalsIgnoreCase(filterValue)) {
+                        filteredInvestments.add(investment);
+                    }
+                } else if ("esgScore".equalsIgnoreCase(filterField)) {
+                    // Filter by ESG rating
+                    if (investment.getESGRating().toString().equals(filterValue)) {
+                        filteredInvestments.add(investment);
+                    }
                 }
             }
 
-            logger.info("Filtered {} investments by type '{}' for portfolio ID: {}", filteredInvestments.size(),
-                    investmentType, portfolioId);
+            logger.info("Filtered {} investments for portfolio ID: {} by {} {}",
+                    filteredInvestments.size(),
+                    portfolioId, filterField, filterValue);
         } catch (Exception e) {
-            logger.error("Error filtering investments by type for portfolio ID {}: {}", portfolioId, e.getMessage());
-            throw new RuntimeException("Failed to filter investments by type for portfolio ID " + portfolioId, e);
+            logger.error("Error filtering investments by {} {} for portfolio ID {}", filterField, filterValue,
+                    portfolioId, e.getMessage());
+            throw new RuntimeException("Failed to filter investments for portfolio ID " + portfolioId, e);
         }
 
         return filteredInvestments;

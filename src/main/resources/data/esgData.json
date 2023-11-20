@@ -1,5 +1,70 @@
 [
-    {},
-    {},
-    {}
+    {
+        "symbol": "VGT",
+        "type": "ETF",
+        "esgRating": "AA"
+    },
+    {
+        "symbol": "VOO",
+        "type": "ETF",
+        "esgRating": "A"
+    },
+    {
+        "symbol": "AOA",
+        "type": "ETF",
+        "esgRating": "A"
+    },
+    {
+        "symbol": "VTI",
+        "type": "ETF",
+        "esgRating": "A"
+    },
+    {
+        "symbol": "TSLA",
+        "type": "Stock",
+        "esgRating": "A",
+        "positionAmongstPeers": "average"
+    },
+    {
+        "symbol": "MSFT",
+        "type": "Stock",
+        "esgRating": "AAA",
+        "positionAmongstPeers": "leader"
+    },
+    {
+        "symbol": "NVDA",
+        "type": "Stock",
+        "esgRating": "AAA",
+        "positionAmongstPeers": "leader"
+    },
+    {
+        "symbol": "AMZN",
+        "type": "Stock",
+        "esgRating": "BBB",
+        "positionAmongstPeers": "average"
+    },
+    {
+        "symbol": "META",
+        "type": "Stock",
+        "esgRating": "CCC",
+        "positionAmongstPeers": "laggard"
+    },
+    {
+        "symbol": "LBG",
+        "type": "Stock",
+        "esgRating": "AA",
+        "positionAmongstPeers": "leader"
+    },
+    {
+        "symbol": "UBS",
+        "type": "Stock",
+        "esgRating": "AA",
+        "positionAmongstPeers": "leader"
+    },
+    {
+        "symbol": "SNAP",
+        "type": "Stock",
+        "esgRating": "B",
+        "positionAmongstPeers": "laggard"
+    }
 ]

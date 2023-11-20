@@ -14,6 +14,7 @@ public class Stock implements Investment {
     private String type = "Stock";
     private String symbol;
     private String name;
+    private ESGRating esgRating;
     private int sharesQuantity;
     private double purchasePrice;
     private double totalValue;
@@ -27,19 +28,22 @@ public class Stock implements Investment {
      */
     public Stock() {
         this.id = UUID.randomUUID();
+        this.esgRating = ESGRating.UNSPECIFIED;
     }
 
     /**
      * Constructs an Stock object when the UUID is provided explicitly.
      * Calculates the total value based on shares quantity and purchase price.
      */
-    public Stock(UUID id, String type, String symbol, String name, int sharesQuantity, double purchasePrice,
+    public Stock(UUID id, String type, String symbol, String name, ESGRating esgRating, int sharesQuantity,
+            double purchasePrice,
             double totalValue,
             double currentValue) {
         this.id = id;
         this.type = type;
         this.symbol = symbol;
         this.name = name;
+        this.esgRating = esgRating;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
         this.totalValue = sharesQuantity * purchasePrice;
@@ -51,12 +55,14 @@ public class Stock implements Investment {
      * Used when the UUID is not provided explicitly.
      * Calculates the total value based on shares quantity and purchase price.
      */
-    public Stock(String type, String symbol, String name, int sharesQuantity, double purchasePrice, double totalValue,
+    public Stock(String type, String symbol, String name, ESGRating esgRating, int sharesQuantity, double purchasePrice,
+            double totalValue,
             double currentValue) {
         this.id = UUID.randomUUID();
         this.type = type;
         this.symbol = symbol;
         this.name = name;
+        this.esgRating = esgRating;
         this.sharesQuantity = sharesQuantity;
         this.purchasePrice = purchasePrice;
         this.totalValue = sharesQuantity * purchasePrice;
@@ -102,6 +108,14 @@ public class Stock implements Investment {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ESGRating getESGRating() {
+        return esgRating;
+    }
+
+    public void setESGRating(ESGRating esgRating) {
+        this.esgRating = esgRating;
     }
 
     public int getSharesQuantity() {
