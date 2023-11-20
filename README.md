@@ -1,6 +1,6 @@
 # Multi-Portfolio Investment Manager API API
 ## Description
-A Investment Portfolio Manager API powered by Spring Boot. This project serves as a backend system to manage multiple investment portfolios containing stocks and ETFs.
+Welcome to the Investment Portfolio Manager API, a robust backend system powered by Spring Boot. This API serves as a comprehensive solution for efficiently managing diverse investment portfolios comprising stocks and Exchange-Traded Funds (ETFs). Seamlessly handling multiple portfolios, this platform allows users to create, update, and oversee various investment portfolios, ensuring optimal control and management of investment assets.
 
 ## Table of Contents
 
@@ -13,8 +13,15 @@ A Investment Portfolio Manager API powered by Spring Boot. This project serves a
 7. [Testsing](#testing)
 
 ## Key Features:
-- **Portfolio and Investment Management API Operations**: Users perform actions for both portfolios and investments. Operations for portfolios include creating, reading, updating, deleting and sorting portfolios. Users can also move investments between portfolios. For Investments, users can perform create, read, update, delete and sort operations. Investment operations also include filtering (by name, symbol, totalValue, purchasePrice, currentPrice).
-- **Automatic calculations**: The total value of investments are automatically calculated on insertion into the portfolio. Additionally, the total value of the portfolio is calculated from the total of the investments, regardless of whether investments are added or deleted, the total value will always be up-to-date.
+- **Portfolio Operations**:
+    - Create, read, update, delete, and sort portfolios effortlessly.
+    - Seamlessly transfer investments between different portfolios for flexible asset management.
+- **Investment Operations:**
+    - Perform create, read, update, delete, and sort actions on investments.
+    - Utilise advanced filtering options (by name, symbol, total value, purchase price, and current price) for precise data retrieval.
+- **Automated Calculations:**
+    - Automated computation of investment total values upon insertion into portfolios for streamlined data handling.
+    - Dynamic recalculation of portfolio total values whenever investments are added or removed, ensuring real-time accuracy without manual intervention.
 
 ## Documentation
 The API documentation has been generated using SpringDoc and Swagger and can be accessed at http://localhost:8080/swagger-ui/index.html once the application is running. To access this documentation, the application must be running on port 8080.
