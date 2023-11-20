@@ -18,7 +18,7 @@ Welcome to the Investment Portfolio Manager API, a robust backend system powered
     - Seamlessly transfer investments between different portfolios for flexible asset management.
 - **Investment Operations:**
     - Perform create, read, update, delete, and sort actions on investments.
-    - Utilise advanced filtering options (by name, symbol, total value, purchase price, and current price) for precise data retrieval.
+    - Utilise advanced filtering options (by type) for precise data retrieval.
 - **Automated Calculations:**
     - Automated computation of investment total values upon insertion into portfolios for streamlined data handling.
     - Dynamic recalculation of portfolio total values whenever investments are added or removed, ensuring real-time accuracy without manual intervention.
