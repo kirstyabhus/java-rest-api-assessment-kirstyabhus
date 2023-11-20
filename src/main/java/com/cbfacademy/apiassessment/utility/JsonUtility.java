@@ -77,13 +77,4 @@ public class JsonUtility {
         }
     }
 
-    public void readStockESGRatingsFromJSON(String filePath) throws IOException {
-
-        try (FileReader reader = new FileReader(filePath)) {
-            GsonBuilder gsonBuilder = new GsonBuilder();
-            gsonBuilder.registerTypeAdapter(ESGRating.class, new ESGRatingDeserializer());
-            Gson gson = gsonBuilder.create();
-        }
-    }
-
 }

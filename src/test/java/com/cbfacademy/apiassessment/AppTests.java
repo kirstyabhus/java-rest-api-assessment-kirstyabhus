@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 
 import java.net.URL;

@@ -1,5 +1,7 @@
 package com.cbfacademy.apiassessment.repository;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,9 +15,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.cbfacademy.apiassessment.exception.InvestmentNotFoundException;
+import com.cbfacademy.apiassessment.model.ESGRating;
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Portfolio;
 import com.cbfacademy.apiassessment.utility.JsonUtility;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 
 import jakarta.annotation.PostConstruct;
 
@@ -190,6 +198,8 @@ public class InvestmentRepository {
             // update the totalValue of the investment
             investment.calculateTotalValue();
 
+            assignESGRating(investment);
+
             // put (add or update) the investment into the map
             investmentMap.put(investment.getId(), investment);
 
@@ -282,6 +292,83 @@ public class InvestmentRepository {
         } catch (Exception e) {
             logger.error("Error deleting investment: {}", e.getMessage(), e);
             throw new RuntimeException("Error deleting investment", e);
+        }
+    }
+
+    /**
+     * Assigns ESG ratings to an Investment object based on data from a JSON file.
+     *
+     * @param investment The Investment object to assign the ESG rating to.
+     * @throws FileNotFoundException    If the file specified by the filepath is not
+     *                                  found.
+     * @throws JsonParseException       If there's an issue parsing the JSON file.
+     * @throws IllegalArgumentException If there's an issue converting the ESG
+     *                                  rating from JSON.
+     * @throws Exception                For other unhandled exceptions.
+     */
+    public void assignESGRating(Investment investment) throws FileNotFoundException,
+            JsonParseException, IllegalArgumentException, Exception {
+        // Path to the JSON file containing ESG details for stocks and ETFs
+        String filepath = "C:///Users//kabhu//cbf-final-project//java-rest-api-assessment-kirstyabhus//src//main//resources//data//esgData.json";
+
+        try {
+
+            Gson gson = new Gson();
+            JsonArray esgData = gson.fromJson(new FileReader(filepath), JsonArray.class);
+
+            // A map to store investmentSymbol : esgRating as key-value pairs
+            Map<String, String> investmentEsgMap = new HashMap<>();
+
+            // Iterate through the JSON data and store the investmentSymbols in the map
+            // against their ESG rating
+            for (JsonElement element : esgData) {
+                JsonObject investmentEsg = element.getAsJsonObject();
+                String symbol = investmentEsg.get("symbol").getAsString();
+                String esgRating = investmentEsg.get("esgRating").getAsString();
+                investmentEsgMap.put(symbol, esgRating);
+            }
+
+            // Get the symbol for the input investment
+            String symbol = investment.getSymbol();
+
+            logger.info("Attempting to find ESG Data for: " + symbol + "in the database");
+            // If the investment is in the map, give it its ESG rating
+            // If not, the ESG rating will stay as the assigned UNSPECIFIED
+            if (investmentEsgMap.containsKey(symbol)) {
+                String esgRating = investmentEsgMap.get(symbol);
+                investment.setESGRating(ESGRating.valueOf(esgRating));
+            }
+
+            if (investment.getESGRating() != ESGRating.valueOf("UNSPECIFIED")) {
+                // Log successful assignment
+                logger.info("ESG Rating assigned successfully for Investment with symbol: " + symbol);
+            } else {
+                logger.info("ESG Rating data cannot be found for the investment with symbol: " + symbol);
+            }
+
+            // If using an API or fetching updated data, I would update all using this
+            // here
+            /*
+             * for (Investment investment : investments) {
+             * String symbol = investment.getSymbol();
+             * if (esgMap.containsKey(symbol)) {
+             * String esgRating = esgMap.get(symbol);
+             * investment.setESGRating(ESGRating.valueOf(esgRating));
+             * }
+             * }
+             */
+        } catch (FileNotFoundException e) {
+            // Log the exception
+            logger.error("Unale to find the ESG rating file " + e.getMessage(), e);
+            throw e;
+        } catch (JsonParseException | IllegalArgumentException e) {
+            // Log JSON parsing or enum conversion exceptions
+            logger.error("Error parsing JSON or converting to ESG Rating: " + e.getMessage(), e);
+            throw e;
+        } catch (Exception e) {
+            // Log any other exceptions
+            logger.error("Error assigning ESG Rating: " + e.getMessage(), e);
+            throw e;
         }
     }
 

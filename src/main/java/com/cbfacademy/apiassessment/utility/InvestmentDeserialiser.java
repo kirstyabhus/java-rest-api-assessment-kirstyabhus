@@ -10,7 +10,6 @@ import com.cbfacademy.apiassessment.model.ESGRating;
 import com.cbfacademy.apiassessment.model.ETF;
 import com.cbfacademy.apiassessment.model.Investment;
 import com.cbfacademy.apiassessment.model.Stock;
-import com.cbfacademy.apiassessment.utility.ESGRatingDeserializer;
 import com.google.gson.*;
 
 /**
