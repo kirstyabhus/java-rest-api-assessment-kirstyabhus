@@ -171,12 +171,14 @@ public class InvestmentController {
             @ApiResponse(responseCode = "200", description = "Filtered investments retrieved", content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "500", description = "Internal Server Error: Unable to filter investments by type", content = @Content(mediaType = "text/plain"))
     })
-    @GetMapping("{portfolioId}/investments/filter-by-type")
+    @GetMapping("{portfolioId}/investments/filter-by")
     public ResponseEntity<?> getInvestmentsFilteredByType(@PathVariable UUID portfolioId,
-            @RequestParam(name = "investment_type", defaultValue = "Stock") String investmentType) {
+            @RequestParam(name = "filter_field", defaultValue = "type") String filterField,
+            @RequestParam(name = "filter_value", defaultValue = "Stock") String filterValue) {
         try {
 
-            List<Investment> filteredInvestments = service.filterInvestmentsByType(portfolioId, investmentType);
+            List<Investment> filteredInvestments = service.filterInvestmentsByType(portfolioId, filterField,
+                    filterValue);
 
             return ResponseEntity.ok().body(filteredInvestments);
         } catch (Exception e) {
