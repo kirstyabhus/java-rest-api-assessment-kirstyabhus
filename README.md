@@ -19,7 +19,14 @@ A Investment Portfolio Manager API powered by Spring Boot. This project serves a
 ## Documentation
 The API documentation has been generated using SpringDoc and Swagger and can be accessed at http://localhost:8080/swagger-ui/index.html once the application is running. To access this documentation, the application must be running on port 8080.
 The Swagger API documentation shows the available endpoints (and their usage), request parameters, response formats, and error codes.
-![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
+
+## Project Structure
+- `controllers` : Contains classes responsible for handling incoming HTTP requests, interacting with services, processing data, and forming appropriate HTTP responses. 
+- `services` : holds classes that encapsulate business logic or application-specific functionality. They perform operations requested by controllers, interact with repositories for data access, perform computations, and implement the core logic of the application.
+- `repositories` :  Contains classes responsible for data access. They interact with the underlying data storage (JSON file). CRUD (Create, Read, Update, Delete) operations are performed here and an abstraction layer is provided for data access.
+- `model` : Contains classes that represent the data entities. These classes define the structure of the data used within the application.
+- `utility` : Contains functions for handling JSON data (reading and writing).
+- `exceptions` : Used to hold custom exception classes or exception-related functionalities
 
 ## Technology Used
 - Java and Spring Boot: Used to create the application
@@ -32,7 +39,12 @@ The Swagger API documentation shows the available endpoints (and their usage), r
 ## Prerequisites
 - JDK 17 or higher must be installed.
 - Apache Maven 3.6 or newer.
-  
+
+## Dependencies
+- Spring Boot: Used to develop a java-based, standalone, Spring-based application
+- GSON: Used for JSON serialization and deserialization.
+- SpringFox Swagger UI: Used to generate interactive API documentation, allowing API calls to be used directly in the browser.
+- 
 ## Installation
 1. Clone the repository
 ```bash
