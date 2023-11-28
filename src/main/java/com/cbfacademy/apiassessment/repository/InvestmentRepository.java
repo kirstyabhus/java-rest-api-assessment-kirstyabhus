@@ -187,10 +187,8 @@ public class InvestmentRepository {
      *                                  update of the investment.
      */
     public void save(UUID portfolioId, Investment investment) {
-        if (portfolioId == null) {
-            logger.error("Portfolio ID cannot be null");
-            throw new IllegalArgumentException("Portfolio ID cannot be null");
-        }
+        // behind the scenes the during json deserialisation, new id is generated
+        // for portfolios without an id
 
         try {
             populateInvestmentMap(portfolioId);
