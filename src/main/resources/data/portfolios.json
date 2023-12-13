@@ -2,19 +2,8 @@
     {
         "portfolioId": "0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1",
         "name": "Tech Investments",
-        "totalValue": 7180.75,
+        "totalValue": 6584.5,
         "investments": [
-            {
-                "type": "Stock",
-                "id": "79b20899-63e9-4e04-8948-060d19da581a",
-                "symbol": "MSFT",
-                "name": "Microsoft Corp",
-                "esgRating": "AAA",
-                "sharesQuantity": 45,
-                "purchasePrice": 13.25,
-                "totalValue": 596.25,
-                "currentValue": 120.5
-            },
             {
                 "type": "ETF",
                 "id": "f5c03b4d-a6c7-4362-975f-c18ecfcf697c",
@@ -42,8 +31,19 @@
     {
         "portfolioId": "4f346d5b-5ec8-4659-bfe6-03ae29448f1e",
         "name": "Retirement",
-        "totalValue": 4655.0,
+        "totalValue": 5251.25,
         "investments": [
+            {
+                "type": "Stock",
+                "id": "79b20899-63e9-4e04-8948-060d19da581a",
+                "symbol": "MSFT",
+                "name": "Microsoft Corp",
+                "esgRating": "AAA",
+                "sharesQuantity": 45,
+                "purchasePrice": 13.25,
+                "totalValue": 596.25,
+                "currentValue": 120.5
+            },
             {
                 "type": "ETF",
                 "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",

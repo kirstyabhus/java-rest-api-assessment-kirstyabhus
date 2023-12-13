@@ -193,7 +193,7 @@ public class InvestmentRepository {
         try {
             populateInvestmentMap(portfolioId);
 
-            // update the totalValue of the investment
+            // update the totalValue of the investment (calculation)
             investment.calculateTotalValue();
 
             assignESGRating(investment);
