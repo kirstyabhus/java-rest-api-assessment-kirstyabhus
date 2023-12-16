@@ -1,4 +1,4 @@
-# Multi-Portfolio Investment Manager API API
+# Investment Portfolio Manager API 
 ## Description
 Welcome to the Investment Portfolio Manager API, a robust backend system powered by Spring Boot. This API serves as a comprehensive solution for efficiently managing diverse investment portfolios comprising stocks and Exchange-Traded Funds (ETFs). Seamlessly handling multiple portfolios, this platform allows users to create, update, and oversee various investment portfolios, ensuring optimal control and management of investment assets. Additionally, the API introduces sustainability ratings, providing insights into the environmental, social, and governance (ESG) performance of individual investments. By leveraging sustainability ratings, users can assess the sustainable impact of their investment decisions, facilitating informed and responsible portfolio management.
 
@@ -25,7 +25,7 @@ Welcome to the Investment Portfolio Manager API, a robust backend system powered
 - **ESG Ratings Integration:**
     - Users' stocks and ETFs are automatically assigned an ESG rating through data sourced from MSCI, providing insights into the environmental, social, and governance (ESG) performance of individual investments.
 #### Description of MSCI ESG Research
-*MSCI ESG Research provides in-depth research, ratings and analysis of the environmental, social and governance-related business practices of thousands of companies worldwide. Our research is designed to provide critical insights that can help institutional investors identify risks and opportunities that traditional investment research may overlook. The MSCI ESG Ratings are also used in the construction of the MSCI ESG Indexes, produced by MSCI, Inc. For more information, [click here](https://www.msci.com/our-solutions/esg-investing).*
+*"MSCI ESG Research provides in-depth research, ratings and analysis of the environmental, social and governance-related business practices of thousands of companies worldwide. Our research is designed to provide critical insights that can help institutional investors identify risks and opportunities that traditional investment research may overlook. The MSCI ESG Ratings are also used in the construction of the MSCI ESG Indexes, produced by MSCI, Inc." For more information, [click here](https://www.msci.com/our-solutions/esg-investing).*
 
 ## Documentation
 The API documentation, powered by SpringDoc and Swagger, provides comprehensive insights into the functionalities of this application. Access the documentation at http://localhost:8080/swagger-ui/index.html while the application is running. Please note that accessing the documentation with this link requires the application to be active on port 8080. However, this can be changed with the addition of the line `server.port="your desired port number"` in the application.properties file.
@@ -35,7 +35,7 @@ The Swagger API documentation serves as a detailed guide showcasing available en
 Ensure the application is running on port 8080 to fully leverage the rich documentation provided by Swagger, facilitating a smoother understanding and utilization of the API's capabilities.
 
 ## Endpoints
-![Swagger Documentation of Endpoints](/SwaggerDoc.PNG)
+![Swagger Documentation of Endpoints](/assets/SwaggerDoc.PNG)
 Access more details through the Swagger UI after running the application.
 
 Example portfolio response (for get portfolio by id):
@@ -79,7 +79,7 @@ Example portfolio response (for get portfolio by id):
 - `exceptions` : Used to hold custom exception classes or exception-related functionalities
 
 ### Data flow
-`Users API request` > `Controller` > `Service` > `Repository` > `Utility` > `Data Utility` > `Repository` > `Service` > `Controller` > `User API response`
+`Users API request` > `Controller` > `Service` > `Repository` > `Utility` > `Repository` > `Service` > `Controller` > `User API response`
 
 ## Technology Used
 - Java and Spring Boot: Used to create the application
