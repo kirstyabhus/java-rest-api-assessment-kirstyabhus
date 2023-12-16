@@ -1,4 +1,4 @@
-# Multi-Portfolio Investment Manager API API
+# Investment Portfolio Manager API 
 ## Description
 Welcome to the Investment Portfolio Manager API, a robust backend system powered by Spring Boot. This API serves as a comprehensive solution for efficiently managing diverse investment portfolios comprising stocks and Exchange-Traded Funds (ETFs). Seamlessly handling multiple portfolios, this platform allows users to create, update, and oversee various investment portfolios, ensuring optimal control and management of investment assets. Additionally, the API introduces sustainability ratings, providing insights into the environmental, social, and governance (ESG) performance of individual investments. By leveraging sustainability ratings, users can assess the sustainable impact of their investment decisions, facilitating informed and responsible portfolio management.
 
