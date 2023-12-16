@@ -1,0 +1,111 @@
+[
+    {
+        "portfolioId": "0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1",
+        "name": "Tech Investments",
+        "totalValue": 6584.5,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "f5c03b4d-a6c7-4362-975f-c18ecfcf697c",
+                "symbol": "VGT",
+                "name": "Vanguard Information Technology ETF",
+                "esgRating": "BBB",
+                "sharesQuantity": 15,
+                "purchasePrice": 54.8,
+                "totalValue": 822.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "Stock",
+                "id": "c0eab66b-30a1-4b5a-9790-1c2df856a49d",
+                "symbol": "AAPL",
+                "name": "Apple Inc.",
+                "esgRating": "A",
+                "sharesQuantity": 50,
+                "purchasePrice": 115.25,
+                "totalValue": 5762.5,
+                "currentValue": 120.5
+            }
+        ]
+    },
+    {
+        "portfolioId": "4f346d5b-5ec8-4659-bfe6-03ae29448f1e",
+        "name": "Retirement",
+        "totalValue": 5251.25,
+        "investments": [
+            {
+                "type": "Stock",
+                "id": "79b20899-63e9-4e04-8948-060d19da581a",
+                "symbol": "MSFT",
+                "name": "Microsoft Corp",
+                "esgRating": "AAA",
+                "sharesQuantity": 45,
+                "purchasePrice": 13.25,
+                "totalValue": 596.25,
+                "currentValue": 120.5
+            },
+            {
+                "type": "ETF",
+                "id": "1f8554dd-e959-4dda-9781-0ea0b7878ac5",
+                "symbol": "VOO",
+                "name": "Vanguard S\u0026P 500 ETF",
+                "esgRating": "CCC",
+                "sharesQuantity": 1,
+                "purchasePrice": 4.0,
+                "totalValue": 4.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "ETF",
+                "id": "093c593a-e926-4e3b-9606-0f081dda9447",
+                "symbol": "AOA",
+                "name": "iShares Core Aggressive Allocation ETF ",
+                "esgRating": "BB",
+                "sharesQuantity": 1,
+                "purchasePrice": 1.0,
+                "totalValue": 1.0,
+                "currentValue": 120.5
+            },
+            {
+                "type": "Stock",
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "symbol": "NVDA",
+                "name": "NVIDIA Corp",
+                "esgRating": "AAA",
+                "sharesQuantity": 200,
+                "purchasePrice": 23.25,
+                "totalValue": 4650.0,
+                "currentValue": 25.5
+            }
+        ]
+    },
+    {
+        "portfolioId": "552b4ba1-f592-435f-97bb-c629ebc08669",
+        "name": "Child 1",
+        "totalValue": 3949.0,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "2001084b-41eb-4d6b-9a84-d29f3e71fe37",
+                "symbol": "VTI",
+                "name": "Vanguard Total Stock Market ETF",
+                "esgRating": "AAA",
+                "sharesQuantity": 20,
+                "purchasePrice": 115.25,
+                "totalValue": 2305.0,
+                "currentValue": 120.5
+            },
+            {
+                "type": "Stock",
+                "id": "5219f5ef-e7f1-48da-ad12-3c46da4825f4",
+                "symbol": "MSFT",
+                "name": "Microsoft Corp",
+                "esgRating": "CCC",
+                "sharesQuantity": 30,
+                "purchasePrice": 54.8,
+                "totalValue": 1644.0,
+                "currentValue": 56.2
+            }
+        ]
+    }
+]

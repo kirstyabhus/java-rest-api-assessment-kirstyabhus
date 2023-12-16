@@ -1,204 +1,131 @@
-# **Java API Assessment**
+# Investment Portfolio Manager API 
+## Description
+Welcome to the Investment Portfolio Manager API, a robust backend system powered by Spring Boot. This API serves as a comprehensive solution for efficiently managing diverse investment portfolios comprising stocks and Exchange-Traded Funds (ETFs). Seamlessly handling multiple portfolios, this platform allows users to create, update, and oversee various investment portfolios, ensuring optimal control and management of investment assets. Additionally, the API introduces sustainability ratings, providing insights into the environmental, social, and governance (ESG) performance of individual investments. By leveraging sustainability ratings, users can assess the sustainable impact of their investment decisions, facilitating informed and responsible portfolio management.
 
-## **Introduction**
-Dive into the world of API development using Java and SpringBoot. We're handing over a skeleton codebase; your challenge is to shape a top-notch API from it.
+## Table of Contents
 
-You can build any API of your choosing, but it must include the following:
+1. [Key Features](#key-features)
+2. [Documentation](#documentation)
+3. [Technology Used](#technology-used)
+4. [Prerequisites](#prerequisites)
+5. [Installation](#installation)
+6. [Running the Application](#running-the-application)
+7. [Testing](#testing)
 
-1. At least one algorithm
-1. Unit test at least one class
-1. Store the data in a JSON file 
-1. Exception handling 
-1. Evidence of inheritance
-1. Good use of HTTP Protocols - methods, request and response, have full CRUD operations supported 
-1. Documentation
+## Key Features:
+- **Portfolio Operations**:
+    - Create, read, update, delete, and sort portfolios effortlessly.
+    - Seamlessly transfer investments between different portfolios for flexible asset management.
+- **Investment Operations:**
+    - Perform create, read, update, delete, and sort actions on investments.
+    - Utilise advanced filtering options (by type) for precise data retrieval.
+- **Automated Calculations:**
+    - Automated computation of investment total values upon insertion into portfolios for streamlined data handling.
+    - Dynamic recalculation of portfolio total values whenever investments are added or removed, ensuring real-time accuracy without manual intervention.
+- **ESG Ratings Integration:**
+    - Users' stocks and ETFs are automatically assigned an ESG rating through data sourced from MSCI, providing insights into the environmental, social, and governance (ESG) performance of individual investments.
+#### Description of MSCI ESG Research
+*"MSCI ESG Research provides in-depth research, ratings and analysis of the environmental, social and governance-related business practices of thousands of companies worldwide. Our research is designed to provide critical insights that can help institutional investors identify risks and opportunities that traditional investment research may overlook. The MSCI ESG Ratings are also used in the construction of the MSCI ESG Indexes, produced by MSCI, Inc." For more information, [click here](https://www.msci.com/our-solutions/esg-investing).*
 
-### **Learning Outcomes:**
+## Documentation
+The API documentation, powered by SpringDoc and Swagger, provides comprehensive insights into the functionalities of this application. Access the documentation at http://localhost:8080/swagger-ui/index.html while the application is running. Please note that accessing the documentation with this link requires the application to be active on port 8080. However, this can be changed with the addition of the line `server.port="your desired port number"` in the application.properties file.
 
-By the end of this assessment, you should be able to:
+The Swagger API documentation serves as a detailed guide showcasing available endpoints, their usage, request parameters, response formats, and error codes. It offers a user-friendly interface to explore and understand the API functionalities efficiently.
 
-1. **Design and Architect APIs**: Get to grips with the nitty-gritty of curating a top-quality API, focusing on data flow and endpoint interactions.
-1. **Implement Best Practices**: Showcase your adherence to Java & SpringBoot coding standards, error handling, and optimal project structure.
-1. **Code Integration**: Seamlessly combine your creations with the provided skeleton codebase.
-1. **Exception Management**: Efficiently handle exceptions, ensuring your API remains sturdy and dependable.
+Ensure the application is running on port 8080 to fully leverage the rich documentation provided by Swagger, facilitating a smoother understanding and utilization of the API's capabilities.
 
-Onward with this assessment, you're set for a deep dive into API development with Java and SpringBoot.
+## Endpoints
+![Swagger Documentation of Endpoints](/assets/SwaggerDoc.PNG)
+Access more details through the Swagger UI after running the application.
 
-## **Design & Requirements**
+Example portfolio response (for get portfolio by id):
+```json
+{
+        "portfolioId": "0ed506a6-ac9c-4f3e-b858-b50e9e8d29e1",
+        "name": "Tech Investments",
+        "totalValue": 5532.0,
+        "investments": [
+            {
+                "type": "ETF",
+                "id": "f5c03b4d-a6c7-4362-975f-c18ecfcf697c",
+                "symbol": "VGT",
+                "name": "Vanguard Information Technology ETF",
+                "esgRating": "AA",
+                "sharesQuantity": 15,
+                "purchasePrice": 54.8,
+                "totalValue": 822.0,
+                "currentValue": 56.2
+            },
+            {
+                "type": "Stock",
+                "id": "00a78266-7492-4c5a-a605-83b6de4ec9cb",
+                "symbol": "NVDA",
+                "name": "NVIDIA Corp",
+                "esgRating": "AAA",
+                "sharesQuantity": 200,
+                "purchasePrice": 23.25,
+                "totalValue": 4650.0,
+                "currentValue": 25.5
+            }
+        ]
+    }
+```
+## Project Structure
+- `controllers` : Contains classes responsible for handling incoming HTTP requests, interacting with services, processing data, and forming appropriate HTTP responses. 
+- `services` : holds classes that encapsulate business logic or application-specific functionality. They perform operations requested by controllers, interact with repositories for data access, perform computations, and implement the core logic of the application.
+- `repositories` :  Contains classes responsible for data access. They interact with the underlying data storage (JSON file). CRUD (Create, Read, Update, Delete) operations are performed here and an abstraction layer is provided for data access.
+- `model` : Contains classes that represent the data entities. These classes define the structure of the data used within the application.
+- `utility` : Contains functions for handling JSON data (reading and writing).
+- `exceptions` : Used to hold custom exception classes or exception-related functionalities
 
-### **Design Considerations:**
-- **API Flow**: Map out your API's progression, from endpoints to their functionalities.
+### Data flow
+`Users API request` > `Controller` > `Service` > `Repository` > `Utility` > `Repository` > `Service` > `Controller` > `User API response`
 
-### **Requirements List:**
-- **Core**: Make use of Java and SpringBoot.
-- **End Points**: Ensure they are detailed and fully operational.
-- **Error Handling**: Your API should handle mishaps gracefully and return informative feedback.
+## Technology Used
+- Java and Spring Boot: Used to create the application
+- RESTful API: To handle the CRUD operations on the portfolios and investments
+- JSON: Used to store portfolio data
+- HashMap/List: JSON data was retrieved into a HashMap to store portfolios/investments and in Lists in order to perform CRUD and other operations.
+- JUnit and Mockito: Used to test the API
+- Maven: Used to manage the dependencies of the application
 
-### **Learning Outcomes:**
-- Acknowledge the pivotal role of a focused design in APIs.
-- See firsthand how a detailed requirements list can pave the way for successful development.
+## Prerequisites
+- JDK 17 or higher must be installed.
+- Apache Maven 3.6 or newer.
 
-## **Repository Management**
-
-- **Consistent Commits**: Commit often, capturing your progress and thought process.
-- **README**: Not just an afterthought. Fill it with the essence of your API, setup instructions, and other salient details.
-
-### **Learning Outcomes:**
-- Hone your skills in effective version control.
-- Recognise the value of a well-curated repository.
-
-## **Code Quality & Structure**
-
-- **Best Practices**: Stick to Java and SpringBoot best practices and conventions.
-- **Modularity**: Your code should be modular, reusable, and easily comprehensible.
-
-#### **Learning Outcomes:**
-- Craft clean, efficient, and maintainable code.
-- Harness Java and SpringBoot to the fullest.
-
----
-
-## Getting Started
-
-- [Prerequisites](#prerequisites)
-
-- [Setup](#setup)
-
-### Prerequisites
-
-Before you begin, make sure you have the following installed:
-
-1. [JDK 17](https://learn.microsoft.com/en-gb/java/openjdk/download#openjdk-17) (or higher)
-
-2. [Git](https://git-scm.com/downloads)
-
-3. [Visual Studio Code](https://code.visualstudio.com/Download)
-   1. [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-   2. [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
-
-Also make sure you have accounts for the following:
-
-1. [GitHub](https://github.com/signup)
-
-### Setup
-
-#### 1. Clone the Repository
-
-```sh
-git clone [REPO_URL]
-cd [REPO_NAME]
+## Dependencies
+- Spring Boot: Used to develop a java-based, standalone, Spring-based application
+- GSON: Used for JSON serialization and deserialization.
+- SpringFox Swagger UI: Used to generate interactive API documentation, allowing API calls to be used directly in the browser.
+- 
+## Installation
+1. Clone the repository
+```bash
+git clone git@github.com:cbfacademy/java-rest-api-assessment-kirstyabhus.git
+```
+2. Navigate to the projects directory
+```bash
+cd java-rest-api-assessment
+```
+3. Build the project with maven
+```bash
+mvn clean install
 ```
 
-Replace [REPO_URL] with the link to your GitHub repository and [REPO_NAME] with the repository's name.
+## Running the Application
+After installing, you can run the application using the following Maven command.
 
-#### 2. Install Dependencies
+  ```bash
+  mvn spring-boot:run
+  ```
 
-Open a terminal at the root of the repo directory and run the following command to install the dependencies:
+Upon running this command, the application can be accessed with the API endpoints defined in the Swagger documentation.
+<p align="center">
+  <img src="Swagger_Endpoints.gif" alt="swagger documentation demo" width="500" height="263"/>
+</p>
 
-```sh
-./mvnw clean dependency:resolve
+## Testing
+The following test script can be used to test the application:
+```bash
+mvn test
 ```
-
-If you are on a Windows machine, that will be:
-```cmd
-mvnw clean dependency:resolve
-```
-
-You should see console output similar to the following:
-
-```sh
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------------< com.cbfacademy:api-assessment >--------------------
-[INFO] Building api-assessment 0.0.1-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- clean:3.2.0:clean (default-clean) @ api-assessment ---
-[INFO] Deleting /Users/user/Dev/cbfacademy/java-api-assessment/target
-...
-[truncated output]
-...
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.060 s
-[INFO] Finished at: 2023-10-03T16:18:25+01:00
-[INFO] ------------------------------------------------------------------------
-```
-
-#### 3. Running the Application
-
-To start the API in VS Code, press `F5` or tap the 'Play' icon for the `api-assessment` app in the Spring Boot Dashboard.
-
-Alternatively, to start the API from the terminal, run the following command:
-
-```sh
-./mvnw spring-boot:run
-```
-
-Or on Windows:
-
-```cmd
-mvnw spring-boot:run
-```
-
-You should see console output similar to the following (press `Ctrl + C` to exit):
-
-```sh
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] -------------------< com.cbfacademy:api-assessment >--------------------
-[INFO] Building api-assessment 0.0.1-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- clean:3.2.0:clean (default-clean) @ api-assessment ---
-[INFO] Deleting /Users/gary/Dev/cbfacademy/java-api-assessment/target
-[INFO] 
-[INFO] >>> spring-boot:3.1.4:run (default-cli) > test-compile @ api-assessment >>>
-[INFO] 
-[INFO] --- resources:3.3.1:resources (default-resources) @ api-assessment ---
-[INFO] Copying 1 resource from src/main/resources to target/classes
-[INFO] Copying 0 resource from src/main/resources to target/classes
-...
-[truncated output]
-...
-2023-10-03T17:17:34.413+01:00  INFO 35536 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-03T17:17:34.751+01:00  INFO 35536 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-10-03T17:17:34.756+01:00  INFO 35536 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-10-03T17:17:34.756+01:00  INFO 35536 --- [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-03T17:17:34.777+01:00  INFO 35536 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-10-03T17:17:34.778+01:00  INFO 35536 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 364 ms
-2023-10-03T17:17:34.898+01:00  INFO 35536 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-10-03T17:17:34.907+01:00  INFO 35536 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2023-10-03T17:17:34.911+01:00  INFO 35536 --- [  restartedMain] com.cbfacademy.apiassessment.App         : Started App in 0.643 seconds (process running for 0.786)
-```
-
-Open your browser and navigate to `http://localhost:8080`.
-
-## **Deliverables**
-
-Ensure that your work is merged to the `main` branch of your GitHub repository by the specified deadline (original or extended). Your solution will assessed based on its state *at that point*; any later commits will **not** be taken into account.
-
-## FAQs
-
-- Q: How can I process JSON in Java?
-    
-    A: There are a number of open-source packages that you can use to manipulate JSON. We recommend [Gson](https://github.com/google/gson), but you can also investigate alternatives like [json-simple](https://github.com/cliftonlabs/json-simple) or [Jackson](https://github.com/FasterXML/jackson-databind/).
-
-- Q: Can I use another IDE I'm more familiar with instead of VS Code, like IntelliJ or Eclipse?
-
-    A: You can if you wish, but only VS Code is formally supported by CBF Academy staff, so you do so at your own risk.
-
-## Top Tips
-
-- :camera_flash: Commit frequently and use meaningful commit messages. A granular, well-labelled history becomes an increasingly valuable asset over time.
-- :cactus: Use feature branches. Build the habit of isolating your changes for specific tasks and merging them into your default branch when complete.
-- :vertical_traffic_light: Use consistent naming conventions. Choose easily understandable names and naming patterns for your classes, functions and variables.
-- :triangular_ruler: Keep your code tidy. Using the built-in formatting of VS Code or other IDEs makes your code easier to read and mistakes easier to spot.
-- :books: Read the docs. Whether via Intellisense in your IDE, or browsing online documentation, build a clear understanding of the libraries your code leverages.
-- :calendar: Don't wait until the last minute. Plan your work early and make the most of the time available to complete the assessment and avoid pre-deadline palpitations.
-- :sos: Ask. :clap: For. :clap: Help! :clap: Your mentors, instructors and assistants are literally here to support you, so *make use of them* - don't sit and struggle in silence.
-
-Best of luck! Remember, it's not just about the destination; it's the journey. Happy coding! 🚀
